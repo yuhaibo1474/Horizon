@@ -1,5 +1,12 @@
 name: Daily Horizon Summary
 
+# 每天定时抓取新闻 -> AI 打分/摘要 -> 生成中英日报 -> 发布到 GitHub Pages (gh-pages)
+#
+# 需要的 Repository Secrets（Settings -> Secrets and variables -> Actions）:
+#   DEEPSEEK_API_KEY    必填，默认配置使用的模型服务商
+#   HORIZON_WEBHOOK_URL 可选，飞书/企微机器人地址；不填则自动跳过推送
+#   LWN_KEY             可选，LWN.net 订阅 key；不填会自动关掉该 RSS 源
+
 "on":
   push:
     branches: [main]
@@ -7,21 +14,22 @@ name: Daily Horizon Summary
       - .github/workflows/daily-summary.yml
       - data/config.github.json
   schedule:
-    # 23:00 UTC is 07:00 the following day in Asia/Shanghai.
+    # 23:00 UTC = 次日 07:00（Asia/Shanghai）
     - cron: '0 23 * * *'
   workflow_dispatch:
 
+# 需要写 gh-pages 分支，所以 contents 必须是 write
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: horizon-daily-${{ github.ref }}
+  group: horizon-daily
   cancel-in-progress: false
 
 jobs:
   daily-summary:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       TZ: Asia/Shanghai
 
@@ -59,19 +67,30 @@ jobs:
           source = Path("data/config.github.json")
           destination = Path("data/config.json")
           config = json.loads(source.read_text(encoding="utf-8"))
+
+          # 没有 LWN_KEY 时关掉该订阅源
           for feed in config["sources"]["rss"]:
               if "LWN_KEY" in feed["url"] and not os.environ.get("LWN_KEY"):
                   feed["enabled"] = False
+
+          # 没有 webhook 地址时不尝试推送
           if not os.environ.get("HORIZON_WEBHOOK_URL"):
               config["webhook"]["enabled"] = False
+
           destination.write_text(
               json.dumps(config, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
-
           settings = StorageManager(config_path=str(destination)).load_config()
           print(f"Configuration validated for {settings.ai.provider.value}.")
           PY
-          uv run --no-sync horizon --help
+
+      - name: Point Jekyll at this repository
+        # 仓库名不叫 Horizon 时也能生成正确的 Pages 链接
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          sed -i "s|^baseurl:.*|baseurl: \"/${REPO_NAME}\"|" docs/_config.yml
+          sed -i "s|^url:.*|url: \"https://${GITHUB_REPOSITORY_OWNER}.github.io\"|" docs/_config.yml
+          grep -E '^(baseurl|url):' docs/_config.yml
 
       - name: Check daily summary credential
         if: github.event_name != 'push'
@@ -88,7 +107,7 @@ jobs:
           fi
 
       - name: Generate daily Horizon summary
-        if: steps.credential.outputs.available == 'true'
+        if: github.event_name != 'push' && steps.credential.outputs.available == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
@@ -98,9 +117,26 @@ jobs:
 
       - name: Upload Markdown summaries
         if: steps.credential.outputs.available == 'true'
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: horizon-summary-${{ github.run_id }}
-          path: data/summaries/*.md
+          path: |
+            data/summaries/*.md
+            docs/_posts/*.md
           if-no-files-found: warn
           retention-days: 14
+
+      - name: Set current date as environment variable
+        if: steps.credential.outputs.available == 'true'
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
+
+      - name: Deploy to GitHub Pages
+        if: steps.credential.outputs.available == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          keep_files: true      # 保留 gh-pages 上已有历史日报
+          publish_branch: gh-pages
+          enable_jekyll: true
+          commit_message: "📝 Daily Summary: ${{ env.DATE }}"
