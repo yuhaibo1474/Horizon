@@ -1,0 +1,106 @@
+name: Daily Horizon Summary
+
+"on":
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/daily-summary.yml
+      - data/config.github.json
+  schedule:
+    # 23:00 UTC is 07:00 the following day in Asia/Shanghai.
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: horizon-daily-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  daily-summary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      TZ: Asia/Shanghai
+
+    steps:
+      - name: Checkout Horizon
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.26"
+
+      - name: Install locked dependencies
+        run: uv sync --locked
+
+      - name: Prepare and validate configuration
+        env:
+          LWN_KEY: ${{ secrets.LWN_KEY }}
+          HORIZON_WEBHOOK_URL: ${{ secrets.HORIZON_WEBHOOK_URL }}
+        run: |
+          uv run --no-sync python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          from src.storage.manager import StorageManager
+
+          source = Path("data/config.github.json")
+          destination = Path("data/config.json")
+          config = json.loads(source.read_text(encoding="utf-8"))
+          for feed in config["sources"]["rss"]:
+              if "LWN_KEY" in feed["url"] and not os.environ.get("LWN_KEY"):
+                  feed["enabled"] = False
+          if not os.environ.get("HORIZON_WEBHOOK_URL"):
+              config["webhook"]["enabled"] = False
+          destination.write_text(
+              json.dumps(config, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
+
+          settings = StorageManager(config_path=str(destination)).load_config()
+          print(f"Configuration validated for {settings.ai.provider.value}.")
+          PY
+          uv run --no-sync horizon --help
+
+      - name: Check daily summary credential
+        if: github.event_name != 'push'
+        id: credential
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          if [ -n "$DEEPSEEK_API_KEY" ]; then
+            echo 'available=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'available=false' >> "$GITHUB_OUTPUT"
+            echo '::warning::Add DEEPSEEK_API_KEY to the repository Actions secrets to generate a digest.'
+            echo 'Configuration validated. Digest skipped because DEEPSEEK_API_KEY is not configured.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Generate daily Horizon summary
+        if: steps.credential.outputs.available == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          LWN_KEY: ${{ secrets.LWN_KEY }}
+          HORIZON_WEBHOOK_URL: ${{ secrets.HORIZON_WEBHOOK_URL }}
+        run: uv run --no-sync horizon --hours 24
+
+      - name: Upload Markdown summaries
+        if: steps.credential.outputs.available == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: horizon-summary-${{ github.run_id }}
+          path: data/summaries/*.md
+          if-no-files-found: warn
+          retention-days: 14
