@@ -188,10 +188,8 @@
       "zh"
     ],
     "request_body": {
-      "token": "${PUSHPLUS_TOKEN}",
       "title": "#{message_title}",
-      "content": "#{summary?limit=4000&split=---}",
-      "template": "markdown"
+      "desp": "#{summary?limit=4000&split=---}"
     },
     "headers": ""
   }
