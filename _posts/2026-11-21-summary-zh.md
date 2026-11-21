@@ -5,165 +5,203 @@ date: 2026-11-21
 lang: zh
 ---
 
-> 从 34 条内容中筛选出 10 条重要资讯。
+> 从 35 条内容中筛选出 10 条重要资讯。
 
 ---
 
 **科技新闻**
-1. [陶哲轩博文将无外力纳维-斯托克斯奇点与广义黎曼猜想相关联](#item-tech-news-1) ⭐️ 8.0/10
-2. [Inkling 2 Mini：循环 Transformer 开放权重模型](#item-tech-news-2) ⭐️ 8.0/10
-3. [台积电据报暂停对华企 16nm 及以下订单](#item-tech-news-3) ⭐️ 8.0/10
-4. [浙大“天目 2 号”实现 QRAM 原型](#item-tech-news-4) ⭐️ 8.0/10
-5. [Levent Alpöge 称与 Claude 证明黎曼猜想](#item-tech-news-5) ⭐️ 7.0/10
-6. [微软预览 Windows USB4 RDMA，多台 PC 合跑本地模型](#item-tech-news-6) ⭐️ 7.0/10
-7. [OpenRouter 警告 MiniMax 模型提示词疑被第三方读取](#item-tech-news-7) ⭐️ 7.0/10
+1. [Lean 社区出现黎曼假设验证联合声明](#item-tech-news-1) ⭐️ 8.0/10
+2. [陶哲轩讨论无外力 NS 奇点与广义黎曼猜想](#item-tech-news-2) ⭐️ 8.0/10
+3. [Thinking Machines 发布循环架构开源权重模型 Inkling 2 Mini](#item-tech-news-3) ⭐️ 8.0/10
+4. [台积电据报暂停对中国企业 16nm 及以下芯片订单](#item-tech-news-4) ⭐️ 8.0/10
+5. [浙大首次在真机上实现 QRAM](#item-tech-news-5) ⭐️ 8.0/10
+6. [Levent Alpöge 称与 Claude 发现黎曼猜想证明](#item-tech-news-6) ⭐️ 7.0/10
+7. [微软发布 USB4 RDMA 预览：多台 PC 合跑一个大模型](#item-tech-news-7) ⭐️ 7.0/10
+8. [OpenRouter 警告 MiniMax 模型提示词或遭第三方读取](#item-tech-news-8) ⭐️ 7.0/10
 
 **科技博客**
-1. [输出缓存为何难以降低大模型成本](#item-tech-blog-1) ⭐️ 6.0/10
+1. [输出缓存为何难以奏效](#item-tech-blog-1) ⭐️ 6.0/10
 
 **财经新闻**
-1. [美联储官员发言增多，FOMC 加息分歧加深](#item-finance-news-1) ⭐️ 7.0/10
-2. [特朗普表态支持卢特尼克，并称希望黄仁勋道歉后回归](#item-finance-news-2) ⭐️ 7.0/10
+1. [沃什避谈利率指引，美联储官员公开分歧加大](#item-finance-news-1) ⭐️ 7.0/10
 
 ---
 
 ## 科技新闻
 
 <a id="item-tech-news-1"></a>
-### [陶哲轩博文将无外力纳维-斯托克斯奇点与广义黎曼猜想相关联](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
+### [Lean 社区出现黎曼假设验证联合声明](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/) ⭐️ 8.0/10
 
-陶哲轩（Terry Tao）于 11 月 20 日发文，把无外力欧拉方程与纳维-斯托克斯方程的奇点问题同广义黎曼猜想（GRH）放在一起讨论；博文引用了 Ravi Vakil 同日发布的“紧急通告”，后者宣布 Alessandro Masullo 提出了一份广义黎曼猜想证明草案。Vakil 称该证明“完全出自人类、没有使用 AI”，Brian Conrad 已仔细审阅数月并给出大量反馈，这些反馈正在被纳入修订；原计划是让 Masullo 到斯坦福访学一年打磨文稿、并先通过足够多同行审阅再公布，现在决定直接放出当前草稿。现有材料只有博文标题、这段引文和评论区，没有给出纳维-斯托克斯与广义黎曼猜想之间那个关联结果的具体陈述或完整证明细节，因此该关联本身仍属未经独立确认的声明。
+Lean 社区博客上出现了一则关于黎曼假设 Lean 验证的联合声明，但当前提供的材料没有声明正文。现有信息无法确认该声明是宣布完成验证、界定验证范围，还是提出合作计划，也无法根据它核对参与方、所用 Lean/Mathlib 版本或任何可机器检验的结果。因此，这只能视为有待原文核实的社区公告，不能据此认定黎曼假设已被形式化证明。
 
-hackernews · archon1410 · 11月20日 17:21 · [社区讨论](https://news.ycombinator.com/item?id=50578358)
+hackernews · g-b-r · 11月21日 14:36 · [社区讨论](https://news.ycombinator.com/item?id=50589618)
 
-**「背景」** 广义黎曼猜想把黎曼猜想从黎曼 ζ 函数推广到狄利克雷 L 函数等更广泛的一类 L 函数，长期是数论中最重要的未解问题之一，许多结论都以其成立为前提。讨论中反复提到的 Lean 是带小型内核的交互式定理证明器：内核接受一个证明项，意味着该证明在形式系统内与其所陈述的命题相符，这也是评论者关心“内核是否可靠”的原因。
+**「背景」** 黎曼猜想断言黎曼 ζ 函数的所有非平凡零点实部都等于 1/2；要在 Lean 这类证明助手中处理它，需要先把该命题及推理步骤写成可被机器逐条检查的形式代码。Lean 的 Mathlib 是由社区维护的形式化数学库，此前已积累了大量分析、数论与代数内容，博客文章称此次联合声明属于 Mathlib 中的 RiemannHypothesis 部分（tool-2-1）。需要注意的是，把一个命题形式化地写进库中并可被检查，与给出该命题的完整证明并不是同一件事。
 
-**「影响」** 对打算依赖这一形式化结果的读者来说，实际的核查重点在于形式化陈述本身，而不只是构建能否通过：正如下方评论指出的，编译或构建成功只说明证明项匹配了所写下的命题，并不自动说明那个命题就是人们真正关心的定理，因此审阅者需要逐条比对形式化定义与经典表述。
+**「对形式化使用者意味着什么」** 对使用 Lean/Mathlib 的开发者与形式化数学小组来说，能否采用这一结果取决于联合声明中被形式化语句的确切范围：所提供的材料没有声明正文，因此无法确认对象是经典黎曼猜想还是更强的广义黎曼猜想（GRH），而同期《科学美国人》的报道将该证明描述为范围更广的 GRH。在声明全文及其公理、未完成证明（sorry）依赖公开之前，把该结果当作可直接引用的定理（例如用于素数分布的条件性推论）并不稳妥。
 
-**「社区讨论」** 评论者 chunky1994 报告称两个相互独立的内核都接受了该结果，认为这降低了利用内核漏洞的可能性；swingboy 则质疑在规模庞大的 Lean 代码库中，构建通过是否真能保证验证的是正确的命题，而不是某段恰好能通过检查的内容。softwaredoug 提出更长远的问题——机器擅长在既有抽象上生成并验证证明，但新的抽象和概念从何而来；actusual 则描述了在兴奋与不安之间的职业焦虑，maplet 则对陶哲轩未在文中评论该结果的意义表示不解。
+**「社区讨论」** 评论中的主要争议是检查器是否可靠：有评论者称，此前一个伪造的 Collatz 猜想反证曾通过某个“独立”检查器，因此质疑这些检查器的独立性，并称声明列出的四点均不依赖人类专家介入。另有评论者借这一话题讨论形式化数学的宏观影响，但这些属于个人判断，而非已证实结论。
 
-**标签**: `#formal verification`, `#Lean theorem prover`, `#AI-assisted mathematics`, `#Navier-Stokes`, `#Riemann Hypothesis`
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Lean verification of the Riemann Hypothesis | Lean community blog</a></li>
+<li><a href="https://www.scientificamerican.com/article/what-the-riemann-hypothesis-proof-really-means-about-ai-and-the-future/">What the Riemann hypothesis proof really means about AI and ...</a></li>
+
+</ul>
+</details>
+
+**标签**: `#formal verification`, `#Lean`, `#Riemann Hypothesis`, `#AI for math`, `#proof assistants`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Inkling 2 Mini：循环 Transformer 开放权重模型](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
+### [陶哲轩讨论无外力 NS 奇点与广义黎曼猜想](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
 
-Inkling 2 Mini 是一款新的开放权重模型，采用循环 Transformer 架构，主打本地推理。早期 Hacker News 测试者报告，它在 Ryzen 395 上通过 llama.cpp 的 Vulkan 后端达到约 27 tokens/s，在 32GB M1 Pro 上以 q4 xl 量化运行约 10 tokens/s；这些是个人测试，未经独立验证。同一讨论提到，llama.cpp 上仍有若干未合并 PR（32694、32657、32429、32704），并建议应用一个可带来约 30% 提速的小补丁。有评论将其与 Qwen3.8-27B 相比，但该比较同样来自社区、尚待复现。
+陶哲轩于 2026 年 11 月 20 日发表博客文章，讨论无外力欧拉奇点、无外力纳维-斯托克斯奇点以及广义黎曼猜想；现有材料将这篇帖子与 Lean 形式化验证和 AI 辅助证明开发的讨论联系起来。由于没有提供定理陈述、证明细节或同行评审结论，不能据此确认这些重大猜想已被证明，能确认的只是相关公开讨论已经出现。
 
-hackernews · jasondavies · 11月20日 20:12 · [社区讨论](https://news.ycombinator.com/item?id=50581260)
+hackernews · archon1410 · 11月20日 17:21 · [社区讨论](https://news.ycombinator.com/item?id=50578358)
 
-**「背景：循环 Transformer 与本地推理栈」** 评论中把 Inkling 2 Mini 称为“循环（looped）”Transformer：这类架构不是单纯堆叠更多互不相同的层，而是让同一组层反复迭代计算，从而在不按比例增加参数量的前提下提高推理阶段的算力投入。有评论者指出，少数闭源模型（如被提及的 GPT Astra 6+、Sol 6.1+）是否采用循环架构目前仍只是传言，因此一款公开权重的循环模型显得少见。本地实测则依赖 llama.cpp 这一常用推理运行时，讨论时相关支持还通过若干尚未合并的 PR 落地。
+**「背景」** 三维不可压缩纳维-斯托克斯方程是否存在全局光滑解，是克雷数学研究所设立的千禧年大奖难题之一；若某类初值在有限时间内发生爆破，解失去光滑性，就等于否定了全局正则性。“无外力”（unforced）指方程中不含外部驱动力，是此次构造所针对的简化设定。据 tool-2-2 的报道，纽约大学的 Tristan Buckmaster 与 Anthropic 的 Levent Alpöge 于 2026 年 11 月 20 日公布了借助 AI 得到的无外力三维情形有限时间爆破证明，Tao 表示该证明附有 Lean 形式化。
 
-**「本地部署的实际门槛」** 对想在本地跑模型的用户来说，这款模型小到可以在 MacBook 或 DGX Spark 上运行：Artificial Analysis 记录为 26B 总参数、5.4B 激活参数（含循环层三次前向，每 token 约 3.1B 独立权重），OpenRouter 则标为 26.4B 总参数、3.4B 激活参数，两个来源的激活参数口径并不一致，选型时需以实际权重与配置为准。不过当前工具链支持仍不完整：有评论者报告，在 Ryzen 395 上使用 llama.cpp Vulkan 解码约 27 tokens/s，但需先合入若干尚未合并的 PR，并打一个小补丁才能再获得约 30% 提速；另一位在 32GB M1 Pro 上以 q4 量化实测约 10 tokens/s。因此打算上手的开发者应预留编译、打补丁与调优的时间，而不是把它当作开箱即用的推理后端。
+**「影响」** 对使用 Lean 的数学形式化项目，两个独立内核接受结果只能作为验收的一部分；研究团队仍需核对定理陈述和形式化命题与原始数学问题的对应关系，否则构建通过并不能证明目标结论。
 
-**「社区讨论」** 评论者对开放权重的循环 Transformer 评价积极，认为如果这些基准在真实场景中成立，更多开放模型可能转向该架构，同时也有人追问这对安全与可解释性意味着什么。实际体验并不一致：有人称简单 Python 任务完成得不错，但在识别硬币类型和年份的任务上失败，另有用户在 Unsloth 的“extra high”思考模式下遇到问题。
+**「社区讨论」** 评论区的核心争论是形式化验证究竟证明了什么：有评论称两个独立内核接受了结果，因而内核实现漏洞的可能性较低；另有评论以“Rust 编译通过不等于业务逻辑正确”作类比，追问在大型 Lean 代码库中如何确认构建通过的证明没有偷换成“1+1=2”之类无关命题。还有读者提出，当前进展多依赖 Langlands 程序等既有抽象，真正困难的是如何创造新的数学抽象。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://artificialanalysis.ai/articles/inkling-2-mini">Thinking Machines has released Inkling 2 Mini, an open weights ...</a></li>
-<li><a href="https://openrouter.ai/thinkingmachines/inkling-2-mini">Inkling 2 Mini - API Pricing &amp; Benchmarks | OpenRouter</a></li>
+<li><a href="https://letsdatascience.com/news/buckmaster-and-alpoge-post-ai-aided-proof-of-unforced-navier-fcca1e31">Buckmaster and Alpöge post AI-aided proof of unforced Navier ...</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI models`, `#open weights`, `#local inference`, `#transformer architecture`, `#llama.cpp`
+**标签**: `#formal verification`, `#Lean`, `#Navier-Stokes`, `#Riemann hypothesis`, `#AI-assisted mathematics`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [台积电据报暂停对华企 16nm 及以下订单](https://appleinsider.com/articles/26/11/20/apple-supplier-tsmc-cuts-off-china-chip-orders-amid-tighter-export-controls) ⭐️ 8.0/10
+### [Thinking Machines 发布循环架构开源权重模型 Inkling 2 Mini](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
 
-据 Telegram 频道转述的报道，台积电已通知客户暂停接受中国公司 16nm 及以下先进制程订单；在收紧后的美国半导体出口新规下，除非事先取得美国出口许可或豁免，否则不得供货。报道还称，新规使中国企业只能使用 28nm、40nm 等较旧制程，并无法使用 AI 数据中心所需的高带宽内存。此前台积电可自行评估客户设计是否符合豁免条件，现在客户须提前申请；美国获批名单中有苹果、AMD、英伟达，尚无中国公司，台积电表示将遵守新规。相关说法尚未独立核实。
+Thinking Machines 发布了开放权重的 Inkling 2 Mini，其特点是采用循环（looped）Transformer 架构，而非主流的一次前向结构。据 Hacker News 评论中引述的官方 Reddit 说明，该模型端到端使用 nvfp4 训练，规模主要按本地部署需求确定；讨论中没有给出具体参数量，其基准成绩也尚无独立验证。早期使用者的实测显示，在 Ryzen 395 上通过 llama.cpp Vulkan 解码约为 27 tokens/s，在 32GB M1 Pro 上以 q4 量化运行约为 10 tokens/s。有用户称其编码能力接近 Qwen3.8-27B，但这只是个人对比而非可复现的评测结果。
 
-telegram · zaihuapd · 11月21日 02:01
+hackernews · jasondavies · 11月20日 20:12 · [社区讨论](https://news.ycombinator.com/item?id=50581260)
 
-**「背景」** 16nm 及以下属于较先进的逻辑制程，28nm、40nm 等则是更成熟的节点；台积电是总部位于台湾的晶圆代工厂，中国芯片设计公司可通过其代工服务获得先进制程产能。此前台积电可自行评估客户设计是否符合美方豁免条件，收紧后的规则要求客户事先取得美国出口许可或豁免。
+**「背景」** 循环 Transformer 的核心做法是在一次前向计算中重复执行模型的中间层，从而在不增加参数量的情况下提高每个 token 的计算量，目标是以更少 token 完成推理。Inkling 2 Mini 采用这一架构，是一个约 26B 总参数、5.4B 激活参数的混合专家模型，内存占用约 20GB，定位为可在消费级笔记本上运行的开放权重模型。
 
-**「影响」** 对中国芯片设计公司而言，最直接的变化是流程上的变化：过去台积电可以自行判断客户的设计是否符合豁免条件，现在则必须由客户事先向美国申请出口许可或豁免，而获批名单上的苹果、AMD、英伟达都不包括中国公司。这意味着相关企业短期内只能使用 28nm、40nm 等成熟制程，无法采用 AI 数据中心所需的高带宽内存，其先进制程产品和 AI 硬件规划将面临重新设计或延期的风险。
+**「对本地部署者的影响」** 对本地部署者来说，最直接的影响是硬件门槛降低，但工具链仍存在兼容摩擦：Artificial Analysis 测得该模型在 Intelligence Index 上与 Qwen3.8-27B 持平，激活参数却少约 5 倍（26.4B 总参数、3.4B 激活、Apache 2.0），因此消费级显卡和统一内存机器都有机会运行。不过早期社区测试显示，要获得可用速度，仍需应用尚未合并的 llama.cpp PR 和一个小补丁（Ryzen 395 + Vulkan 约 27 tok/s，M1 Pro 32GB q4 约 10 tok/s）；在这些改动被上游合并之前，部署者应为调试留出时间。
+
+**「社区讨论」** HN 用户 hedgehog 报告称，除了若干尚未合并的 llama.cpp PR 外，只需一个很小的补丁就能带来约 30% 的推理提速；dgacmu 的测试结果有好有坏：Python CSV 排序任务完成得不错，但识别硬币类型和年份的提示在运行约 12000 个 token 后仍无结果。lilytweed 认为多数开源模型此后会转向循环架构，并质疑在如此开放的程度下，安全与可解释性意味着什么。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/TSMC">TSMC - Wikipedia</a></li>
+<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Introducing Inkling 2 Mini - Thinking Machines Lab</a></li>
+<li><a href="https://artificialanalysis.ai/articles/inkling-2-mini">Thinking Machines has released Inkling 2 Mini, an open ...</a></li>
+<li><a href="https://www.unite.ai/thinking-machines-lab-releases-inkling-2-mini-for-local-devices/">Thinking Machines Lab Releases Inkling 2 Mini for Local Devices</a></li>
+<li><a href="https://huggingface.co/blog/inkling2mini">Welcome Inkling 2 Mini , Cutting-edge Performance for your Local ...</a></li>
+<li><a href="https://artificialanalysis.ai/articles/inkling-2-mini">Thinking Machines has released Inkling 2 Mini , an... | Artificial Analysis</a></li>
 
 </ul>
 </details>
+
+**标签**: `#open-weight models`, `#looped transformers`, `#local inference`, `#llama.cpp`, `#AI benchmarks`
+
+---
+
+<a id="item-tech-news-4"></a>
+### [台积电据报暂停对中国企业 16nm 及以下芯片订单](https://appleinsider.com/articles/26/11/20/apple-supplier-tsmc-cuts-off-china-chip-orders-amid-tighter-export-controls) ⭐️ 8.0/10
+
+据 AppleInsider 报道，台积电已通知客户暂停接受中国公司 16nm 及以下先进制程订单；除非事先获得美国出口许可或豁免，否则台积电不得向这些客户供货。报道称，相关中国企业因此只能使用 28nm、40nm 等较旧制程，并无法使用 AI 数据中心所需的高带宽内存。此前台积电可自行评估客户设计是否符合豁免条件，现在客户须提前申请；美国获批名单中有苹果、AMD、英伟达，尚无中国公司。台积电表示将遵守新规。
+
+telegram · zaihuapd · 11月21日 02:01
+
+**「背景」** 制程节点的命名数字越小，单位面积可集成的晶体管越多，能效与性能通常也越高；16nm 及以下多用于 CPU、GPU 与 AI 加速器等高性能逻辑芯片，而 28nm、40nm 等成熟制程更多用于电源管理、模拟和嵌入式类芯片。AI 数据中心所需的高带宽内存（HBM）需要与先进逻辑裸片通过先进封装紧耦合，因此对先进制程节点的限制会间接影响整套 AI 硬件方案的可获得性。
+
+**「影响」** 受影响的中国芯片企业若拿不到美国出口许可或豁免，16nm 及以下订单就无法在台积电投产，只能改用 28nm、40nm 等旧制程，依赖先进制程和高带宽内存的 AI 数据中心芯片供应将直接受限。豁免审核流程也由台积电自行评估改为客户须提前申请，合规负担因此转移到下单企业身上。
 
 **标签**: `#semiconductors`, `#export-controls`, `#TSMC`, `#China`, `#AI-hardware`
 
 ---
 
-<a id="item-tech-news-4"></a>
-### [浙大“天目 2 号”实现 QRAM 原型](https://finance.sina.com.cn/stock/2026-11-21/doc-iniznhsk3530826.shtml) ⭐️ 8.0/10
+<a id="item-tech-news-5"></a>
+### [浙大首次在真机上实现 QRAM](https://finance.sina.com.cn/stock/2026-11-21/doc-iniznhsk3530826.shtml) ⭐️ 8.0/10
 
-浙江大学团队报告在自主制备的超导量子芯片“天目 2 号”上首次于真机实现量子随机存储器（QRAM），成果发表于《自然·物理》。团队称，芯片上运行的原型可调取 4 位和 8 位数据，准确率分别为 80.9%和 60.4%。该方案的线路深度较未优化方案降低 30%以上，并首次验证了该架构的局部抗噪特性。团队下一步将推进 QRAM 的规模化研究。
+浙江大学团队报告，在自主制备的超导量子芯片“天目 2 号”上首次于真机实现量子随机存储器（QRAM），成果已发表于《自然·物理》。该原型能调取 4 位和 8 位数据，准确率分别为 80.9% 和 60.4%，线路深度较未优化方案降低 30% 以上，并首次验证该架构具备局部抗噪特性。团队称下一步将推进 QRAM 的规模化研究，因此这仍是原型演示，而非可直接用于高保真量子算法的通用内存。
 
 telegram · zaihuapd · 11月21日 08:31
 
-**「背景」** QRAM（量子随机存储器）指的是能以叠加的地址一次性取出数据的量子存储结构，许多宣称具备加速优势的量子算法（如量子数据库搜索和部分线性代数算法）都默认它已经存在。它的工程难点在于寻址电路深度会随数据规模迅速增长、误差不断累积，因此长期难以在真实硬件上落地；此次浙江大学团队强调“线路深度较未优化方案降低 30% 以上”并验证局部抗噪特性，正是针对这一瓶颈。
+**「背景：QRAM 为何难做」** QRAM 是一种让量子计算机以量子叠加方式按地址读取经典数据的量子存储器：它允许在不必遍历全部条目的情况下并行取出多个数据项，被视为数据密集型量子算法取得量子加速的前提之一。但这类电路依赖大量受控纠缠操作，地址位数一增加，线路深度与噪声就会迅速累积，这正是真机演示此前难以推进的原因；《自然·物理》2026 年 3 月发表的桶旅（bucket-brigade）QRAM 方案研究，针对的正是这一可扩展性与噪声的矛盾。
 
-**「影响」** 对量子算法开发者而言，这一原型尚不能视为可用的高保真量子内存：8 位检索准确率为 60.4%，说明数据位宽增加时检索可靠性明显下降，后续规模化研究需先解决这一问题。
-
-**标签**: `#quantum computing`, `#QRAM`, `#superconducting qubits`, `#hardware`, `#research`
-
----
-
-<a id="item-tech-news-5"></a>
-### [Levent Alpöge 称与 Claude 证明黎曼猜想](https://simonwillison.net/2026/Nov/20/levent-alpoge/) ⭐️ 7.0/10
-
-Levent Alpöge 在一份被 Simon Willison 引用的声明中声称，他与 Claude 合作发现了黎曼猜想的证明，并表示该方法可推广至广义黎曼猜想，预期投入更多时间还能处理扩展黎曼猜想。他还称两人已在无假设条件下形式化这些论证。该条目仅转述这段声明，没有给出证明细节、形式化产物的链接或任何独立验证，因此应视为未经证实的个人主张，而非已确认的数学突破。
-
-rss · Simon Willison · 11月20日 16:30
-
-**「背景知识」** 黎曼猜想断言黎曼 ζ 函数的所有非平凡零点都落在临界线 Re\(s\)=1/2 上，这一命题至今未被证明，其成立与否直接决定素数分布误差项的量级；广义黎曼猜想把同类断言推广到狄利克雷 L 函数等更广的函数族。提出上述主张的 Levent Alpöge 是一名研究数论与算术统计的土耳其、美国双重国籍数学家，而非无关人士。
-
-**「影响」** 由于阿尔波格（Levent Alpöge）本人是 Anthropic 的员工，而 Claude 正是该公司的模型，外界在评估这一声明时需要计入这层利益关联；据《科学美国人》和《纽约时报》报道，他于 11 月 20 日（周五）公开提出了该主张。对数学界而言，可操作的下一步是等待独立复核而非直接采信：他声称论证已在无假设条件下完成形式化，若这一点属实，机器证明检查器便可逐条核验，而在此之前黎曼猜想不应被视为已解决。
+**「对开发者的影响」** 对量子算法开发者而言，这一原型首次提供了在超导硬件上运行 QRAM 的实验参照；但 8 位检索准确率仅 60.4%，短期内它还不能支撑依赖高保真数据调用的算法，扩大位宽时准确率下降是直接待解问题。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge">Levent Alpöge - Wikipedia</a></li>
-<li><a href="https://www.scientificamerican.com/article/anthropic-mathematician-claims-to-prove-riemann-hypothesis-most-famous-problem-in-all-of-math/">Anthropic mathematician claims to prove Riemann hypothesis , most...</a></li>
-<li><a href="https://www.nytimes.com/2026/11/20/science/anthropic-ai-math-riemann-hypothesis.html">Anthropic Mathematician Claims to Solve Riemann Hypothesis With...</a></li>
+<li><a href="https://www.nature.com/articles/s41567-026-03273-9">Quantum random access memory put to the test | Nature Physics</a></li>
+<li><a href="https://www.nature.com/articles/s41567-026-03218-2">A bucket-brigade quantum random access memory | Nature Physics</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI-assisted mathematics`, `#Riemann Hypothesis`, `#Claude`, `#formal verification`, `#unverified claim`
+**标签**: `#quantum computing`, `#QRAM`, `#superconducting qubits`, `#research`, `#hardware`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [微软预览 Windows USB4 RDMA，多台 PC 合跑本地模型](https://videocardz.com/newz/microsoft-brings-rdma-over-usb4-to-windows-allowing-multiple-pcs-to-run-one-local-ai-model) ⭐️ 7.0/10
+### [Levent Alpöge 称与 Claude 发现黎曼猜想证明](https://simonwillison.net/2026/Nov/20/levent-alpoge/) ⭐️ 7.0/10
 
-据 VideoCardz 报道，微软发布了面向 Windows 的 RDMA over USB4 开发者预览，并将通过 Windows Insider 推送；多台 PC 可通过普通 USB4 连接共享内存和 GPU 算力，共同运行同一个本地 AI 模型，无需专用网卡或交换机。演示使用三台搭载 AMD Ryzen AI Max+ 395 的 PC，以 4-bit 量化运行 Qwen3-235B-A22B，达到约 18.5 token/s。
+Simon Willison 引用了 Levent Alpöge 的 remark.pdf，后者称自己与 Claude 合作发现了黎曼猜想的证明，并表示该方法可推广到广义黎曼猜想，预计投入更多时间还能覆盖扩展黎曼猜想。Alpöge 还称，他与 Claude 已在无需额外假设的情况下形式化了相关论证。上述说法目前只是其本人陈述；引用内容未给出证明细节，也没有独立验证或第三方确认。
 
-telegram · zaihuapd · 11月21日 06:13
+rss · Simon Willison · 11月20日 16:30
 
-**「背景」** RDMA（远程直接内存访问）此前通常依赖支持 RDMA 的专用网卡与交换机（如 InfiniBand 或 RoCE），才能让一台机器直接读写另一台机器的内存，绕开常规网络协议栈的开销。微软这次的关键变化是把这套机制搬到消费级 USB4 接口上，使多台普通 PC 能共享内存与 GPU 算力，共同承载单个本地大模型。对 Qwen3-235B-A22B 这类远超单机显存/内存容量的模型而言，跨机聚合算力正是本地推理的前提。
+**「背景」** 黎曼猜想是数论中最著名的未解问题之一，它断言黎曼ζ函数的所有非平凡零点都落在临界线 Re\(s\)=1/2 上，其真伪直接决定素数分布的大量精细结论。形式化验证（如 Lean）则把证明写成可被机器逐行检验的代码，从而把「相信作者」变成「检查代码」。在这条引文之外，GitHub 上已出现据称由 Levent Alpöge 与 Claude 合作完成的黎曼猜想 Lean 证明镜像（tool-1-2）；另有一段视频声称，MIT 的 Andrew Sutherland 于 2026 年 11 月 20 日当晚给出独立检查结果，称这份约 1700 万行的 Lean 代码可无错编译（tool-1-3）——但编译通过仅说明代码可运行，并不等同于确认它形式化表述的正是黎曼猜想，且该说法仅见于单一视频，未获本条目所引来源的确认。
 
-**「影响」** 对希望在本机运行超出单机内存或 GPU 算力的大模型的开发者，这意味着可用现有 USB4 端口把多台兼容 PC 组合起来推理，而不必部署专用网络设备；但当前仅是可经 Windows Insider 获取的开发者预览，需要预览版本和兼容的 USB4 连接，约 18.5 token/s 也是三机组合下的演示结果。
+**「验证仍是关键一步」** 对数学家和用 Claude 做研究的人而言，可操作的下一步是把形式化证明与其声称的命题对齐：只有在 Lean 等证明助手中确认被形式化的陈述确实就是黎曼猜想与广义黎曼猜想，而非等价变形或较弱版本，这份声明才具备可复核的基础。现有材料中只有 Alpöge 的自述，摘要未附证明，也没有独立确认；外部讨论称已有多个 Lean 内核检查过形式化证明，但同时也有说法称尚未获得独立验证，因此读者应把结论视为待核实，而不是已确立的定理。
 
-**标签**: `#RDMA over USB4`, `#distributed inference`, `#local AI`, `#Windows`, `#AMD Ryzen AI Max+`
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">CocoSgt/ riemann - hypothesis -lean: Mirror of Levent Alpöge &#x27;s Lean...</a></li>
+<li><a href="https://www.youtube.com/watch?v=d-ANPBNcTd8">Just in: The Riemann Hypothesis Proof Passed an... - YouTube</a></li>
+<li>Levent Alpöge claims proof of the Generalized Riemann Hypothesis ...</li>
+<li>Mathematician Levent Alpöge claims to solve Riemann Hypothesis with ...</li>
+
+</ul>
+</details>
+
+**标签**: `#AI-assisted mathematics`, `#Riemann Hypothesis`, `#Claude`, `#formal verification`, `#research claims`
 
 ---
 
 <a id="item-tech-news-7"></a>
-### [OpenRouter 警告 MiniMax 模型提示词疑被第三方读取](https://news.ycombinator.com/item?id=50585962) ⭐️ 7.0/10
+### [微软发布 USB4 RDMA 预览：多台 PC 合跑一个大模型](https://videocardz.com/newz/microsoft-brings-rdma-over-usb4-to-windows-allowing-multiple-pcs-to-run-one-local-ai-model) ⭐️ 7.0/10
 
-OpenRouter 通过邮件通知用户，发往 MiniMax 模型的请求内容可能已被第三方读取。安全研究者在 2026 年 7 月至 10 月间向这些模型发送了内含测试 URL 的提示词，结果第三方在 40 至 130 小时后访问了这些 URL，说明提示词内容可能被下游环节获取。OpenRouter 将问题指向 MiniMax 及其转发方 AtlasCloud、Novita、StreamLake，并已下架相关端点的「零数据保留」标签，建议曾通过这些端点传递敏感凭证的用户更换 API Key 和密码。截至该消息传播时，OpenRouter 官网尚未发布相关公告；上述内容来自二次转述，具体范围和受影响用户数量仍不明确。
+微软发布了面向 Windows 的 RDMA over USB4 开发者预览，让多台 PC 通过普通 USB4 连接共享内存和 GPU 算力，运行同一个本地 AI 大模型，无需专用网卡或交换机。示例中三台搭载 AMD Ryzen AI Max+ 395 的 PC 以 4-bit 量化运行 Qwen3-235B-A22B，达到约 18.5 token/s。该功能将通过 Windows Insider 推送，现阶段仍是开发者预览，而非正式版能力。
 
-telegram · zaihuapd · 11月21日 06:53
+telegram · zaihuapd · 11月21日 06:13
 
-**「背景」** 在第三方大模型 API 聚合服务中，“零数据保留”标签用于标示服务方不会存储用户请求内容，是用户判断敏感提示词能否安全发送的重要依据。OpenRouter 会将请求转交给模型提供方及其转发渠道，因此撤下相关端点的该标签，意味着这条链路上的数据保留承诺已不再被标注为有效。
+**「背景」** RDMA（远程直接内存访问）让一台计算机绕过对方 CPU 和常规网络协议栈，直接读写另一台设备的内存，因此长期用于高性能计算集群，但通常依赖 InfiniBand 或 RoCE 专用网卡与交换机。微软这次把该机制改由 USB4 承载，使普通 USB4 线缆连接的 Windows 机器之间也能进行这种直接内存访问，从而把多台 PC 的内存与 GPU 资源当作一个池来运行同一个模型。
 
-**「影响」** 对曾通过 OpenRouter 向 MiniMax 模型发送含敏感信息提示词的用户而言，相关端点已不再带有“零数据保留”标签，因此不能再把该标签当作提示词不会被例行存储的保证；OpenRouter 同时建议更换 API Key 和密码，涉及生产环境的团队应尽快轮换凭证并核查这些端点的数据策略。
+**「实际影响」** 对拥有多台 USB4 电脑的开发者来说，这项预览让他们能用现有接口和线缆试验跨机协同运行本地模型，不必先采购专用网卡或交换机。但该能力目前仅通过 Windows Insider 以开发者预览形式提供，示例环境为三台 Ryzen AI Max+ 395 运行 4-bit Qwen3-235B-A22B，暂不适合作为稳定生产部署的依据。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://openrouter.ai/docs/guides/features/zdr">Zero Data Retention - How OpenRouter gives you control over your...</a></li>
+<li><a href="https://habr.com/ru/articles/1110636/">Microsoft представила решение на базе USB 4 и RDMA для... / Хабр</a></li>
+<li><a href="https://gagadget.com/ru/artificial-intelligence/735249-resursyi-neskolkih-pk-dlya-zapuska-tyazhelogo-ii-nauchilas-obedinyat-microsoft-cherez-usb4/">Microsoft реализовала RDMA через USB 4 для ИИ-кластеров</a></li>
 
 </ul>
 </details>
+
+**标签**: `#RDMA`, `#USB4`, `#Windows`, `#local AI`, `#distributed inference`
+
+---
+
+<a id="item-tech-news-8"></a>
+### [OpenRouter 警告 MiniMax 模型提示词或遭第三方读取](https://news.ycombinator.com/item?id=50585962) ⭐️ 7.0/10
+
+据一封 OpenRouter 邮件通知，用户发往 MiniMax 模型的请求内容可能已被第三方读取：安全研究者在 2026 年 7 至 10 月向 MiniMax 模型发送带测试 URL 的提示词，结果第三方在 40 到 130 小时后访问了这些 URL。OpenRouter 把问题归于 MiniMax 及其转发方 AtlasCloud、Novita、StreamLake，已下架相关端点的「零数据保留」标签，并建议曾通过这些端点提交敏感信息的用户更换 API Key 和密码。上述内容来自 Telegram 转载，OpenRouter 官网目前没有发布公开公告，受影响的具体范围与用户数量尚不明确。
+
+telegram · zaihuapd · 11月21日 06:53
+
+**「背景」** OpenRouter 是模型调用中转层，用户提示词会经模型提供方及其转发服务处理，因此数据保留与访问控制取决于整条链路。此次 OpenRouter 撤下了 MiniMax 及 AtlasCloud、Novita、StreamLake 相关端点的“零数据保留”标签，表明该标签已不再适用于这些端点。
+
+**「对开发者的直接影响」** 依赖这些端点处理敏感数据的开发者应假定提示词内容和随请求发送的凭证可能已外泄，并按 OpenRouter 建议更换 API Key 与密码；此前依据「零数据保留」标签做出的合规或数据最小化判断也需要重新评估。
 
 **标签**: `#AI security`, `#privacy`, `#OpenRouter`, `#MiniMax`, `#API security`
 
@@ -172,60 +210,31 @@ telegram · zaihuapd · 11月21日 06:53
 ## 科技博客
 
 <a id="item-tech-blog-1"></a>
-### [输出缓存为何难以降低大模型成本](https://seangoedecke.com/why-output-caching-doesnt-work/) ⭐️ 6.0/10
+### [输出缓存为何难以奏效](https://seangoedecke.com/why-output-caching-doesnt-work/) ⭐️ 6.0/10
 
 rss · Sean Goedecke · 11月21日 00:00
 
-**「背景」** 输入缓存（KV cache）通过避免重复计算整段对话历史来降低大模型推理成本，作者由此追问：是否也能用同样思路缓存输出？输出 token 因必须逐个生成而比输入 token 更贵，所以重复输出看起来尤其浪费。
+**「背景」** LLM 推理普遍缓存输入（KV cache），以免每次消息都重算整个对话历史。既然模型输出也会重复引用已有内容，为什么不顺便缓存输出、减少重复生成？作者认为这条路走不通。
 
-**「方案」** 作者设想的输出缓存并非直接复用生成结果，而是让模型用“src/script.py:12-15”这类引用代替复述代码或历史，再由运行框架展开；这可通过提示或微调实现。问题在于，这种优化只能作用于用户可见的输出。根据作者对自己代理运行记录的估算，可见输出仅约占输出 token 的 6%，推理 token 约占 50%，工具调用约占 44%；即便乐观地省掉可见部分三分之二的 token，总输出也只减少约 4%，这正是阿姆达尔定律的约束：局部优化再大，整体收益仍受该部分占比限制。要真正节省输出 token，必须减少占 94% 的不可见部分，而这主要取决于模型智能：更聪明的模型需要更少推理和工具调用，因此每 token 贵 5 倍的模型若少用 6 倍 token，总成本反而可能更低。作者也承认这些比例来自个人代理历史，关于前沿模型不会在思维链中频繁重复的判断只有中等信心，工具调用是否重复则仍待验证。
+**「方案」** 作者先设想通过微调或提示，让模型只输出“src/script.py:12-15”这类引用，再由执行框架展开，从而避免重复代码或证据文档。但这类重复几乎只发生在用户可见的输出里；按作者对自己智能体记录的粗略分类，可见输出仅约占输出 token 的 6%，推理 token 占 50%，工具调用占 44%。安达尔定律因此很快封顶收益：即便乐观地省掉可见输出的三分之二，也只减少全部输出 token 的约 4%。真正的大头是那 94% 不可见 token，减少它们更多取决于模型智能——模型越强，所需推理和工具调用越少，甚至会出现单价贵 5 倍、总 token 少 6 倍而整体更便宜的情况。作者也承认，“前沿模型不会在思维链里频繁自重复”只是中等置信度的判断，6% 来自个人智能体历史，并非可复现测量。
 
-**「启示」** 作者的核心结论是，输出缓存只触及可见重复这一小部分，无法成为 LLM 成本优化的主线；降低总成本更应依靠提升模型智能、减少隐式推理和工具调用。
+**「启示」** 输出缓存的收益受限于很小的可见输出占比；控制 LLM 成本的关键不是缓存复述，而是提升模型与执行框架效率，减少不可见的推理和工具调用。只比较每 token 单价会误判实际成本。
 
-**标签**: `#LLM inference economics`, `#output caching`, `#LLM agents`, `#Amdahl&\#x27;s law`, `#token cost optimization`
+**标签**: `#LLM inference`, `#caching`, `#token economics`, `#Amdahl&\#x27;s law`, `#AI agents`
 
 ---
 
 ## 财经新闻
 
 <a id="item-finance-news-1"></a>
-### [美联储官员发言增多，FOMC 加息分歧加深](https://www.cnbc.com/2026/11/20/warsh-fed-forward-guidance-rate-hikes.html) ⭐️ 7.0/10
+### [沃什避谈利率指引，美联储官员公开分歧加大](https://www.cnbc.com/2026/11/20/warsh-fed-forward-guidance-rate-hikes.html) ⭐️ 7.0/10
 
-据美国银行分析，在美联储主席凯文·沃什拒绝提供前瞻指引、联邦公开市场委员会内部对加息分歧加深之际，美联储官员近两周公开发言频率升至 2025 年初以来同期最高。芝商所 FedWatch 显示，交易员认为 12 月至少加息 25 个基点的概率为 100%。
+美联储主席沃什上任六个月来拒绝提供利率指引，其同事却更频繁公开发声、就加息步伐出现分歧；美国银行分析称，过去两周的“美联储讲话”为 2025 年初以来同类时期最多。市场通过 CME FedWatch 计入 12 月至少加息 25 个基点的概率为 100%，理事沃勒则提出可能加息 50 个基点。
 
 rss · CNBC Finance · 11月20日 21:10
 
-**「背景」** 沃什在就任美联储主席前就公开批评“前瞻指引”，即央行提前向市场暗示未来利率路径的做法，认为这会让市场对美联储产生不必要的依赖，并削弱政策的灵活性（tool-1-1、tool-1-2）。联邦公开市场委员会共有 19 名参与者，通常由主席出面表态，让市场判断鹰派与鸽派哪一方占上风。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://www.theguardian.com/business/live/2026/aug/28/us-federal-reserve-kevin-warsh-jackson-hole-conference-inflation-economy-ftse-stock-markets-latest-updates">US Federal Reserve ’s Kevin Warsh warns there will... | The Guardian</a></li>
-<li><a href="https://cryptorank.io/news/feed/eea2b-kevin-warsh-rejects-forward-guidance">Kevin Warsh Stuns Markets: Fed Chair Nominee Rejects Forward ...</a></li>
-
-</ul>
-</details>
+**「背景」** 所谓前瞻指引，即央行提前暗示未来利率路径；沃什认为这会束缚决策。美联储正应对高于 3%的通胀（目标为 2%），10 月会议维持利率不变，克利夫兰联储主席哈马克当时投反对票并主张加息 25 个基点。
 
 **标签**: `#Federal Reserve`, `#monetary policy`, `#interest rates`, `#FOMC communication`, `#forward guidance`
-
----
-
-<a id="item-finance-news-2"></a>
-### [特朗普表态支持卢特尼克，并称希望黄仁勋道歉后回归](https://www.reuters.com/world/us/trump-says-he-still-backs-lutnick-urges-nvidias-huang-apologize-2026-11-20/) ⭐️ 7.0/10
-
-据路透社报道，美国总统特朗普 11 月 20 日表示，仍支持因英伟达对华芯片销售处理而受质疑的商务部长卢特尼克，称其“做得很好”。他还称希望英伟达 CEO 黄仁勋（报道称其已辞职）“郑重道歉后回归”，并称已与中国国家主席习近平谈及此事；特朗普这一说法与财长贝森特称通话未涉及黄仁勋相矛盾。
-
-telegram · zaihuapd · 11月21日 05:03
-
-**「背景」** 英伟达 CEO 黄仁勋于 11 月 12 日因婚外情报道辞职，即刻生效。卢特尼克自 2025 年起担任美国商务部长，其对中国芯片销售的处理正受到外界质疑。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://apnews.com/article/nvidia-jensen-huang-resigns-ceo-affairs-314714d463cf578cbb0dbd49de903107">What we know after Jensen Huang resigns as Nvidia CEO</a></li>
-<li><a href="https://en.m.wikipedia.org/wiki/Howard_Lutnick">Howard Lutnick - Wikipedia</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Nvidia`, `#US-China chip policy`, `#Commerce Department`, `#executive resignation`, `#Trump administration`
 
 ---

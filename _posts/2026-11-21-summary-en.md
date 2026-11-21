@@ -5,164 +5,199 @@ date: 2026-11-21
 lang: en
 ---
 
-> From 34 items, 10 important content pieces were selected
+> From 35 items, 10 important content pieces were selected
 
 ---
 
 **Technology News**
-1. [Vakil releases Masullo&\#x27;s proposed GRH proof early, citing months of review](#item-tech-news-1) ⭐️ 8.0/10
-2. [Inkling 2 Mini: open-weight looped transformer for local inference](#item-tech-news-2) ⭐️ 8.0/10
-3. [TSMC Said to Suspend 16nm-and-Below Orders From Chinese Firms](#item-tech-news-3) ⭐️ 8.0/10
-4. [Zhejiang University reports first on-chip QRAM prototype with 80.9% accuracy](#item-tech-news-4) ⭐️ 8.0/10
-5. [Levent Alpöge claims Claude-assisted proof of the Riemann Hypothesis](#item-tech-news-5) ⭐️ 7.0/10
-6. [Microsoft previews RDMA over USB4 for multi-PC local AI on Windows](#item-tech-news-6) ⭐️ 7.0/10
-7. [OpenRouter warns MiniMax prompts may have been read by third parties](#item-tech-news-7) ⭐️ 7.0/10
+1. [Lean community blog post references joint statement on Riemann Hypothesis verification](#item-tech-news-1) ⭐️ 8.0/10
+2. [Tao Post Discusses Unforced Navier-Stokes Singularity and Generalized Riemann Hypothesis](#item-tech-news-2) ⭐️ 8.0/10
+3. [Thinking Machines Releases Open-Weight Inkling 2 Mini Looped Transformer](#item-tech-news-3) ⭐️ 8.0/10
+4. [Report: TSMC Halts 16nm-and-Below Orders From Chinese Firms](#item-tech-news-4) ⭐️ 8.0/10
+5. [Zhejiang University reports first real-machine QRAM on superconducting chip](#item-tech-news-5) ⭐️ 8.0/10
+6. [Levent Alpöge Claims Claude-Assisted Riemann Hypothesis Proof](#item-tech-news-6) ⭐️ 7.0/10
+7. [Microsoft previews RDMA over USB4 to pool multiple PCs for local AI](#item-tech-news-7) ⭐️ 7.0/10
+8. [OpenRouter: MiniMax model prompts may have been read by third parties](#item-tech-news-8) ⭐️ 7.0/10
 
 **Technology Blog**
-1. [Output Caching Misses Most LLM Agent Tokens](#item-tech-blog-1) ⭐️ 6.0/10
+1. [Why Caching LLM Outputs Saves Little](#item-tech-blog-1) ⭐️ 6.0/10
 
 **Financial News**
 1. [Fed officials speak more as Warsh withholds rate guidance](#item-finance-news-1) ⭐️ 7.0/10
-2. [Trump Backs Lutnick Amid Nvidia China Chip Scrutiny, Seeks Huang Apology](#item-finance-news-2) ⭐️ 7.0/10
 
 ---
 
 ## Technology News
 
 <a id="item-tech-news-1"></a>
-### [Vakil releases Masullo&\#x27;s proposed GRH proof early, citing months of review](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
+### [Lean community blog post references joint statement on Riemann Hypothesis verification](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/) ⭐️ 8.0/10
 
-Ravi Vakil has released the current draft of Alessandro Masullo&\#x27;s proposed proof of the Generalized Riemann Hypothesis rather than waiting for a planned year at Stanford to polish the writing and circulate it. Vakil says Brian Conrad has examined the work closely for months and provided extensive feedback that is being incorporated, and that it &\#x27;is so far looking good&\#x27;; he also states that the proof is entirely human, with no AI. The item&\#x27;s title also references an unforced Navier-Stokes singularity, but the supplied excerpt contains only the GRH announcement and gives no details of that claim. Hacker News commenters focus on Lean verification, including a report that two independent kernels accept the result, and on whether a passing formal build establishes the intended theorem.
+A Lean community blog post reportedly presents a joint statement about Lean verification of the Riemann Hypothesis, but the supplied item contains no statement text, so the claimed result, its authors, and its conditions cannot be assessed. The available evidence does not establish that the Riemann Hypothesis has been proved or that any Lean proof has been independently checked. Treat the headline as notice of a statement, not confirmation of a verified proof.
 
-hackernews · archon1410 · Nov 20, 17:21 · [Discussion](https://news.ycombinator.com/item?id=50578358)
+hackernews · g-b-r · Nov 21, 14:36 · [Discussion](https://news.ycombinator.com/item?id=50589618)
 
-**「Background」** The Generalized Riemann Hypothesis extends the Riemann Hypothesis from the Riemann zeta function to a broader class of L-functions and is a central open problem in number theory. Lean is an interactive theorem prover that checks proofs against a small trusted kernel; the discussion treats kernel acceptance as evidence about the formal proof, not as independent confirmation that the formal statement matches the intended mathematics.
+**「Background」** Lean is an interactive theorem prover that mechanically checks proofs against a formal statement, and Mathlib is its community-maintained library of formalized mathematics. The project material describes the formal target as the claim that every nontrivial zero of \`riemannZeta\` has real part 1/2, while the Lean community post presents the effort as a joint Lean–Mathlib statement endorsed by the Lean FRO and the Mathlib Initiative \[tool-2-1\]\[tool-2-2\]. That distinction matters because a proof assistant checks the formal derivation, not whether the formal statement captures the intended informal conjecture.
 
-**「Impact」** Mathematicians can now scrutinize the draft before the planned year of polishing and broad circulation, but that early release also means the argument has not had the review path Vakil originally described. For formal-verification readers, the concrete check is whether the Lean statement formalizes the intended GRH claim, since kernel acceptance alone does not settle that question.
+**「Verification burden falls on the checker setup」** Mathematicians and proof-assistant users who would cite this result cannot yet treat it as a settled proof: the supplied material includes no joint statement, Lean or Mathlib version, or axiom list, so independent checking requires those artifacts first. Commenters also noted that a past fake Collatz refutation passed an &quot;independent&quot; checker, a reason to scrutinize the specific checker configuration rather than the headline before downstream work relies on the claim.
 
-**「Community discussion」** Commenters treat the Lean checks as meaningful but not dispositive: one reports that two independent kernels accept the result, suggesting no kernel-bug exploitation, while another asks how a 15-million-line Lean build can be shown to prove the intended claim rather than something trivial, comparing it to Rust compiling without guaranteeing business logic. A separate thread asks whether the ability to generate language and verify proofs can create new abstractions such as the Langlands program, or mainly works within existing ones.
+**「Community Discussion」** Commenters questioned how independent proof checkers really are: one cited a past fake Collatz refutation that reportedly got through an independent checker, while noting that a human expert was involved in this case and that the statement’s four described points do not depend on that involvement. Other commenters asked what practical consequences a proof would have and whether the Riemann Hypothesis was already widely assumed true.
 
-**Tags**: `#formal verification`, `#Lean theorem prover`, `#AI-assisted mathematics`, `#Navier-Stokes`, `#Riemann Hypothesis`
+<details><summary>References</summary>
+<ul>
+<li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Lean verification of the Riemann Hypothesis | Lean community blog</a></li>
+<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">GitHub - CocoSgt/ riemann - hypothesis - lean : Mirror of Levent...</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#formal verification`, `#Lean`, `#Riemann Hypothesis`, `#AI for math`, `#proof assistants`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Inkling 2 Mini: open-weight looped transformer for local inference](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
+### [Tao Post Discusses Unforced Navier-Stokes Singularity and Generalized Riemann Hypothesis](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
 
-Inkling 2 Mini, an open-weight model built on a looped-transformer architecture, was published on thinkingmachines.ai on November 20, 2026. Commenters describe its published benchmarks as reaching the level of Qwen3.8-27B, and a team note quoted from Reddit says the sizing was chosen for local use and that training was done end-to-end in nvfp4 — vendor claims that have not been independently verified here. Local runs reported in the thread include roughly 27 tokens/s decode on a Ryzen 395 via llama.cpp with the Vulkan backend, and about 10 tokens/s for a Q4 build on a 32GB M1 Pro MacBook while other applications were running. The release drew attention because openly documented looped architectures remain rare, with comparable designs at other labs only rumored.
+Terry Tao published a blog post on unforced Euler and Navier-Stokes singularities and the generalized Riemann hypothesis, tied in the supplied item to major mathematical claims. The item provides no source text, proof details, or independent confirmation, so the validity and precise status of those claims cannot be assessed here. The attached Hacker News discussion centers on Lean formal verification and AI-assisted proof development rather than resolving the mathematical claims.
 
-hackernews · jasondavies · Nov 20, 20:12 · [Discussion](https://news.ycombinator.com/item?id=50581260)
+hackernews · archon1410 · Nov 20, 17:21 · [Discussion](https://news.ycombinator.com/item?id=50578358)
 
-**「What a looped transformer is」** A looped transformer reuses the same shared block of layers across several passes rather than allocating a distinct set of layers for every step, so it can add computation depth without a proportional increase in parameter count. That tradeoff is relevant to local inference, where memory is dominated by weight storage and the extra repeated passes cost time rather than RAM.
+**「Background」** Finite-time blowup for the three-dimensional incompressible Navier–Stokes equations—whether smooth solutions can spontaneously develop a singularity—is a long-standing open problem, and the &quot;unforced&quot; version drops any external forcing term. The Euler equations are the inviscid limit of Navier–Stokes, so a singularity result for the unforced Euler equations bears directly on the viscous case, and reports describe the November 20 posting as covering both along with an unforced Euler result formalized in Lean.
 
-**「Local deployment and setup friction」** Because the model is around 26B total parameters with only a few billion active per token, it is small enough to run on a MacBook or an NVIDIA DGX Spark, and one commenter reports roughly 10 tokens/s on a 32GB M1 Pro at q4 and about 27 tokens/s on a Ryzen 395 through llama.cpp&\#x27;s Vulkan backend. That llama.cpp path currently depends on several unmerged PRs plus a small patch the same commenter says gives about a 30% speedup, so expect setup work before mainstream tooling support arrives.
-
-**「Community discussion」** Practitioners report that llama.cpp needs several unmerged PRs \(32694, 32657, 32429, 32704\) plus a small llama-graph.cpp patch for about a 30% speed boost, so out-of-the-box throughput may lag the figures quoted. Early hands-on results were mixed: a commenter said a CSV-sorting coding prompt was handled well, while the same tester&\#x27;s coin-identification prompt produced a long failure, and another called the model interesting but stopped short of endorsing it after testing in Unsloth&\#x27;s &quot;extra high&quot; thinking mode.
+**「Community discussion」** Commenters focused on whether Lean verification establishes the intended result: one reported that two independent kernels accept the proof, while another asked how a large Lean codebase can rule out a build that passes without proving the claimed theorem. Others debated whether AI-assisted proof search can generate new mathematical abstractions, not just verify existing ones.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://artificialanalysis.ai/articles/inkling-2-mini">Thinking Machines has released Inkling 2 Mini, an open weights ...</a></li>
-<li><a href="https://openrouter.ai/thinkingmachines/inkling-2-mini">Inkling 2 Mini - API Pricing &amp; Benchmarks | OpenRouter</a></li>
+<li><a href="https://letsdatascience.com/news/buckmaster-and-alpoge-post-ai-aided-proof-of-unforced-navier-fcca1e31">Buckmaster and Alpöge post AI-aided proof of unforced Navier ...</a></li>
+<li><a href="https://conyso.com/lawtome/wild/unforced-navier-stokes-blow-up-alpoge-buckmaster/">Has the Navier-Stokes Problem Been Solved Without a Force?</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI models`, `#open weights`, `#local inference`, `#transformer architecture`, `#llama.cpp`
+**Tags**: `#formal verification`, `#Lean`, `#Navier-Stokes`, `#Riemann hypothesis`, `#AI-assisted mathematics`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [TSMC Said to Suspend 16nm-and-Below Orders From Chinese Firms](https://appleinsider.com/articles/26/11/20/apple-supplier-tsmc-cuts-off-china-chip-orders-amid-tighter-export-controls) ⭐️ 8.0/10
+### [Thinking Machines Releases Open-Weight Inkling 2 Mini Looped Transformer](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
 
-TSMC has reportedly notified customers that it is suspending orders from Chinese companies for 16nm-and-below processes, citing tighter U.S. semiconductor export rules. Under the reported change, supplies would require a prior U.S. export license or exemption instead of TSMC assessing whether a customer&\#x27;s design qualifies. The source says Chinese companies are therefore limited to older 28nm and 40nm processes and cannot obtain high-bandwidth memory needed for AI data centers. Apple, AMD, and Nvidia are said to be on the U.S. approved list, with no Chinese companies listed; TSMC said it will comply with the rules. The claims come via a Telegram aggregator and were not independently verified in the supplied material.
+Thinking Machines has released Inkling 2 Mini, an open-weight model built on a looped-transformer architecture and aimed at local inference and coding use. Early Hacker News reports are substantive but uneven: one commenter measured about 27 tokens/s decoding on a Ryzen 395 using llama.cpp with Vulkan, while another got about 10 tokens/s on a 32GB M1 Pro at q4. Local users say several unmerged llama.cpp pull requests and a small patch are needed for better performance, and comparisons to Qwen3.8-27B remain community-reported rather than independently validated.
 
-telegram · zaihuapd · Nov 21, 02:01
+hackernews · jasondavies · Nov 20, 20:12 · [Discussion](https://news.ycombinator.com/item?id=50581260)
 
-**「Why TSMC&\#x27;s order policy gates Chinese chip design」** TSMC is a dedicated contract foundry, manufacturing chips designed by other companies rather than its own products, which is why its compliance decisions directly determine which process nodes fabless Chinese chip designers can access. According to the source, TSMC previously assessed on its own whether a customer&\#x27;s design qualified for a US exemption; under the tightened rules it must now wait for customers to obtain a US export license or exemption in advance, and the approved list so far includes Apple, AMD and Nvidia but no Chinese companies.
+**「Background」** Unlike a conventional transformer, which passes each token through every layer once, a looped transformer reuses a block of middle layers across repeated iterations. That lets the model spend more computation per token without adding proportionally more parameters; Thinking Machines applies the design to a 26.4B-parameter mixture-of-experts model with about 5.4B active parameters and roughly a 20GB memory footprint.
 
-**「Impact」** According to the report, Chinese chip designers that rely on TSMC at 16nm and below must now obtain a US export license or exemption before orders can be filled, since the approved list includes Apple, AMD and Nvidia but no Chinese companies. Those affected are left with older 28nm and 40nm processes, and the report says they also lose access to the high-bandwidth memory needed for AI datacenter hardware.
+**「What local deployment requires」** Developers running Inkling 2 Mini locally should expect memory use set by its 26.4B total parameters rather than its 3.4B active ones, since only the compute per token shrinks under the looped design; Artificial Analysis puts it at 20.13 on its Intelligence Index versus 20.11 for Qwen 3.8-27B, but with roughly 5x fewer active parameters. Early testers report roughly 27 tokens/s decode on a Ryzen 395 via llama.cpp&\#x27;s Vulkan backend and about 10 tokens/s on a 32GB M1 Pro, with the faster figure requiring several still-unmerged llama.cpp PRs \(32694, 32657, 32429, 32704\) plus a small local patch one commenter says yields about a 30% speed boost, so users on current release builds should not expect those numbers yet.
+
+**「Community discussion」** Commenters welcomed an openly available looped-transformer model, with one predicting that most open models will adopt the architecture, but they also reported uneven results: coding prompts worked well while a harder coin-identification test failed. Reported throughput and speed-up figures come from individual setups and should be treated as anecdotal until independently reproduced.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/TSMC">TSMC - Wikipedia</a></li>
-<li><a href="https://www.tsmc.com/english">Taiwan Semiconductor Manufacturing Company Limited - TSMC</a></li>
+<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Introducing Inkling 2 Mini - Thinking Machines Lab</a></li>
+<li><a href="https://artificialanalysis.ai/articles/inkling-2-mini">Thinking Machines has released Inkling 2 Mini, an open ...</a></li>
+<li><a href="https://www.unite.ai/thinking-machines-lab-releases-inkling-2-mini-for-local-devices/">Thinking Machines Lab Releases Inkling 2 Mini for Local Devices</a></li>
+<li><a href="https://www.youtube.com/watch?v=ypSOPhFp05E">Inkling 2 Mini vs Qwen 3 . 8 27 B : Looping Finally Works! - YouTube</a></li>
+<li><a href="https://artificialanalysis.ai/articles/inkling-2-mini">Thinking Machines has released Inkling 2 Mini , an... | Artificial Analysis</a></li>
 
 </ul>
 </details>
+
+**Tags**: `#open-weight models`, `#looped transformers`, `#local inference`, `#llama.cpp`, `#AI benchmarks`
+
+---
+
+<a id="item-tech-news-4"></a>
+### [Report: TSMC Halts 16nm-and-Below Orders From Chinese Firms](https://appleinsider.com/articles/26/11/20/apple-supplier-tsmc-cuts-off-china-chip-orders-amid-tighter-export-controls) ⭐️ 8.0/10
+
+TSMC has reportedly told customers it is suspending orders from Chinese companies for 16nm-and-below process nodes, with shipments allowed only if the customer first obtains a U.S. export license or exemption under tightened U.S. semiconductor export rules. The reported change confines Chinese firms to older nodes such as 28nm and 40nm and cuts off access to high-bandwidth memory needed for AI data-center hardware, according to the AppleInsider report relayed in the item. Previously TSMC could assess whether a customer&\#x27;s design qualified for an exemption itself; customers must now apply in advance. The report says the U.S. approved-customer list includes Apple, AMD, and Nvidia but no Chinese companies, and TSMC says it will comply with the new rules.
+
+telegram · zaihuapd · Nov 21, 02:01
+
+**「Background」** The tightened U.S. export rules shift compliance work onto customers: TSMC previously assessed whether a customer’s chip design qualified for an exemption, but Chinese companies must now obtain U.S. authorization or an exemption before TSMC can accept orders for advanced nodes. The affected 16nm-and-below processes are the advanced nodes covered by these controls, while 28nm and 40nm are older processes that remain outside the immediate restriction.
+
+**「Impact」** Chinese chip designers that rely on TSMC for 16nm-and-below production now need a US export license or exemption before orders can be filled; without one, the report says they are confined to 28nm/40nm-class nodes and lose access to the high-bandwidth memory required for AI data-center hardware. The shift from TSMC self-assessing exemptions to requiring customers to apply in advance also adds a compliance step before those firms can place advanced-node orders.
 
 **Tags**: `#semiconductors`, `#export-controls`, `#TSMC`, `#China`, `#AI-hardware`
 
 ---
 
-<a id="item-tech-news-4"></a>
-### [Zhejiang University reports first on-chip QRAM prototype with 80.9% accuracy](https://finance.sina.com.cn/stock/2026-11-21/doc-iniznhsk3530826.shtml) ⭐️ 8.0/10
+<a id="item-tech-news-5"></a>
+### [Zhejiang University reports first real-machine QRAM on superconducting chip](https://finance.sina.com.cn/stock/2026-11-21/doc-iniznhsk3530826.shtml) ⭐️ 8.0/10
 
-A Zhejiang University team reports it has demonstrated a quantum random access memory \(QRAM\) prototype on its own superconducting chip, &quot;Tianmu 2,&quot; described as the first real-machine implementation of the architecture and published in Nature Physics. The prototype retrieved 4-bit and 8-bit data with accuracies of 80.9% and 60.4%, respectively. The team says its circuit design cut line depth by more than 30% compared with an unoptimized scheme and that the experiment provided the first validation of the architecture&\#x27;s local noise resilience. The group&\#x27;s stated next step is scaling the QRAM design; the reported figures come from a brief secondary summary rather than an independent replication.
+Zhejiang University researchers report what is described as the first real-machine demonstration of quantum random-access memory \(QRAM\), using a prototype on their independently fabricated superconducting chip Tianmu 2 and published in Nature Physics. The device retrieved 4-bit and 8-bit data with 80.9% and 60.4% accuracy, respectively, while reducing circuit depth by more than 30% relative to an unoptimized scheme. The team also reports the first validation of local noise resistance for the architecture and says its next step is scaling QRAM research.
 
 telegram · zaihuapd · Nov 21, 08:31
 
-**「What QRAM is」** QRAM is a proposed form of quantum memory that would let an algorithm fetch stored data from addresses held in superposition, a capability assumed by many quantum algorithms that need fast random access to classical data. Building such memory on real hardware — rather than in proposal or simulation — has been the outstanding step, and the Zhejiang University team presents its Tianmu 2 experiment as the first real-machine implementation, published in Nature Physics.
+**「Background」** QRAM is a quantum memory intended to let a quantum computer fetch classical data efficiently; a Nature Physics paper describes it as a prerequisite for many quantum algorithms to achieve quantum speed-up. The Zhejiang University device uses a bucket-brigade QRAM architecture, an approach examined in Nature Physics in March 2026 and identified in a June 2026 report as the basis of this team’s four- and eight-bit demonstration.
 
-**「Impact」** The sharp drop from 80.9% to 60.4% accuracy as retrieval width doubles indicates that fidelity, not just qubit count, is the immediate bottleneck for anyone hoping to use QRAM as a memory layer in quantum algorithms. The reported &gt;30% reduction in circuit depth is the practically useful lever here, since shallower circuits are less exposed to decoherence on current superconducting hardware.
-
-**Tags**: `#quantum computing`, `#QRAM`, `#superconducting qubits`, `#hardware`, `#research`
-
----
-
-<a id="item-tech-news-5"></a>
-### [Levent Alpöge claims Claude-assisted proof of the Riemann Hypothesis](https://simonwillison.net/2026/Nov/20/levent-alpoge/) ⭐️ 7.0/10
-
-In a short note posted at alpo.ge/remark.pdf and quoted by Simon Willison on November 20, Levent Alpöge says he believes he has, working with Claude, discovered a proof of the Riemann Hypothesis. He states that the method &quot;easily extends&quot; to the Generalized Riemann Hypothesis and that he expects the Extended Riemann Hypothesis to fall with more time, and asserts that he and Claude formalized the arguments &quot;without assumptions.&quot; The item reproduces only that quotation: it supplies no proof sketch, no link to a formalization artifact, and no independent verification, so neither the mathematical claim nor the asserted formalization can be checked from the available material.
-
-rss · Simon Willison · Nov 20, 16:30
-
-**「Background」** Levent Alpöge is a mathematician known for work in number theory and arithmetic statistics, according to Wikipedia. The Riemann Hypothesis is a longstanding open conjecture about the zeros of the Riemann zeta function, and the Generalized Riemann Hypothesis extends the same question to a broader class of L-functions. Formalization means encoding a proof so that a proof assistant can machine-check its steps.
-
-**「Verification still required」** Mathematicians and formal-proof reviewers have no basis yet to rely on the claimed proof: the announcement provides no proof sketch, formal artifact, or independent check of the asserted assumption-free formalization. Any practical use should wait for expert verification of the formal argument.
+**「Impact」** For quantum-software developers, this remains a research prototype rather than usable memory: the 60.4% success rate for 8-bit retrieval means QRAM-dependent routines would need error mitigation or correction before they could rely on this hardware.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge">Levent Alpöge - Wikipedia</a></li>
+<li><a href="https://www.nature.com/articles/s41567-026-03218-2">A bucket-brigade quantum random access memory | Nature Physics</a></li>
+<li><a href="https://thequantuminsider.com/2026/06/05/chinese-scientists-demonstrate-quantum-random-access-memory-architecture-aimed-at-solving-data-bottleneck/">Chinese Scientists Demonstrate Quantum Random Access Memory ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI-assisted mathematics`, `#Riemann Hypothesis`, `#Claude`, `#formal verification`, `#unverified claim`
+**Tags**: `#quantum computing`, `#QRAM`, `#superconducting qubits`, `#research`, `#hardware`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [Microsoft previews RDMA over USB4 for multi-PC local AI on Windows](https://videocardz.com/newz/microsoft-brings-rdma-over-usb4-to-windows-allowing-multiple-pcs-to-run-one-local-ai-model) ⭐️ 7.0/10
+### [Levent Alpöge Claims Claude-Assisted Riemann Hypothesis Proof](https://simonwillison.net/2026/Nov/20/levent-alpoge/) ⭐️ 7.0/10
 
-Microsoft released a developer preview of RDMA over USB4 for Windows that lets multiple PCs share memory and GPU compute to run a single local AI model over ordinary USB4 connections, without a dedicated network card or switch. In a demonstration, three AMD Ryzen AI Max+ 395 systems ran Qwen3-235B-A22B at 4-bit quantization at about 18.5 tokens per second. The preview is being distributed through Windows Insider.
+Mathematician Levent Alpöge claims that, working with Claude, he discovered a proof of the Riemann Hypothesis and formalized the arguments without assumptions; he says the method extends to the Generalized Riemann Hypothesis and expects it to reach the Extended Riemann Hypothesis with more time. Simon Willison&\#x27;s post relays that claim from Alpöge&\#x27;s PDF but provides no proof, independent verification, or technical detail. The excerpt does not name the Claude model, link a formal proof artifact, or report peer review. It should therefore be read as an unverified claim, not an established mathematical or AI-assisted result.
 
-telegram · zaihuapd · Nov 21, 06:13
+rss · Simon Willison · Nov 20, 16:30
 
-**「Background」** RDMA \(remote direct memory access\) lets one machine read and write another machine&\#x27;s memory without the remote CPU or operating system mediating each transfer, which is why it is used for tightly coupled workloads such as distributed inference. It has traditionally required specialised network hardware — InfiniBand or RDMA-capable Ethernet with switches. USB4 tunnels PCIe, so peer-to-peer memory access can in principle run over an ordinary consumer cable, which is the mechanism this preview puts to use.
+**「Background」** The Riemann Hypothesis is the longstanding conjecture that every nontrivial zero of the Riemann zeta function has real part 1/2 — a statement whose proof would settle many open questions about how the primes are distributed. Alpöge describes the argument as formalized &quot;without assumptions&quot; in Lean, a proof assistant that checks each inference mechanically, so a complete formalization can in principle be validated by compiling the code rather than only by referees reading a paper; a third-party mirror of the Lean development has also been posted.
 
-**「Impact」** Developers with USB4-equipped PCs can experiment with distributed local inference using Windows Insider builds rather than specialized networking hardware, though the demonstrated throughput is modest and the setup remains an early preview.
+**「Verification burden」** Mathematicians assessing the claim should focus on the claimed assumption-free formalization, since a machine-checkable proof—not the prose announcement—is what independent reviewers can audit. The excerpt provides no proof artifact, repository, or independent confirmation, so the result remains a claim until that formalization is checked.
 
-**Tags**: `#RDMA over USB4`, `#distributed inference`, `#local AI`, `#Windows`, `#AMD Ryzen AI Max+`
+<details><summary>References</summary>
+<ul>
+<li><a href="https://alpo.ge/remark.pdf">The Riemann Hypothesis is the classic problem in number theory.</a></li>
+<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">CocoSgt/ riemann - hypothesis -lean: Mirror of Levent Alpöge &#x27;s Lean...</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI-assisted mathematics`, `#Riemann Hypothesis`, `#Claude`, `#formal verification`, `#research claims`
 
 ---
 
 <a id="item-tech-news-7"></a>
-### [OpenRouter warns MiniMax prompts may have been read by third parties](https://news.ycombinator.com/item?id=50585962) ⭐️ 7.0/10
+### [Microsoft previews RDMA over USB4 to pool multiple PCs for local AI](https://videocardz.com/newz/microsoft-brings-rdma-over-usb4-to-windows-allowing-multiple-pcs-to-run-one-local-ai-model) ⭐️ 7.0/10
 
-OpenRouter has reportedly emailed users warning that prompts sent to MiniMax models may have been read by third parties, and it removed the “zero-data-retention” label from affected endpoints. Security researchers sent prompts containing test URLs to MiniMax models between July and October 2026; third parties accessed those URLs 40 to 130 hours later, according to the notice. OpenRouter attributed the problem to MiniMax and its forwarding providers AtlasCloud, Novita and StreamLake, and advised users who may have exposed sensitive credentials to rotate API keys and passwords. The details come from a secondary Telegram summary; OpenRouter had not published related information on its website at the time, so the scope and mechanism remain unconfirmed.
+Microsoft released a Windows developer preview of RDMA over USB4, which lets multiple PCs share memory and GPU compute to run a single local AI model over ordinary USB4 connections, without dedicated network cards or switches. In the demonstrated setup, three AMD Ryzen AI Max+ 395 systems running Qwen3-235B-A22B at 4-bit quantization produced roughly 18.5 tokens per second. The preview is slated to ship through the Windows Insider program, so it is not yet a generally available capability. The source did not detail supported Windows builds, hardware requirements, or performance beyond the three-machine example.
 
-telegram · zaihuapd · Nov 21, 06:53
+telegram · zaihuapd · Nov 21, 06:13
 
-**「Context」** OpenRouter routes API requests to multiple model providers and attaches data-retention labels to endpoints, including a zero-data-retention designation. Such a label is meant to signal that prompts are not retained, a key consideration for developers sending credentials or other sensitive data through third-party LLM APIs.
+**「Background」** RDMA \(Remote Direct Memory Access\) lets one computer access another device&\#x27;s memory directly, bypassing the CPU and reducing overhead for distributed workloads. Microsoft&\#x27;s preview applies that mechanism over USB4, allowing multiple Windows PCs to share memory and GPU resources without a dedicated network card or switch.
 
-**「Impact」** Users who chose MiniMax endpoints specifically because they carried OpenRouter&\#x27;s Zero Data Retention label can no longer treat those routes as no-storage: the label was removed, and OpenRouter&\#x27;s own documentation defines ZDR as no routine storage of prompts or responses after processing. Because the suspected exposure is historical — test URLs were fetched 40 to 130 hours after the prompts were sent, per the notice — rotating API keys and any credentials that appeared in past prompts is the remediation step the report attributes to OpenRouter, rather than a precaution against future requests only.
+**「What It Means」** Windows developers in the Insider program can test distributed local inference by linking USB4-equipped PCs, without a dedicated RDMA network card or switch. The capability remains a developer preview, and the supplied example—three Ryzen AI Max+ 395 systems running 4-bit Qwen3-235B-A22B at about 18.5 token/s—does not establish production performance or support on other hardware.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://openrouter.ai/docs/guides/features/zdr">Zero Data Retention - How OpenRouter gives you control over your...</a></li>
+<li><a href="https://habr.com/ru/articles/1110636/">Microsoft представила решение на базе USB 4 и RDMA для... / Хабр</a></li>
 
 </ul>
 </details>
+
+**Tags**: `#RDMA`, `#USB4`, `#Windows`, `#local AI`, `#distributed inference`
+
+---
+
+<a id="item-tech-news-8"></a>
+### [OpenRouter: MiniMax model prompts may have been read by third parties](https://news.ycombinator.com/item?id=50585962) ⭐️ 7.0/10
+
+OpenRouter emailed users warning that request content sent to MiniMax models may have been accessed by third parties, according to a secondary Telegram report. Security researchers sent prompts containing test URLs to MiniMax models between July and October 2026, and third parties visited those URLs 40 to 130 hours later. OpenRouter attributed the problem to MiniMax and its forwarding providers AtlasCloud, Novita and StreamLake, removed the &quot;zero data retention&quot; label from the affected endpoints, and advised users who may have exposed sensitive credentials to rotate API keys and passwords. No corresponding notice had been published on OpenRouter&\#x27;s website at the time of the report, and the disclosure has not been independently confirmed.
+
+telegram · zaihuapd · Nov 21, 06:53
+
+**「Background」** OpenRouter acts as a routing layer between API customers and multiple model providers, so a provider-side data-handling problem can affect users who never contract directly with that provider. A “zero data retention” label on a model endpoint is a routing-level signal that prompts and outputs are not retained; removing it means users can no longer treat that endpoint as suitable for sensitive inputs.
+
+**「Credential exposure risk」** OpenRouter users who sent confidential prompts to MiniMax models via AtlasCloud, Novita, or StreamLake can no longer treat those requests as covered by a zero-data-retention guarantee, because OpenRouter has removed the label from the affected endpoints. The notice advises anyone who included sensitive credentials in such prompts to rotate the related API keys and passwords.
 
 **Tags**: `#AI security`, `#privacy`, `#OpenRouter`, `#MiniMax`, `#API security`
 
@@ -171,17 +206,17 @@ telegram · zaihuapd · Nov 21, 06:53
 ## Technology Blog
 
 <a id="item-tech-blog-1"></a>
-### [Output Caching Misses Most LLM Agent Tokens](https://seangoedecke.com/why-output-caching-doesnt-work/) ⭐️ 6.0/10
+### [Why Caching LLM Outputs Saves Little](https://seangoedecke.com/why-output-caching-doesnt-work/) ⭐️ 6.0/10
 
 rss · Sean Goedecke · Nov 21, 00:00
 
-**「Background」** Input caching is a standard LLM cost optimization: it avoids recomputing the conversation history on every turn. It is tempting to treat repeated output the same way, since agents often restate code snippets, evidence documents, or sample model outputs that the user could otherwise look up.
+**「Background」** LLM inference already relies on caching inputs, typically in the KV cache, so the full conversation history is not recomputed on every turn. Sean Goedecke asks whether outputs should be cached similarly, given that agents often repeat code, evidence, or sample results, and output tokens are more expensive because they are generated sequentially.
 
-**「Solution」** The author considers having models emit references to files or earlier conversation segments instead of repeating them, with the harness expanding those references for the user. But this only optimizes visible output. From his own agent histories, he estimates that visible output is about 6% of output tokens, while reasoning tokens are about 50% and tool calls about 44%. Amdahl&\#x27;s law then caps the gain: even saving two-thirds of visible output, an optimistic estimate, would cut only about 4% of total output tokens. The larger target is the invisible 94%, which the author argues depends mainly on model intelligence: smarter models need fewer reasoning tokens and tool calls. That explains why a model charging 5x more per token can be cheaper overall if it reaches the answer with 6x fewer tokens. The author flags the visible-token estimate and the claim that frontier models rarely repeat themselves internally as personal, moderately confident judgments rather than measured facts.
+**「Solution」** One approach would be to fine-tune or prompt a model to emit references such as file line ranges or conversation segments, with the harness expanding them transparently. Goedecke argues this is not worthwhile because it only optimizes visible output. In his own agent histories, visible output is about 6% of output tokens, while 50% are reasoning tokens and 44% are tool calls. By Amdahl&\#x27;s law, even saving two-thirds of visible output would cut only about 4% of total output tokens. He suspects internal chain-of-thought rarely repeats itself, though he is only moderately confident and wonders whether tool calls sometimes duplicate content. Real savings must come from the invisible 94%, which depends largely on model intelligence and harness quality: a model that costs 5x more per token can be cheaper overall if it needs 6x fewer tokens. Speculative decoding may already exploit some repetition for speed.
 
-**「Takeaway」** Output caching is a poorly aimed LLM cost optimization because most output tokens are invisible reasoning and tool calls, not repeatable visible text. The author&\#x27;s broader point is that reducing output cost depends more on model intelligence and fewer tokens than on caching repetition.
+**「Takeaway」** Output caching targets a small visible fraction of model output, so its savings are sharply limited. The larger economic lever is reducing reasoning and tool-call tokens through smarter models and better harnesses, which makes per-token price a poor proxy for total cost.
 
-**Tags**: `#LLM inference economics`, `#output caching`, `#LLM agents`, `#Amdahl&\#x27;s law`, `#token cost optimization`
+**Tags**: `#LLM inference`, `#caching`, `#token economics`, `#Amdahl&\#x27;s law`, `#AI agents`
 
 ---
 
@@ -190,40 +225,14 @@ rss · Sean Goedecke · Nov 21, 00:00
 <a id="item-finance-news-1"></a>
 ### [Fed officials speak more as Warsh withholds rate guidance](https://www.cnbc.com/2026/11/20/warsh-fed-forward-guidance-rate-hikes.html) ⭐️ 7.0/10
 
-Federal Reserve officials have offered more public commentary in the past two weeks than in any comparable period since the start of 2025, according to a Bank of America analysis, as the FOMC splits over rate hikes and Chair Kevin Warsh avoids forward guidance. Traders are pricing a 100% chance of at least a quarter-point hike at the December meeting, according to CME Group&\#x27;s FedWatch.
+Federal Reserve officials are speaking more often about rate increases, with Cleveland Fed President Beth Hammack having dissented in October in favor of a quarter-point hike and Governor Christopher Waller raising the possibility of a half-point move in December, while Chairman Kevin Warsh avoids forward guidance. Bank of America said the past two weeks brought more Fed commentary than any comparable period since the start of 2025.
 
 rss · CNBC Finance · Nov 20, 21:10
 
-**「Background」** Warsh has argued that forward guidance—publicly signaling where interest rates are headed—creates unnecessary market dependency and reduces the Fed’s flexibility to change course. The Fed’s October decision to leave rates unchanged, and minutes showing some hike supporters would have accepted that only with clear signals of further tightening, made his no-guidance stance a focus of the current debate.
+**「Background」** Warsh argues that forward guidance—public signals about future policy—can lock policymakers in before they must decide; Bank of America analysts say his refusal to guide markets may instead be encouraging other FOMC members to speak more forcefully.
 
-<details><summary>References</summary>
-<ul>
-<li><a href="https://cryptorank.io/news/feed/eea2b-kevin-warsh-rejects-forward-guidance">Kevin Warsh Stuns Markets: Fed Chair Nominee Rejects Forward ...</a></li>
-
-</ul>
-</details>
+**「Impact」** Traders are pricing a 100% chance of at least a quarter-point rate increase in December, according to CME Group’s FedWatch, which would raise borrowing costs for households and businesses with variable-rate debt if the Fed follows through.
 
 **Tags**: `#Federal Reserve`, `#monetary policy`, `#interest rates`, `#FOMC communication`, `#forward guidance`
-
----
-
-<a id="item-finance-news-2"></a>
-### [Trump Backs Lutnick Amid Nvidia China Chip Scrutiny, Seeks Huang Apology](https://www.reuters.com/world/us/trump-says-he-still-backs-lutnick-urges-nvidias-huang-apologize-2026-11-20/) ⭐️ 7.0/10
-
-President Trump said on Nov. 20 that he still backs Commerce Secretary Lutnick over his handling of Nvidia&\#x27;s China chip sales, and said he hopes Jensen Huang—described in the report as having resigned as Nvidia CEO—will apologize and return. Trump said he discussed the matter with Xi Jinping, an account the report says conflicts with Treasury Secretary Bessent&\#x27;s statement that the call did not involve Huang.
-
-telegram · zaihuapd · Nov 21, 05:03
-
-**「Background」** Nvidia CEO Jensen Huang resigned effective immediately on Nov. 12, 2026, after reports of extramarital affairs, creating the leadership turmoil referenced in Trump’s remarks; Howard Lutnick has served as U.S. commerce secretary since 2025.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://apnews.com/article/nvidia-jensen-huang-resigns-ceo-affairs-314714d463cf578cbb0dbd49de903107">What we know after Jensen Huang resigns as Nvidia CEO</a></li>
-<li><a href="https://en.m.wikipedia.org/wiki/Howard_Lutnick">Howard Lutnick - Wikipedia</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#Nvidia`, `#US-China chip policy`, `#Commerce Department`, `#executive resignation`, `#Trump administration`
 
 ---
