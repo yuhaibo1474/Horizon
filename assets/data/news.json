@@ -1,84 +1,37 @@
 {
   "date": "2026-11-28",
-  "generated_at": "2026-11-28T08:53:19.460260+00:00",
-  "total_fetched": 30,
-  "item_count": 7,
+  "generated_at": "2026-11-28T09:10:56.862319+00:00",
+  "total_fetched": 74,
+  "item_count": 14,
   "items": [
     {
-      "id": "telegram:zaihuapd:45408",
-      "source_type": "telegram",
-      "category": null,
-      "feed_name": null,
-      "subreddit": null,
-      "channel": "zaihuapd",
-      "screen_name": null,
-      "author": "zaihuapd",
-      "url": "https://opensec.in/blog/nfs2root-cve-2026-99362",
-      "published_at": "2026-11-27T12:57:36+00:00",
-      "score": 9.0,
-      "tags": [
-        "Linux kernel",
-        "NFS",
-        "security vulnerability",
-        "CVE",
-        "remote exploit"
-      ],
-      "title": {
-        "zh": "OpenSec 披露 Linux nfsd 9.8 分预认证漏洞 CVE-2026-99362",
-        "en": "OpenSec Discloses CVSS 9.8 Pre-Auth Root Flaw in Linux NFS Server"
-      },
-      "summary": {
-        "zh": "OpenSec 披露 Linux 内核 NFS 服务器组件 nfsd 的预认证堆溢出漏洞 CVE-2026-99362，CVSS 评分 9.8：攻击者无需登录，仅向 tcp/2049 发送一条连接即可触发越界写入并获取 root shell。该漏洞自 2014 年的 Linux 3.16 起存在，影响启用 NFSv4.1 或 4.2 的文件服务器、NAS 和集群存储节点。修复已在 6.12.117、6.18.61、7.3.2 和 7.4-rc1 中发布，需升级内核并重启；无法立即升级者可限制 tcp/2049 访问。CVE 于 2026 年 11 月 20 日公开，上述信息目前来自 OpenSec 的单一披露，尚需与 CVE 公告交叉核实。",
-        "en": "OpenSec disclosed CVE-2026-99362, a pre-authentication heap overflow in the Linux kernel's nfsd server rated CVSS 9.8, which the firm says lets an unauthenticated attacker obtain a root shell with a single connection to tcp/2049 by writing out of bounds on the kernel heap. According to the report, the flaw has existed since Linux 3.16 in 2014 and affects hosts running NFSv4.1 or NFSv4.2, including file servers, NAS devices and clustered storage nodes. Fixes shipped in kernel releases 6.12.117, 6.18.61, 7.3.2 and 7.4-rc1 and require upgrading and rebooting the kernel. The CVE was published on November 20, 2026; the disclosure comes from a single source, so the details should be checked against the official CVE advisory."
-      },
-      "references": [
-        {
-          "title": "NFS2ROOT ( CVE - 2026 - 99362 ) on CentOS 7: Fixed Kernel",
-          "url": "https://www.getpagespeed.com/server-setup/security/nfs2root-cve-2026-99362-centos-7"
-        },
-        {
-          "title": "New NFS2ROOT Linux flaw can let attackers gain root privileges",
-          "url": "https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/"
-        }
-      ]
-    },
-    {
-      "id": "hackernews:story:50674218",
-      "source_type": "hackernews",
-      "category": null,
-      "feed_name": null,
+      "id": "rss:search.cnbc.com_rs_search_combinedcms_view.xml?partnerId=wrss01&id=10000664:18f0a76e105d90c8",
+      "source_type": "rss",
+      "category": "finance",
+      "feed_name": "CNBC Finance",
       "subreddit": null,
       "channel": null,
       "screen_name": null,
-      "author": "nreece",
-      "url": "https://unkernel.dev/",
-      "published_at": "2026-11-28T03:19:20+00:00",
-      "score": 8.0,
+      "author": "CNBC Finance",
+      "url": "https://www.cnbc.com/2026/11/26/semiconductor-chips-are-the-new-oil-heres-why.html",
+      "published_at": "2026-11-26T17:52:15+00:00",
+      "score": 9.0,
       "tags": [
-        "WebAssembly",
-        "Linux kernel",
-        "browser computing",
-        "virtualization",
-        "systems engineering"
+        "semiconductors",
+        "AI infrastructure",
+        "global trade",
+        "market volatility",
+        "Deutsche Bank"
       ],
       "title": {
-        "zh": "Unkernel 将真实 Linux 内核编译为 WebAssembly",
-        "en": "Unkernel demonstrates a real Linux kernel compiled to WebAssembly"
+        "zh": "德银：半导体出口额首次超过石油和天然气",
+        "en": "Chip exports overtake oil and gas in global trade value for first time"
       },
       "summary": {
-        "zh": "Unkernel 在 Hacker News 上公开了一个演示：把真实 Linux 内核编译为 WebAssembly，目标是让 Linux 环境直接在浏览器中运行。当前公开信息仅有项目页面和讨论，未说明内核版本、性能数据、浏览器兼容范围或发布状态，因此应将其视为技术演示，而非已可评估的产品能力。对关注浏览器内 Linux 环境的用户而言，可验证的进展是内核被编译到 WebAssembly 这一事实，而不是完整的可用性承诺。",
-        "en": "Unkernel (unkernel.dev), posted to Hacker News, demonstrates a real Linux kernel compiled to WebAssembly, an approach aimed at running Linux environments directly in the browser. The submission provides limited technical detail: no kernel version, build configuration, performance measurements, or release and support status were supplied. It is therefore best treated as a demonstration rather than a shipped, supported capability."
+        "zh": "据德意志银行对国际贸易中心数据的分析，按四季度滚动总额计算，2026年第一季度半导体出口额首次超过石油和天然气，约为1.61万亿美元，油气约为1.53万亿美元。",
+        "en": "Semiconductor exports overtook oil and gas in global export value for the first time in the January–March quarter of 2026, reaching about $1.61 trillion compared with $1.53 trillion on a four-quarter rolling basis, according to a Deutsche Bank analysis of International Trade Centre data."
       },
-      "references": [
-        {
-          "title": "pithings/ unkernel : A real Linux kernel , compiled to WebAssembly .",
-          "url": "https://github.com/pithings/unkernel"
-        },
-        {
-          "title": "Real Linux terminal in your browser (v86 + WebAssembly )",
-          "url": "https://linuxontab.com/shell/"
-        }
-      ]
+      "references": []
     },
     {
       "id": "hackernews:story:50672565",
@@ -91,21 +44,21 @@
       "author": "ComputedCamp995",
       "url": "https://research.google/blog/supercharging-transformer-residual-connections/",
       "published_at": "2026-11-27T23:06:29+00:00",
-      "score": 7.0,
+      "score": 8.0,
       "tags": [
-        "transformers",
-        "deep-cross-attention",
-        "model-architecture",
-        "training-efficiency",
-        "Google Research"
+        "DeepCrossAttention",
+        "Transformer Architecture",
+        "Model Efficiency",
+        "Google Research",
+        "Machine Learning"
       ],
       "title": {
-        "zh": "Google DeepCrossAttention：质量相当，最高 3 倍加速",
-        "en": "Google Research's DeepCrossAttention reports comparable quality at up to 3x speed"
+        "zh": "Google Research 的 DeepCrossAttention 宣称最高提速 3 倍",
+        "en": "Google Research claims DeepCrossAttention matches quality up to 3x faster"
       },
       "summary": {
-        "zh": "Google Research 发布博客介绍了 DeepCrossAttention（DCA）：它把注意力从序列内的 token 扩展到层与层之间，让每个 token 对先前各层的嵌入做动态加权组合，目标是避免传统注意力在扩展时带来的计算开销。该博客声称，DCA 能在模型质量相当的情况下实现最高 3 倍加速。目前相关证据来自谷歌研究博客，而非同行评审论文或独立复现；对训练和部署 transformer 的研究者与工程师而言，关键问题是这一加速能否在真实工作负载中重现。",
-        "en": "Google Research's DeepCrossAttention (DCA) changes transformer attention to operate across layers in depth: each token queries a dynamically weighted mix of prior-layer embeddings rather than attending only across tokens in a sequence. The research blog reports comparable model quality with up to 3x faster performance, and says retrofitting DCA onto an already pretrained transformer with brief continued training reduced perplexity by 0.19 on LM1B, versus 0.02 for continued standard training. These are blog-level, vendor-reported results rather than a peer-reviewed or independently verified benchmark, so the headline speedup and quality parity should be treated as claims."
+        "zh": "Google Research 在博客中提出 DeepCrossAttention（DCA），这是一种改造 transformer 残差连接和注意力的方法。Google 声称，在模型质量相当的情况下，DCA 最高可快 3 倍；把 DCA 加装到已预训练的 transformer 后，它还能带来小幅困惑度改善。该方案面向希望提升 transformer 模型效率、又不想完全重训模型的研究者和工程团队。相关速度和困惑度数字来自 Google 的博客自述，目前尚无独立复现或大规模部署结果。",
+        "en": "Google Research's blog post describes DeepCrossAttention (DCA), a transformer residual-connection and attention technique it claims can deliver comparable model quality with up to 3x speedups, plus modest perplexity gains when retrofitted onto pretrained transformers. These are the authors' claims from a research blog, not an independently verified benchmark or a shipped library change. The supplied material does not specify which model sizes, workloads, or hardware configurations the speedup applies to."
       },
       "references": [
         {
@@ -117,96 +70,167 @@
           "url": "https://arxiv.org/html/2502.06785"
         },
         {
-          "title": "DeepCrossAttention : Supercharging Transformer Residual ...",
-          "url": "https://www.alphaxiv.org/overview/2502.06785v1"
-        },
-        {
-          "title": "Google's DeepCrossAttention achieves comparable model quality ...",
-          "url": "https://news.ycombinator.com/item?id=50672565"
-        },
-        {
-          "title": "[2502.06785] DeepCrossAttention : Supercharging Transformer ...",
-          "url": "https://arxiv.org/abs/2502.06785"
+          "title": "DeepCrossAttention: Supercharging Transformer Residual Connections",
+          "url": "/url?opi=89978449&q=CAESZQHEIkXXbYaTDWzWzwmsI_YSNE4E-LpGEt6fVQlkIBjxgqNwS0Vz7kuhhStqNSaKk7yZdLukE6k89jX-wthIWiz6WmGcLgJF8MfIN8iVmeFtjrRtiHqWRZfZLnc-Xaui4EPBjjKP&sa=U&uoh=3&ved=2ahUKEwiP4rezqKqYAxV2C0QIHWZqOSkQFnoECAwQAg&usg=AOvVaw2K0TBEZsgJ9-vIGU6gC2a4"
         }
       ]
     },
     {
-      "id": "hackernews:story:50670855",
+      "id": "telegram:zaihuapd:45408",
+      "source_type": "telegram",
+      "category": null,
+      "feed_name": null,
+      "subreddit": null,
+      "channel": "zaihuapd",
+      "screen_name": null,
+      "author": "zaihuapd",
+      "url": "https://opensec.in/blog/nfs2root-cve-2026-99362",
+      "published_at": "2026-11-27T12:57:36+00:00",
+      "score": 8.0,
+      "tags": [
+        "Linux kernel",
+        "NFS",
+        "security vulnerability",
+        "remote exploit",
+        "CVE"
+      ],
+      "title": {
+        "zh": "OpenSec 披露 Linux nfsd 预认证堆溢出漏洞 CVE-2026-99362",
+        "en": "OpenSec reports 9.8 CVSS pre-auth root flaw in Linux nfsd"
+      },
+      "summary": {
+        "zh": "OpenSec 报告称，Linux 内核 NFS 服务器 nfsd 存在预认证堆溢出漏洞 CVE-2026-99362，CVSS 评分 9.8；攻击者无需登录，向 tcp/2049 发送一条连接即可越界写入内核堆并获取 root shell。据该报告，漏洞自 2014 年的 Linux 3.16 起存在，影响启用 NFSv4.1 或 4.2 的主机，包括文件服务器、NAS 和集群存储节点。修复已在 6.12.117、6.18.61、7.3.2 和 7.4-rc1 发布，需升级内核并重启；无法立即升级者可限制 tcp/2049 访问。CVE 于 2026 年 11 月 20 日公开，但该消息目前仅来自 Telegram 转发，尚待独立核实。",
+        "en": "OpenSec reports CVE-2026-99362, a pre-authentication heap overflow in Linux's nfsd server rated CVSS 9.8: a single connection to tcp/2049 can write out of bounds in the kernel heap and yield a root shell. The flaw is said to have existed since Linux 3.16 in 2014 and to affect hosts with NFSv4.1 or 4.2 enabled, including file servers, NAS devices, and clustered storage nodes. Fixes are listed in Linux 6.12.117, 6.18.61, 7.3.2, and 7.4-rc1; administrators must upgrade and reboot, or restrict tcp/2049 at the firewall if immediate upgrades are not possible. The CVE was disclosed on November 20, 2026."
+      },
+      "references": [
+        {
+          "title": "NFS 2ROOT ( CVE - 2026 - 99362 ): pre-auth root in Linux nfsd | OpenSec",
+          "url": "https://opensec.in/blog/nfs2root-cve-2026-99362"
+        },
+        {
+          "title": "NFS 2ROOT ( CVE - 2026 - 99362 ) on CentOS 7: Fixed Kernel",
+          "url": "https://www.getpagespeed.com/server-setup/security/nfs2root-cve-2026-99362-centos-7"
+        },
+        {
+          "title": "New NFS 2ROOT Linux flaw can let attackers gain root privileges",
+          "url": "https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/"
+        },
+        {
+          "title": "NFS 2 ROOT ( CVE - 2026 - 99362 ) on CentOS 7: Fixed Kernel",
+          "url": "https://www.getpagespeed.com/server-setup/security/nfs2root-cve-2026-99362-centos-7"
+        }
+      ]
+    },
+    {
+      "id": "telegram:zaihuapd:45413",
+      "source_type": "telegram",
+      "category": null,
+      "feed_name": null,
+      "subreddit": null,
+      "channel": "zaihuapd",
+      "screen_name": null,
+      "author": "zaihuapd",
+      "url": "https://www.zaikei.co.jp/article/20261119/878386.html",
+      "published_at": "2026-11-27T18:04:49+00:00",
+      "score": 8.0,
+      "tags": [
+        "Minecraft Bedrock",
+        "security vulnerability",
+        "resource packs",
+        "malware",
+        "patch"
+      ],
+      "title": {
+        "zh": "《我的世界》基岩版资源包漏洞影响 26.52–26.63，26.65 已修复",
+        "en": "Minecraft Bedrock 26.52–26.63 resource-pack flaw fixed in 26.65"
+      },
+      "summary": {
+        "zh": "《我的世界》基岩版被确认受资源包漏洞影响的范围为 26.52 至 26.63，更早版本也可能受影响：含 content.zipe 的资源包可修改 Ore UI 界面文件并运行隐藏脚本，覆盖 PC、手机和主机，Java 版不受影响。该问题由附加组件开发者 8Crafter 于 11 月 15 日在 Reddit 公开；当玩家加入服务器或 Realm 且开启资源包自动下载时，可能无需手动安装就收到问题文件。8Crafter 列举的利用方式包括删除存档、获取玩家 IP，以及在 Windows 上无提示打开任意 URI 并启动资源包内批处理文件下载恶意软件；Mojang 已在 26.65 版修复，AxmBro 发布的 Windows 只读检测工具可查找 content.zipe，但不能判断资源包是否恶意。",
+        "en": "Minecraft Bedrock versions 26.52 through 26.63 were affected by a resource-pack vulnerability that let packs containing a `content.zipe` file modify Ore UI interface files and run hidden scripts, according to developer 8Crafter, who disclosed the issue on Reddit on November 15; earlier versions may also be affected. The issue covers PC, mobile, and console, while Java Edition is unaffected. On servers or Realms with automatic resource-pack downloads enabled, players could receive an affected pack without manually installing it; 8Crafter listed deletion of all saves, retrieval of a player's IP, and, on Windows under specific conditions, silently opening arbitrary URIs or launching batch files from the pack to download malware. Mojang fixed the flaw in version 26.65, and AxmBro released a read-only Windows detection tool that finds `content.zipe` but cannot determine whether a pack is malicious."
+      },
+      "references": [
+        {
+          "title": "Ore UI Customizer - 8Crafter",
+          "url": "/url?opi=89978449&q=CAEScAHEIkXXb4fGmN2Wf3iIog5rGIDNszekqc0Lh7ybU7mSl-78xcyr_S8qQqihH_Td_AYQwAUN4ZBZP49CB584jCzEzjjm_MCe_Hf9_UuptssQps17iGbJjoaZ_mDkqD_m5M3ZqlyX8boNfRq9A46TNdk&sa=U&uoh=3&ved=2ahUKEwj68tOyqKqYAxV7J0QIHT1oHmIQFnoECAcQAg&usg=AOvVaw3JaCpDp0R9ICQjiuBDzOSa"
+        },
+        {
+          "title": "Minecraft Bedrock Malware Flaw: Update, Scan, Back Up",
+          "url": "/url?opi=89978449&q=CAESiQEBxCJF126jGOSVhH0oJqdDB6_AOI2q-xbfyS1bkpwUH6f7r9hW7E_6Wf74E1PfKvWY0rLskmoxPM4jOmAJK9kUufnTrZuY0QT4N3vssal9BXcDVQ4JUa5EYsOuD-eUu4NSd5Txfic89cMc8qSC3JdMyfiRSmctWIngBCxSlJG-Y1JMz1D13DD1jQ&sa=U&uoh=3&ved=2ahUKEwjT0uGzqKqYAxUJEUQIHd3WKI8QFnoECAoQAg&usg=AOvVaw0rL4aWK--tdLRyFMCOMx-F"
+        },
+        {
+          "title": "Minecraft Bedrock 26.65 Fixes Hidden Resource Pack Malware Flaw",
+          "url": "/url?opi=89978449&q=CAESkQEBxCJF11J-9oHRmQLN0qDL2g7s5_DIAn0q-3bk-WB3igoSlQv2WruUt9Vh5JO0YUZWlGJjSzMB4x8h4sTCTQ2fTQfARDPLNDtdwUM5RwOF2V0NqtQn0F-QQBNkYr1WcR94GsEndEaBne8OT1-PwIr1teiQf5AjzuRXfHf4ZyxSeMDRxkPT-cgjd1tOpbc2aOtP&sa=U&uoh=3&ved=2ahUKEwjT0uGzqKqYAxUJEUQIHd3WKI8QFnoECAwQAg&usg=AOvVaw3ZRCOcivRzLRexBXJwSS6K"
+        }
+      ]
+    },
+    {
+      "id": "telegram:zaihuapd:45406",
+      "source_type": "telegram",
+      "category": null,
+      "feed_name": null,
+      "subreddit": null,
+      "channel": "zaihuapd",
+      "screen_name": null,
+      "author": "zaihuapd",
+      "url": "https://www.news.cn/fortune/20261127/70789d77822242cc82216f51a416f872/c.html",
+      "published_at": "2026-11-27T11:36:12+00:00",
+      "score": 7.0,
+      "tags": [
+        "China banking regulation",
+        "large-denomination CDs",
+        "deposit rates",
+        "central bank policy",
+        "savers"
+      ],
+      "title": {
+        "zh": "央行发布大额存单新规：个人认购起点降至10万元",
+        "en": "China's Central Bank Lowers Individual Minimum for Large CDs to 100,000 Yuan"
+      },
+      "summary": {
+        "zh": "中国人民银行11月27日公布《大额存单管理办法》，将个人投资人认购起点定为不低于10万元、机构投资人为不低于500万元，两项门槛均比2015年暂行办法规定的20万元和1000万元下调一半，新规自2027年3月21日起施行，同时废止2015年暂行办法和2016年第13号公告。同日公布的《人民币存贷款利率管理规定》也自同日起施行，要求金融机构自主确定存贷款利率，不得以高息揽储等不正当手段吸收存款。",
+        "en": "The People's Bank of China published new rules on November 27 cutting the individual minimum purchase for large-denomination certificates of deposit to 100,000 yuan and the institutional minimum to 5 million yuan, down from 200,000 yuan and 10 million yuan respectively under the 2015 interim rules. The measures take effect March 21, 2027, alongside a separate central-bank regulation requiring banks to set deposit and loan rates independently rather than luring deposits with unjustifiably high interest."
+      },
+      "references": []
+    },
+    {
+      "id": "hackernews:story:50674218",
       "source_type": "hackernews",
       "category": null,
       "feed_name": null,
       "subreddit": null,
       "channel": null,
       "screen_name": null,
-      "author": "DeepLogin",
-      "url": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform",
-      "published_at": "2026-11-27T19:42:25+00:00",
+      "author": "nreece",
+      "url": "https://unkernel.dev/",
+      "published_at": "2026-11-28T03:19:20+00:00",
       "score": 7.0,
       "tags": [
-        "AI safety",
-        "generative AI",
-        "regulation",
-        "xAI/Grok",
-        "platform liability"
+        "WebAssembly",
+        "Linux kernel",
+        "browser virtualization",
+        "systems programming",
+        "education"
       ],
       "title": {
-        "zh": "多州总检察长起诉 SpaceX，要求阻止 Grok 生成儿童性虐待图像",
-        "en": "State attorneys general sue SpaceX over Grok's alleged CSAM and revenge-porn output"
+        "zh": "Unkernel：将真实 Linux 内核编译为 WebAssembly",
+        "en": "Unkernel compiles a real Linux kernel to WebAssembly for browsers"
       },
       "summary": {
-        "zh": "弗吉尼亚州总检察长办公室发布新闻稿称，多州总检察长已对 SpaceX 提起诉讼，要求阻止 xAI 的 Grok 生成儿童性虐待材料和未经同意的私密影像（报复式色情）。这起诉讼试图让 xAI 和作为被告的 SpaceX 对 Grok 的输出承担责任，而不只是由输入提示词的用户承担。可用材料未披露参与州数、具体诉由、寻求的禁令范围或开庭时间，因此目前只能确认诉讼已被宣布，尚不能确认法院是否会支持请求。",
-        "en": "Attorneys General Jones and Rayfield filed a lawsuit against SpaceX, described in the announcement as the parent company of xAI and its Grok chatbot, over the creation and promotion of child sexual abuse material and non-consensual intimate imagery on the platform. The release frames the action as targeting both the generation of such images and the platform's role in promoting them. The supplied material contains only the announcement headline and summary, so the specific legal claims, the number of states joining, the court, and any requested remedies are not established here. The allegations are accusations filed in a complaint, not findings of liability."
+        "zh": "Unkernel 是一个把真实 Linux 内核编译为 WebAssembly 并在浏览器中运行的项目，面向需要在网页环境里使用 Linux 的开发者与学习者。现有材料没有披露内核版本、浏览器兼容范围、性能数据或发布状态，因此其可用范围和成熟度仍不明确。",
+        "en": "Unkernel is presented as a real Linux kernel compiled to WebAssembly for execution in a browser. The available listing does not provide the kernel version, performance measurements, browser compatibility, licensing, or whether the project is a working release or an experimental demo. It also gives no details on how the kernel handles hardware access or I/O inside the browser."
       },
       "references": [
         {
-          "title": "SpaceX sued by 2 states over AI deepfake porn , Grok safety claims",
-          "url": "https://www.cnbc.com/2026/11/23/oregon-virginia-spacex-grok-deepfake-lawsuits.html"
+          "title": "unkernel",
+          "url": "https://unkernel.dev/"
         },
         {
-          "title": "States sue SpaceX to stop Grok from generating child sex images...",
-          "url": "https://news.ycombinator.com/item?id=50670855"
+          "title": "GitHub - pithings/unkernel: A real Linux kernel, compiled to ...",
+          "url": "https://github.com/pithings/unkernel"
         },
         {
-          "title": "Two States Sue SpaceX Over Sexually Explicit Grok Deepfakes",
-          "url": "https://www.engadget.com/2325111/two-states-sue-spacex-over-sexually-explicit-grok-deepfakes/"
-        }
-      ]
-    },
-    {
-      "id": "hackernews:story:50667989",
-      "source_type": "hackernews",
-      "category": null,
-      "feed_name": null,
-      "subreddit": null,
-      "channel": null,
-      "screen_name": null,
-      "author": "_tk_",
-      "url": "https://cr.yp.to/proofs/falseccp.html",
-      "published_at": "2026-11-27T15:26:09+00:00",
-      "score": 7.0,
-      "tags": [
-        "formal verification",
-        "proof assistants",
-        "soundness bugs",
-        "Lean",
-        "Metamath"
-      ],
-      "title": {
-        "zh": "健全性缺陷与虚假机器证明",
-        "en": "False computer-checked proofs and the limits of checker trust"
-      },
-      "summary": {
-        "zh": "这篇技术评论指出，证明检查器的健全性（soundness）缺陷可能让错误证明通过机器检查，从而产生“已计算机验证”的虚假结果；文章讨论这类风险，以及要获得更强保证还需要哪些条件。讨论涉及 Lean、Metamath 等证明助手和验证器生态，但没有提供某个新版本或新修复的发布信息。对形式化验证读者而言，关键问题是：单个检查器通过，能在多大程度上代表证明成立。",
-        "en": "The linked essay argues that a proof accepted by a computer checker can still be false if the checker itself has a soundness bug, so “computer-checked” is not an unconditional guarantee of truth. It examines what stronger assurance would require, including scrutiny of the trusted checking path rather than only the proof object."
-      },
-      "references": [
-        {
-          "title": "Postmortem for the Kernel Soundness Bug Hunt — Leonardo de Moura",
-          "url": "https://leodemoura.github.io/blog/2026-8-24-postmortem-for-the-kernel-soundness-bug-hunt/"
-        },
-        {
-          "title": "Postmortem for Kernel Soundness Bug #14576 — Leonardo de Moura",
-          "url": "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/"
+          "title": "unkernel: Linux kernel compiled to WebAssembly | iThub",
+          "url": "https://www.ithub.directory/virtualization-vdi/unkernel"
         }
       ]
     },
@@ -230,62 +254,275 @@
         "e-commerce"
       ],
       "title": {
-        "zh": "报告称购物网站出现利用 WebRTC 的盗刷脚本",
-        "en": "Reported card-skimming scripts on shopping sites use WebRTC"
+        "zh": "购物网站被曝出现基于 WebRTC 的信用卡盗刷脚本",
+        "en": "Report: WebRTC card-skimming scripts found on shopping sites"
       },
       "summary": {
-        "zh": "据 Infohawk 报道，一种被指利用 WebRTC 的信用卡盗刷脚本在多个热门购物网站上被发现；报道还将其与电商站点引入第三方脚本的风险联系起来。报道未披露受影响网站的具体名单、脚本数量或活动持续时间，因此实际影响范围仍不清楚，相关技术细节也无法从现有材料独立核实。由于缺少技术分析，WebRTC 在此次活动中具体承担何种角色、是否用于绕过检测，均无公开细节。",
-        "en": "InfoHawk reports that credit-card skimming scripts using WebRTC were found on popular shopping sites, framed as a Black Friday web-security incident affecting e-commerce shoppers. The supplied material does not name affected sites, give a count, or explain the scripts' technical operation, so the campaign's scope and the specific role of WebRTC remain unverified. The security concern raised is that sites embedding third-party scripts can expose shoppers' payment data in the browser."
+        "zh": "据 Infohawk 报道，热门购物网站上发现了使用 WebRTC 的信用卡盗刷脚本，发布时间为 2026 年 11 月 27 日，正值黑色星期五购物季。现有材料没有给出受影响站点、脚本数量或独立验证结果，因此这仍是一则媒体报告，而非已确认的广泛事件。对消费者来说，促销期在相关站点输入支付信息存在被窃取的风险；对电商运营者来说，相关讨论集中在其页面嵌入的第三方脚本。",
+        "en": "A report published by Infohawk on November 27, 2026 — Black Friday — says credit card skimming scripts that use WebRTC were found on popular shopping sites. The item's source body was not available, so the affected merchants, the number of sites involved, the script names, and any measured data loss remain unconfirmed. The finding is presented as a report rather than an independently verified measurement, and the discussion around it treats WebRTC primarily as a monitoring blind spot rather than a new attack capability."
+      },
+      "references": []
+    },
+    {
+      "id": "hackernews:story:50670855",
+      "source_type": "hackernews",
+      "category": null,
+      "feed_name": null,
+      "subreddit": null,
+      "channel": null,
+      "screen_name": null,
+      "author": "DeepLogin",
+      "url": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform",
+      "published_at": "2026-11-27T19:42:25+00:00",
+      "score": 7.0,
+      "tags": [
+        "AI safety",
+        "content moderation",
+        "generative AI",
+        "xAI/Grok",
+        "litigation"
+      ],
+      "title": {
+        "zh": "多州总检察长起诉 SpaceX，要求阻止 Grok 生成儿童性虐待与报复性私密影像",
+        "en": "State AGs sue SpaceX over Grok’s alleged CSAM and revenge porn"
+      },
+      "summary": {
+        "zh": "美国多州总检察长已对 SpaceX 提起诉讼，要求阻止其关联的 xAI 模型 Grok 生成儿童性虐待材料和未经同意的私密影像。诉讼以 SpaceX 作为 X、xAI 和 Grok 的母公司为由将其列为被告，核心指控指向 Grok 的图像生成行为。现有材料只确认了起诉和指控方向，未提供诉讼州数、具体诉请、法院安排，也未说明 Grok 的相关安全机制是否失效。",
+        "en": "State attorneys general filed a lawsuit against SpaceX—identified in the announcement as the parent company of X, xAI, and Grok—seeking to stop Grok from generating child sexual abuse material and non-consensual intimate images, including revenge porn. The suit alleges that Grok creates and promotes that imagery; the supplied material does not show that the allegations have been proven or that any court has granted relief. It also does not provide technical details about the safeguards at issue or the specific remedies sought."
       },
       "references": [
         {
-          "title": "Magecart Attacks in E - Commerce : The Path to Mitigation",
-          "url": "https://jscrambler.com/blog/magecart-attacks-in-ecommerce-road-to-mitigation/"
+          "title": "Attorneys General Jones and Rayfield File Suit Against SpaceX ...",
+          "url": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform"
         },
         {
-          "title": "New MageCart Attacks Target Bedding Retailers My Pillow and...",
-          "url": "https://thehackernews.com/2019/03/magecart-ecommerce-hackers.html"
+          "title": "Virginia Attorney General suing SpaceX, says AI tool allows ... Virginia, Oregon attorneys general file lawsuits against ... MEDIA CLIPS: Attorney General Jay Jones Holds X Accountable ... SpaceX sued by 2 states over AI deepfake porn, Grok ... - CNBC Virginia, Oregon Sue SpaceX Over Grok Sexual Images, Allege ...",
+          "url": "https://www.yahoo.com/news/us/articles/virginia-attorney-general-suing-spacex-152347155.html?fr=sycsrp_catchall"
         },
         {
-          "title": "Magecart attack wears GTM disguise – Reflectiz",
-          "url": "https://www.reflectiz.com/blog/magecart-attack-disguised-gtm/"
+          "title": "Attorneys General Jones and Rayfield File Suit Against SpaceX ...",
+          "url": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform"
         },
         {
-          "title": "Credit card skimming scripts using WebRTC found on... - daily.dev",
-          "url": "/url?opi=89978449&q=CAESpwEBxCJF117dtZH6QMW3NO8JDBuqr8bbWEhrNlphmBdQsZ7p10pr70yzMLUARMT_etVLW2McswLlASGHPwDcABNPMqas1IKXWsAfNhrgBH4LkuXJBH2Vt096IOg1u4tkJIx47W8j7l5s35VEbNLflgYDO-LCMFdAC1QGjI_r4Q11JGXqs7dyWmsIpGyheJnt2fioTxm0qAyGG7dLo2tOyt-yBRRlNdfX6w&sa=U&uoh=3&ved=2ahUKEwiD2ardpKqYAxWpGVkFHe5zBCEQFnoECAYQAg&usg=AOvVaw33wDz_cEjM01KfbDpMA2b4"
+          "title": "Virginia, Oregon Sue SpaceX Over Grok Sexual Images, Allege ...",
+          "url": "https://www.techtimes.com/articles/331385/20261123/virginia-oregon-sue-spacex-over-grok-sexual-images-allege-safety-claims-were-false.htm"
         },
         {
-          "title": "Five stores had skimmers. One test card was captured. | The Shift Wire",
-          "url": "/url?opi=89978449&q=CAESfgHEIkXXXk3SZU092b0Tump_KJozxoiyMWLddYJwB7PUCCU-8DHaP9owjlzb47NE_AiSucM5SlTjAJxnIb4okg0nTOIIecfGDcv0XyMxRPd_VI1oisi8fh6M8O-56PP2__qsco3HqQyX4E9sRC8UiDVPhyoDdVVKwg6PmX06Aw&sa=U&uoh=3&ved=2ahUKEwiD2ardpKqYAxWpGVkFHe5zBCEQFnoECBwQAg&usg=AOvVaw2o4l5-TjM-A8DTZVaIJl-X"
+          "title": "SpaceX sued by 2 states over AI deepfake porn, Grok ... - CNBC",
+          "url": "https://www.cnbc.com/2026/11/23/oregon-virginia-spacex-grok-deepfake-lawsuits.html"
         }
       ]
     },
     {
-      "id": "rss:newsletter.semianalysis.com_feed:4d43692557b330ab",
+      "id": "hackernews:story:50667989",
+      "source_type": "hackernews",
+      "category": null,
+      "feed_name": null,
+      "subreddit": null,
+      "channel": null,
+      "screen_name": null,
+      "author": "_tk_",
+      "url": "https://cr.yp.to/proofs/falseccp.html",
+      "published_at": "2026-11-27T15:26:09+00:00",
+      "score": 7.0,
+      "tags": [
+        "formal verification",
+        "proof assistants",
+        "software correctness",
+        "Lean",
+        "Metamath"
+      ],
+      "title": {
+        "zh": "虚假计算机验证证明与检查器缺陷",
+        "en": "False computer-checked proofs and independent verifiers"
+      },
+      "summary": {
+        "zh": "cr.yp.to 的《False computer-checked proofs》页面与 Hacker News 讨论聚焦一个具体风险：证明检查器的健全性（soundness）缺陷可能让错误证明通过机器检查，讨论中的缓解办法之一是要求同一证明通过多个独立验证器。评论者 twotwotwo 举例称，一名 DeepMind 研究员构造的“证明”分别利用了 Lean 和当时仅发布一周的 nanoda 版本中的不同缺陷，从而同时通过两者。dwheeler 则表示，Metamath 的 set.mm 和 iset.mm 数据库要求证明通过 5 个独立编写、使用 5 种不同语言的验证器，包括 Norm Megill 的 C 版 metamath 以及 Mel O'Cat、Mario Carneiro 的 Java 版 mmj2；不过原始 C 版 metamath 验证器也出现过健全性缺陷。",
+        "en": "A cr.yp.to page discussed on Hacker News argues that soundness bugs can make computer-checked proofs false, and the thread debates whether requiring multiple independent verifiers mitigates the risk. twotwotwo argued that one bad verification is not enough to mislead mathematicians—the Lean community tracks soundness, multiple checkers exist, and an implausible input would still face informal review—and cited a proof that passed Lean and a then-week-old version of nanoda by exploiting a different bug in each. dwheeler noted that Metamath's set.mm and iset.mm already require five independently created verifiers in five programming languages. andai raised a separate failure mode: a proof can be correct for a formal statement that misrepresents the intended requirement."
+      },
+      "references": [
+        {
+          "title": "False computer - checked proofs (djb)",
+          "url": "https://cr.yp.to/proofs/falseccp.html"
+        }
+      ]
+    },
+    {
+      "id": "rss:newsletter.semianalysis.com_feed:fa1137363cb5a194",
       "source_type": "rss",
       "category": "semiconductors",
       "feed_name": "Semianalysis",
       "subreddit": null,
       "channel": null,
       "screen_name": null,
-      "author": "Kimbo Chen",
-      "url": "https://newsletter.semianalysis.com/p/trainium3-inferencex",
-      "published_at": "2026-11-27T15:54:59+00:00",
+      "author": "Max Kan",
+      "url": "https://newsletter.semianalysis.com/p/evaluating-recent-model-releases",
+      "published_at": "2026-11-26T00:05:35+00:00",
       "score": 7.0,
       "tags": [
-        "Trainium3",
-        "AWS",
-        "AI accelerators",
-        "microarchitecture",
-        "inference"
+        "AI benchmarks",
+        "frontier models",
+        "model evaluation",
+        "agentic AI"
       ],
       "title": {
-        "zh": "Trainium3 推理微架构：瓦片优先设计对垒 Nvidia GPU",
-        "en": "SemiAnalysis: Trainium3 inference beats GB300 on perf/TCO, trails Vera Rubin"
+        "zh": "SemiAnalysis 用 GDPx 评测新模型，最高分仅 12%",
+        "en": "SemiAnalysis’s GDPx benchmark reports 12% top score amid model releases"
       },
       "summary": {
-        "zh": "SemiAnalysis 将 AWS Trainium3 接入 InferenceX/UBenchX，并用 AgentX 回放真实编程代理会话，称其搭配 vLLM 与 PDS 在 TCO 对 p90 交互性的整条帕累托前沿上，每美元推理性能优于除 Nvidia Vera Rubin 外的其他加速器，并在部分配置上与 GB300 互有胜负。文章将部分优势归因于面向机器学习、以瓦片为一等原语的微架构：Trainium Descriptor Generation Engine 对应 Nvidia TMA，微基准显示其可在较小消息尺寸达到峰值 HBM 带宽利用率，而 Nvidia GPU 无法做到。上述结果来自作者自建基准及与 AWS 团队共同验证的实验，并非独立第三方复现；所给摘录也未列出完整延迟、吞吐和价格明细。",
-        "en": "SemiAnalysis published an InferenceX/UBenchX deep dive and microbenchmarks of AWS Trainium3, reporting that Trainium3 with PDS and vLLM beats every accelerator it lists except Nvidia Vera Rubin on performance per TCO across its throughput-versus-p90-interactivity frontier, and that Trainium3 trades blows with or beats Nvidia GB300 on token-generation cost. SemiAnalysis attributes part of the advantage to Trainium's ML-first, tile-based microarchitecture, including Descriptor Generation Engines that its tests show reaching peak HBM bandwidth utilization at small message sizes—something the authors say is not possible on Nvidia GPUs. The article also details cycle-level SRAM scratchpad latency and bandwidth, rack-scale measurements, attention-shape tests, and AgentX end-to-end replays of coding-agent sessions."
+        "zh": "SemiAnalysis 于 11 月 1 日发布 GDPx 基准，并在近期模型密集发布后公布了基于该基准的排行榜。GDPx 不以 GDP 占比或 O*NET 分类选取领域，而是覆盖芯片设计、网络安全、生物学、金融、法律、量化交易、递归自我改进、硬件设计、材料科学、对齐和软件工程共 11 个领域，并由 14 家数据合作方制作了 206 道任务。该基准的显著特点是难度高：发布日得分最高的 Opus 5.5 仅得 12%，远低于常见基准首日超过 50% 的水平，SemiAnalysis 因此认为它仍有足够区分度。文章还提到 Anthropic、OpenAI、Google 的 Gemini 4 系列、阿里巴巴和 Moonshot 的新模型，并指出 Fable 5.2 与 GPT-6.2 Astra 的安全分类器会压低总分，改用剔除网络安全、生物学、对齐并启用部分评分的口径后榜单会变化。",
+        "en": "SemiAnalysis has applied its GDPx benchmark, launched November 1, to frontier models released over the past month. GDPx covers 11 domains chosen for expected AI impact—including chip design, cybersecurity, biology, finance, legal, quant trading, recursive self-improvement, hardware design, materials science, alignment, and software engineering—and comprises 206 tasks built with 14 data partners. The highest score on release day was 12%, achieved by Opus 5.5, which SemiAnalysis presents as evidence the benchmark has headroom that saturated benchmarks lack. The post says Anthropic, OpenAI, Google, Alibaba, and Moonshot have shipped new models since launch, but the supplied text does not include the resulting leaderboard values or individual rankings."
+      },
+      "references": [
+        {
+          "title": "Measuring the performance of our models on real-world tasks - OpenAI",
+          "url": "/url?opi=89978449&q=CAESXAHEIkXXDN6Zlx1HjgGuiJp8vhxiO75-27ad_OhielTPrY2fN149IhwBqwQ6S6UisIQTbZ_XVnYCwRSp3vrVxNBd7AqTtxEU2LyDk8wNKejK00Vp56HkaecaKtY2&sa=U&uoh=3&ved=2ahUKEwiAt-jNqKqYAxUTHUQIHS6FCsAQFnoECAcQAg&usg=AOvVaw0VA_dUwO50Jv2y0Umrxn0k"
+        },
+        {
+          "title": "GDPval: Evaluating AI Model Performance on Real-World ... - arXiv",
+          "url": "/url?opi=89978449&q=CAESXwHEIkXXlLzugiKIY5cv8uhxXEJFe5IeupDMD4thPGuqcfaytblMraNb65UJyoQekCoAsuzLrOuwkoFjBeXlUSgR97rYKOuD5lLpGzzvpzwXbyA7s-6dWMWqeLeKrNqu&sa=U&uoh=3&ved=2ahUKEwiAt-jNqKqYAxUTHUQIHS6FCsAQFnoECAgQAg&usg=AOvVaw0bg8amrE_TV2ApGd97Puhd"
+        }
+      ]
+    },
+    {
+      "id": "rss:aihot.news_feed_daily.xml:ba8d49afb1041f42",
+      "source_type": "rss",
+      "category": "aihot",
+      "feed_name": "AIHOT 日报",
+      "subreddit": null,
+      "channel": null,
+      "screen_name": null,
+      "author": "noreply@aihot.news (AIHOT)",
+      "url": "https://aihot.news/daily/2026-11-27",
+      "published_at": "2026-11-27T00:00:09+00:00",
+      "score": 7.0,
+      "tags": [
+        "Nvidia",
+        "AI chips",
+        "export controls",
+        "AI infrastructure",
+        "Southeast Asia"
+      ],
+      "title": {
+        "zh": "FT：Nvidia 暂停向东南亚四国发运服务器",
+        "en": "FT: Nvidia Halts Server Shipments to Four Southeast Asian Nations"
+      },
+      "summary": {
+        "zh": "据 FT 报道，Nvidia 已通知 Dell、Supermicro 等制造伙伴，暂停向马来西亚、新加坡、泰国和印度尼西亚发运服务器；触发因素是，美国要求这些国家以及巴西的先进 AI 芯片出口需申请许可。报道提到，中国 AI 实验室此前通过当地云厂商租用 Nvidia 算力绕过直接出口禁令，而云厂商现有 90 天时间证明没有受限用户，却仍缺乏申请指引。报道还称，Nvidia 2025 年经新加坡部门入账 1040 亿美元，同比增长 72%。",
+        "en": "According to the Financial Times, as summarized in AIHOT's November 27 digest, Nvidia has told manufacturing partners including Dell and Supermicro to stop shipping servers to Malaysia, Singapore, Thailand and Indonesia, after the United States imposed a licensing requirement on advanced AI chips destined for those four countries and Brazil. The report ties the halt to Chinese AI labs renting Nvidia compute through local cloud providers to sidestep direct export bans; those providers now have 90 days to certify that they serve no restricted users but have been given no guidance on how to apply. The digest also cites Nvidia booking $104B through its Singapore entity in 2025, up 72% year over year. The account comes from FT reporting rather than primary Nvidia or government documentation, and the digest does not state whether licenses have been granted to any shipper."
+      },
+      "references": [
+        {
+          "title": "Nvidia halts server shipments to 4 Southeast Asian countries: report",
+          "url": "https://nypost.com/2026/11/26/business/nvidia-halts-server-shipments-to-4-southeast-asian-countries-report/"
+        },
+        {
+          "title": "Nvidia Halts Server Shipments To 4 Southeast Asian Countries Amid...",
+          "url": "https://www.forbes.com/sites/siladityaray/2026/11/26/nvidia-reportedly-halts-ai-chip-shipments-to-southeast-asia-as-us-tightens-china-curbs/"
+        }
+      ]
+    },
+    {
+      "id": "telegram:zaihuapd:45415",
+      "source_type": "telegram",
+      "category": null,
+      "feed_name": null,
+      "subreddit": null,
+      "channel": "zaihuapd",
+      "screen_name": null,
+      "author": "zaihuapd",
+      "url": "https://www.techspot.com/news/114721-microsoft-wants-replace-most-third-party-device-drivers.html",
+      "published_at": "2026-11-28T02:09:39+00:00",
+      "score": 7.0,
+      "tags": [
+        "Microsoft Windows",
+        "device drivers",
+        "kernel security",
+        "hardware compatibility",
+        "IPP"
+      ],
+      "title": {
+        "zh": "微软扩大 Windows 内置驱动替代范围",
+        "en": "Microsoft expands in-box Windows drivers beyond printers"
+      },
+      "summary": {
+        "zh": "微软在 Ignite 2026 上确认，正为更多硬件开发 Windows 内置类驱动，以减少内核中的第三方代码。打印机是重点之一：自 7 月起，Windows Ready Print 平台会为新安装的兼容打印机默认选用内置 IPP 驱动。微软产品经理 Mehmet Kucukgoz 表示，SoundWire 和 SDCA 等音频类驱动将很快成为 Windows 内置组件，I3C 总线、USB 以太网和 MIPI 摄像头类驱动则在开发中。微软已于 5 月推出驱动质量倡议（DQI），鼓励厂商优先采用兼容的内置类驱动。",
+        "en": "Microsoft confirmed at Ignite 2026 that it is developing more Windows in-box class drivers to reduce third-party kernel code, with printers as the first major focus. Since July, the Windows Ready Print platform has selected the in-box IPP driver by default for newly installed compatible printers, according to the report. Windows product manager Mehmet Kucukgoz said SoundWire and SDCA audio class drivers will soon become Windows in-box components, while I3C bus, USB Ethernet, and MIPI camera class drivers are still in development. Microsoft introduced its Driver Quality Initiative (DQI) in May to encourage manufacturers to prefer compatible in-box class drivers."
+      },
+      "references": [
+        {
+          "title": "Raising the bar together. Introducing the Driver Quality Initiative at...",
+          "url": "https://blogs.windows.com/windowsexperience/2026/05/14/raising-the-bar-together-introducing-the-driver-quality-initiative-at-winhec-2026/"
+        },
+        {
+          "title": "Microsoft is changing how Windows talks to hardware to stop system...",
+          "url": "https://tech.yahoo.com/computing/articles/microsoft-changing-windows-talks-hardware-130750734.html"
+        },
+        {
+          "title": "April 2026 Windows security updates introduce protections to ...",
+          "url": "https://support.microsoft.com/en-us/servicing/os/windows/docs/2026/04/april-2026-windows-security-updates-introduce-protections-to-known-vulnerable-kernel-drivers"
+        },
+        {
+          "title": "Windows 11 Will No Longer Trust Old Drivers by Default Under ...",
+          "url": "https://www.techpowerup.com/347807/windows-11-will-no-longer-trust-old-drivers-by-default-under-new-kernel-policy"
+        }
+      ]
+    },
+    {
+      "id": "twitter:tweet:2125779541952246039",
+      "source_type": "twitter",
+      "category": null,
+      "feed_name": null,
+      "subreddit": null,
+      "channel": null,
+      "screen_name": "karpathy",
+      "author": "Andrej Karpathy",
+      "url": "https://twitter.com/karpathy/status/tweet-2125779541952246039",
+      "published_at": "2026-11-26T02:31:52+00:00",
+      "score": 7.0,
+      "tags": [
+        "AI-assisted coding",
+        "LLM agents",
+        "data engineering",
+        "geospatial data",
+        "game simulation"
+      ],
+      "title": {
+        "zh": "Karpathy 用 Claude Opus 5.5 构建美国数据文明地图",
+        "en": "Karpathy: Claude Opus 5.5 built a Civilization-style US data map"
+      },
+      "summary": {
+        "zh": "Andrej Karpathy 表示，他让 Claude 把美国真实公共数据填入一张《文明》风格的游戏地图；使用 Opus 5.5、Claude Code 桌面应用并在 medium 档开启“ultracode”后，项目经过约 7 小时、生成 4.5 万行代码后可以运行。地图整合了 Census、BEA、BLS、EIA、NOAA、USGS 等 31 个公共数据源，将海拔、土地覆盖、GDP、就业、电厂、矿山、港口、机场、军事基地、公园、大学、货运和灾害等数据统一到 25 公里六边形网格。数据被转成游戏机制，例如金币产出对应 GDP、城市区块对应真实产业专长、市民对应劳动力结构，奇观则按游客数量或研发支出等已公布规则选取；项目还提供 19 种视图、524 个都会区的城市视图，以及可把 3,100 多个县的数据列转成表格和散点图的 Explorer，但 Claude 跳过了少数州和领地。",
+        "en": "Andrej Karpathy said he used Claude Opus 5.5 through the Claude Code desktop app to build and deploy a Civilization-style map of the US populated from 31 public data sources, including Census, BEA, BLS, EIA, NOAA, USGS, DoD, NPS, FAA, FEMA and CDC. He reported the build took 7 hours and produced 45,000 lines of code, reconciling data such as elevation, land cover, GDP, jobs, power plants, mines, ports, airports, bases, parks and disasters onto a single 25 km hex grid. The app includes 19 lenses, a City View for 524 metros, nine advisors and an Explorer for columns across more than 3,100 counties, with game mechanics tied to real data: GDP becomes Gold yield and local industry specializations become city districts. Karpathy said Claude skipped some states and territories; the result is a personal demonstration, not an independently verified product release or benchmark."
+      },
+      "references": []
+    },
+    {
+      "id": "rss:www.seangoedecke.com_rss.xml:a8bf8f1f2654b6a1",
+      "source_type": "rss",
+      "category": "software-engineering",
+      "feed_name": "Sean Goedecke",
+      "subreddit": null,
+      "channel": null,
+      "screen_name": null,
+      "author": "Sean Goedecke",
+      "url": "https://seangoedecke.com/who-gets-to-decide-if-something-is-written-by-ai/",
+      "published_at": "2026-11-27T00:00:00+00:00",
+      "score": 5.0,
+      "tags": [
+        "AI detection",
+        "content provenance",
+        "community moderation",
+        "AI governance",
+        "AI writing"
+      ],
+      "title": {
+        "zh": "谁有权判定内容由AI生成",
+        "en": "AI Detection Disputes Are Really About Gatekeeping Power"
+      },
+      "summary": {
+        "zh": "A thoughtful but lightly evidenced opinion essay arguing that AI-detection disputes are fundamentally about institutional power and that communities are poor arbiters of AI authorship.",
+        "en": "A thoughtful but lightly evidenced opinion essay arguing that AI-detection disputes are fundamentally about institutional power and that communities are poor arbiters of AI authorship."
       },
       "references": []
     }
