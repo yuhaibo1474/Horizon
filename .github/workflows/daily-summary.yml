@@ -115,7 +115,7 @@ jobs:
           LWN_KEY: ${{ secrets.LWN_KEY }}
           HORIZON_WEBHOOK_URL: ${{ secrets.HORIZON_WEBHOOK_URL }}
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-        run: uv run --no-sync horizon --hours 24
+        run: uv run --no-sync horizon --hours 72
 
       - name: Upload Markdown summaries
         if: steps.credential.outputs.available == 'true'

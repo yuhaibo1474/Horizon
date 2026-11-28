@@ -173,13 +173,13 @@
       "mode": "apify",
       "users": ["OpenAI", "sama", "karpathy", "DrJimFan", "ylecun"],
       "keywords": [],
-      "fetch_limit": 10,
+      "fetch_limit": 200,
       "fetch_reply_text": false,
       "profile": "tech-news"
     }
   },
   "collection": {
-    "time_window_hours": 24
+    "time_window_hours": 72
   },
   "digest": {
     "max_items": null,

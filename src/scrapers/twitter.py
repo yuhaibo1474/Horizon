@@ -52,7 +52,7 @@ class TwitterScraper(BaseScraper):
                 token,
                 {
                     "source_mode": "profiles",
-                    "profile_urls": users,
+                    "profile_urls": [f"https://twitter.com/{u}" for u in users],
                     "search_sort": "Latest",
                     "max_items": max_items,
                 },
