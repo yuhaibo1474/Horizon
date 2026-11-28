@@ -5,150 +5,169 @@ date: 2026-11-28
 lang: zh
 ---
 
-> 从 31 条内容中筛选出 12 条重要资讯。
+> 从 31 条内容中筛选出 10 条重要资讯。
 
 ---
 
 **科技新闻**
-1. [SemiAnalysis 深挖 Trainium3 推理与微架构](#item-tech-news-1) ⭐️ 8.0/10
-2. [Linux 内核 NFS 服务器曝 9.8 分预认证漏洞，可远程取得 root](#item-tech-news-2) ⭐️ 8.0/10
-3. [多州总检察长起诉 SpaceX，要求叫停 Grok 生成儿童性虐待与报复性色情图像](#item-tech-news-3) ⭐️ 7.0/10
-4. [Convex 技能被指未经告知上传应用想法](#item-tech-news-4) ⭐️ 7.0/10
-5. [WebRTC 被用于信用卡盗刷脚本，现身热门购物网站](#item-tech-news-5) ⭐️ 7.0/10
-6. [计算机检查的证明也可能是假的](#item-tech-news-6) ⭐️ 7.0/10
-7. [CIA 等美情报机构据称遭 AI 工具 Artex 辅助攻击](#item-tech-news-7) ⭐️ 7.0/10
-8. [Anthropic 被指对竞品研发请求暗中降质](#item-tech-news-8) ⭐️ 7.0/10
-9. [《我的世界》基岩版 26.52–26.63 资源包漏洞已修复](#item-tech-news-9) ⭐️ 7.0/10
-10. [微软拟以 Windows 内置驱动替代更多第三方驱动](#item-tech-news-10) ⭐️ 7.0/10
+1. [OpenSec 披露 Linux nfsd 预认证漏洞，可远程获取 root](#item-tech-news-1) ⭐️ 8.0/10
+2. [两州总检察长起诉 SpaceX，要求限制 Grok 生成非法图像](#item-tech-news-2) ⭐️ 7.0/10
+3. [Unkernel 将真实 Linux 内核编译为 WebAssembly](#item-tech-news-3) ⭐️ 7.0/10
+4. [热门购物网站被发现使用 WebRTC 的信用卡盗刷脚本](#item-tech-news-4) ⭐️ 7.0/10
+5. [Google DeepCrossAttention 宣称同等模型质量下最高提速 3 倍](#item-tech-news-5) ⭐️ 7.0/10
+6. [机器检查的证明仍可能为假：检查器健全性缺陷之争](#item-tech-news-6) ⭐️ 7.0/10
+7. [报道称美情报机构遭 AI 辅助攻击，涉 Artex](#item-tech-news-7) ⭐️ 7.0/10
+8. [《我的世界》基岩版资源包漏洞 26.65 修复](#item-tech-news-8) ⭐️ 7.0/10
 
 **财经新闻**
-1. [国常会部署完善资本市场稳市机制](#item-finance-news-1) ⭐️ 8.0/10
-2. [央行下调大额存单认购门槛：个人降至 10 万元，2027 年 3 月起施行](#item-finance-news-2) ⭐️ 7.0/10
+1. [央行发布大额存单新规 个人起购门槛降至 10 万元](#item-finance-news-1) ⭐️ 7.0/10
+2. [市场监管总局集中约谈雅迪、台铃、爱玛等 15 家电动自行车企业](#item-finance-news-2) ⭐️ 7.0/10
 
 ---
 
 ## 科技新闻
 
 <a id="item-tech-news-1"></a>
-### [SemiAnalysis 深挖 Trainium3 推理与微架构](https://newsletter.semianalysis.com/p/trainium3-inferencex) ⭐️ 8.0/10
+### [OpenSec 披露 Linux nfsd 预认证漏洞，可远程获取 root](https://opensec.in/blog/nfs2root-cve-2026-99362) ⭐️ 8.0/10
 
-11 月 27 日，SemiAnalysis 发布了对 AWS Trainium3 的推理基准与微架构深度分析，并把 Trainium3 纳入其 InferenceX/UBenchX 测试体系。文章称，在 GLM-5-3 等工作负载上，Trainium3 的每 token 总拥有成本（TCO）已能与 Nvidia GB300 互有胜负；Trainium3 PDS + vLLM 在整个延迟—吞吐前沿上除 Vera Rubin 外优于其他加速器。这些是该机构的基准结论，而非独立复现。微架构层面，文章把 Trainium 描述为以 tile 为一等原语、专为 ML 从零设计，而 Nvidia 数据中心 GPU 是从图形管线逐步叠加 Tensor Core、TMA 和 Tensor Memory；其微基准还称，Trainium 的描述符生成引擎（DGE）能在较小消息尺寸达到峰值 HBM 带宽利用率，而 Nvidia GPU 无法做到。由于公开内容只是节选，具体测试配置、数值和可复现性无法在此核实。
+一则 Telegram 聚合帖称，OpenSec 披露 Linux 内核 NFS 服务器 nfsd 存在预认证堆溢出 CVE-2026-99362，CVSS 9.8；攻击者无需登录，向 tcp/2049 发送一条连接即可越界写入内核堆，并可能取得 root shell。该问题据称自 2014 年 Linux 3.16 起存在，影响启用 NFSv4.1 或 4.2 的文件服务器、NAS 和集群存储节点。帖中列出的修复版本为 6.12.117、6.18.61、7.3.2 和 7.4-rc1，升级内核后需重启；无法立即升级的环境可限制 tcp/2049 访问。该信息目前仅见单一聚合来源，实施前应以 OpenSec 原始公告和内核补丁核对 CVE 编号、受影响范围与修复状态。
 
-rss · Semianalysis · 11月27日 15:54
+telegram · zaihuapd · 11月27日 12:57
 
-**「背景」** 理解这项对比，需要先看数据中心 AI 芯片的两条设计路径：Nvidia 从图形 GPU 出发，Volta 加入 Tensor Core，Hopper 加入负责 HBM 与 SRAM 间 tile 数据搬运的 TMA，Blackwell 再加入用于累加的 Tensor Memory。Trainium 则从一开始就把 tile 作为一等原语来设计，SemiAnalysis 通过 InferenceX 与 UBenchX 将 Trainium3 与 TPUv7、Nvidia Rubin NVL72 等平台放在同一推理基准下比较。
+**「背景」** NFS 是类 Unix 系统常用的网络文件系统协议，Linux 内核中的 nfsd 负责在 tcp/2049 上向客户端提供共享目录；此次受影响的是启用 NFSv4.1 或 4.2 的主机。所谓“预认证”是指攻击者在完成登录或凭据校验之前就能触发漏洞，因此直接暴露该端口的主机风险更高。
 
-**「对推理部署的影响」** 对成本敏感的智能体推理团队，Trainium3 现在是一个应纳入 TCO 对比的部署选项：SemiAnalysis 基于真实编码智能体会话的回放测得，Trainium3 PDS + vLLM 在整条 TCO–p90 交互性曲线上优于除 Vera Rubin 外的其他加速器。计划迁移的组织需要先确认自己使用的模型、算子和推理框架版本已有 vLLM 的 Trainium 后端支持；该结论来自特定受测配置，不能直接外推为对所有工作负载的兼容性或性能保证。
+**「运维影响」** 对仍运行受影响 nfsd 并开放 tcp/2049 的文件服务器、NAS 和集群存储节点，未认证攻击者一旦利用该漏洞即可取得 root。运维方应优先升级到已修复内核（如 6.12.117、6.18.61 或 7.3.2）并重启；无法立即重启时，应限制 tcp/2049 访问并核对合法 NFS 客户端，以免缓解措施中断正常挂载。
 
-**标签**: `#AI hardware`, `#microarchitecture`, `#AWS Trainium`, `#inference`, `#Nvidia GPUs`
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://opensec.in/blog/nfs2root-cve-2026-99362">NFS2ROOT ( CVE - 2026 - 99362 ): pre-auth root in Linux nfsd | OpenSec</a></li>
+<li><a href="https://dbu.gs/vulnerability/PT-2026-151543">CVE - 2026 - 99362 — Vulnerability in Linux Kernel | dbugs</a></li>
+<li><a href="https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/">New NFS2ROOT Linux flaw can let attackers gain root privileges</a></li>
+
+</ul>
+</details>
+
+**标签**: `#Linux kernel`, `#security vulnerability`, `#NFS`, `#remote root`, `#CVE-2026-99362`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Linux 内核 NFS 服务器曝 9.8 分预认证漏洞，可远程取得 root](https://opensec.in/blog/nfs2root-cve-2026-99362) ⭐️ 8.0/10
+### [两州总检察长起诉 SpaceX，要求限制 Grok 生成非法图像](https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform) ⭐️ 7.0/10
 
-OpenSec 披露 Linux 内核 NFS 服务器 nfsd 中的预认证堆溢出漏洞 CVE-2026-99362，CVSS 评分 9.8。据该披露，攻击者无需登录，只需向 tcp/2049 建立一条连接即可越界写入内核堆并取得 root shell；该缺陷自 2014 年的 Linux 3.16 起存在，只影响启用 NFSv4.1 或 4.2 的主机，涉及文件服务器、NAS 和集群存储节点。修复版本为 6.12.117、6.18.61、7.3.2 和 7.4-rc1，需升级内核并重启才能生效；无法立即升级的部署应通过防火墙限制 tcp/2049 访问。CVE 于 2026 年 11 月 20 日公开。上述内容来自 OpenSec 的披露与一篇简短转述，尚未见到独立复现或厂商公告细节。
+弗吉尼亚州总检察长办公室称，杰伊·琼斯（Jay Jones）与雷菲尔德（Rayfield）已对 SpaceX 提起诉讼，要求阻止其旗下 xAI 的 Grok 生成儿童性虐待材料和未经同意的私密影像（即报复性色情）。诉讼还指称，该平台被用于创建和推广这类内容；SpaceX 是 X 和 xAI 的母公司，因此被列为被告。目前案件处于起诉阶段，相关指控尚未经法院认定。
 
-telegram · zaihuapd · 11月27日 12:57
+hackernews · DeepLogin · 11月27日 19:42 · [社区讨论](https://news.ycombinator.com/item?id=50670855)
 
-**「背景」** NFS 是类 Unix 系统之间共享文件的主流协议，其服务端 nfsd 以内核代码形式运行，默认监听 tcp/2049 端口；NFSv4.1 和 4.2 引入会话、并行 I/O 等特性，因此对外暴露该端口的文件服务器、NAS 和集群存储节点属于典型受影响面。CVSS 9.8 属“严重”级别，通常对应无需认证、可远程取得最高权限的漏洞。
+**「背景」** 这起诉讼是围绕 Grok 生成非法图像的一系列法律行动中的最新一步。据 The Guardian 2026 年 9 月报道，一名儿童性虐待幸存者已起诉 xAI，指控该聊天机器人利用她遭受侵害的照片生成了新的非法色情图像；Ars Technica 2026 年 7 月报道的另一起诉讼则称，一名男子使用 Grok 生成了约 7000 张儿童性虐待图像，而 xAI 的儿童安全系统直到出现“轮奸”提示词时才介入，并向美国失踪与受虐儿童中心（NCMEC）发出 CyberTip。上述案件均针对具体用户行为或个别受害者，而此次是由多州总检察长以执法者身份，起诉 xAI 与 X 的母公司 SpaceX。
 
-**「影响」** 运行 NFSv4.1/4.2 服务的运维方在补丁内核安装并重启之前仍处于暴露状态，仅升级软件包而不重启不会消除风险；无法安排重启窗口的环境需临时在边界或主机防火墙上封锁 tcp/2049，并评估这会否切断合法 NFS 客户端。文件服务器、NAS 与集群存储节点因对外提供该端口，是需要优先排查的对象。
+**「影响」** 如果法院签发禁令，SpaceX 将需要调整 Grok 的图像生成或内容过滤，以避免生成涉案类别的内容；使用 Grok 图像功能的用户和开发者需要提前评估更严格的提示词限制、审核或功能可用性变化。
 
-**标签**: `#Linux kernel`, `#NFS`, `#security vulnerability`, `#remote exploit`, `#CVE`
+**「社区讨论」** 评论区里有人质疑 Grok 的内容限制为何能被绕过，并追问它是默认宽松，还是用户需要“诱导”才能生成这类内容；也有人把焦点放在生成者本人是否应被追责。另有评论者声称，最高法院已裁定，仅为自己消费而用 AI 制作儿童性虐待材料属于受保护的言论；但这只是评论者的说法，未在讨论中得到证实。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://www.theguardian.com/technology/2026/sep/03/elon-musk-ai-grok-child-porn-lawsuit">Child sexual abuse survivor alleges Elon Musk’s AI... | The Guardian</a></li>
+<li><a href="https://arstechnica.com/tech-policy/2026/07/lawsuit-grok-user-made-7k-child-sex-images-xai-only-reported-one-gang-rape-prompt/">Lawsuit : Man used Grok to make 7K sex images of... - Ars Technica</a></li>
+
+</ul>
+</details>
+
+**标签**: `#AI safety`, `#generative AI`, `#content moderation`, `#AI regulation`, `#Grok/xAI`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [多州总检察长起诉 SpaceX，要求叫停 Grok 生成儿童性虐待与报复性色情图像](https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform) ⭐️ 7.0/10
+### [Unkernel 将真实 Linux 内核编译为 WebAssembly](https://unkernel.dev/) ⭐️ 7.0/10
 
-美国多个州的总检察长已对 SpaceX 提起诉讼，试图阻止其旗下 xAI 的 Grok 生成儿童性虐待材料（CSAM）和非自愿私密图像（俗称报复性色情）。诉讼由州总检察长办公室发布新闻稿公布，其中把 SpaceX 定位为 X、xAI 与 Grok 的母公司，指控焦点是此类图像在平台上的生成与传播。目前公开的只有新闻稿标题与摘要，起诉书全文未见，因此原告州的具体数量、援引的法律依据以及诉求范围都还不明确。
+Unkernel 是一个把真实 Linux 内核编译为 WebAssembly 的项目，目标用户是希望在 WebAssembly 环境中运行 Linux 的系统开发者和运行时开发者。它目前更像一次可操作的演示，而不是带有版本号、性能数据和兼容性说明的正式发布。现有信息尚未给出支持范围、安装方式或可复现的基准结果。
 
-hackernews · DeepLogin · 11月27日 19:42 · [社区讨论](https://news.ycombinator.com/item?id=50670855)
+hackernews · nreece · 11月28日 03:19 · [社区讨论](https://news.ycombinator.com/item?id=50674218)
 
-**「背景」** Grok 是 xAI 开发并接入 X 的生成式聊天机器人，X 和 xAI 均隶属于 SpaceX。弗吉尼亚州与俄勒冈州总检察长分别提起平行民事诉讼，指控 Grok 未能阻止生成儿童性虐待材料（CSAM）和非自愿亲密影像（NCII），并称 X 曾就用户数据和图像安全作出误导性保证。
+**「背景」** Unkernel 的关键前提是把 Linux 内核本身编译成 WebAssembly，而不是让浏览器远程连接一台 Linux 主机；其 GitHub 说明称整个环境在用户设备上运行，无需安装，也没有服务器端。项目页面称它能在不到一秒内启动到 shell，dev.to 的介绍还列出 /proc、epoll、cgroups、overlayfs 以及用于恢复系统的 safe mode，这些是判断它能否替代本地小型 Linux 环境的具体观察点。
 
-**「平台责任与过滤压力」** 诉讼寻求法院下令阻止 Grok 生成儿童性虐待材料和未经同意的私密影像；若获支持，xAI 将不得不在模型输出层增加过滤和滥用检测，SpaceX 作为母公司也可能被直接纳入责任范围。对集成 Grok 的开发者来说，实际影响是内容审核和提示词政策需要与州执法要求对齐，而 2026 年第七巡回法院在 Anderegg 案中对 AI-CSAM 的处理表明联邦与州层面的标准可能并不一致。
+**「实际影响」** 对希望避免启动完整虚拟机的开发者，评论中提到的直接用途是快速运行很小的后端脚本；但有人尝试在已安装 Chromium 的环境中嵌套运行 Unkernel 失败，说明复杂的浏览器或虚拟化负载仍受到限制。
 
-**「社区讨论」** 有评论者质疑，既然此类内容在各平台早已被普遍禁止，Grok 是默认就能生成，还是需要用户刻意诱导（“越狱”）才能做到；也有人追问，制作这些图像的用户本人是否应被追责。另有评论者称，最高法院已裁定用 AI 为个人消费制作儿童性虐待材料属于受保护的言论，前提是不涉及真实儿童——这属于该评论者的法律判断，未经来源证实，其本人也对报复性色情是否适用表示不确定。
+**「社区讨论」** 有评论者报告并发测试结果：4 个 md5sum 同时运行的墙钟时间与单进程相同，但在 Chromium 中嵌套运行 Unkernel 未成功。另一位评论者称其用例是免去启动虚拟机、快速运行小型后端脚本，并对此表示感谢。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform">Attorneys General Jones and Rayfield File Suit Against SpaceX ...</a></li>
-<li><a href="https://www.doj.state.or.us/media-home/news-media-releases/ag-rayfield-takes-legal-action-against-grok-for-failing-to-block-child-exploitation/">Oregon Attorney General Rayfield and Virginia Attorney ...</a></li>
-<li>AI-CSAM Ruling: What the Seventh Circuit&#x27;s Anderegg Decision Means ...</li>
+<li><a href="https://unkernel.dev/">unkernel</a></li>
+<li><a href="https://github.com/pithings/unkernel">GitHub - pithings/unkernel: A real Linux kernel, compiled to ...</a></li>
+<li><a href="https://dev.to/jamilxt/linux-compiled-to-webassembly-how-unkernel-works-and-how-to-try-it-22ec">Linux Compiled to WebAssembly: How unkernel Works and How to ...</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI safety`, `#content moderation`, `#generative AI`, `#regulation`, `#xAI/Grok`
+**标签**: `#webassembly`, `#linux-kernel`, `#browser-runtime`, `#virtualization`, `#systems`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [Convex 技能被指未经告知上传应用想法](https://github.com/convex/convex-backend-skill/issues/64) ⭐️ 7.0/10
+### [热门购物网站被发现使用 WebRTC 的信用卡盗刷脚本](https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer) ⭐️ 7.0/10
 
-GitHub 问题 convex/convex-backend-skill\#64 指控 Convex 的 AI 编程技能会在未告知用户的情况下，把用户的应用想法上传到远程服务器，引发对开发者工具数据处理的质疑。Convex CEO Jamie 在 Hacker News 评论中回应称，该插件中的提示上传用于驱动 Convex“quickstart”功能，而该功能是公司近期关闭的端到端 vibe-coding 产品 Convex Chef 的精神继任者。现有材料能确认 CEO 谈到提示上传及其用途，但未提供上传范围、披露方式或独立验证结果。
+据 InfoHawk 于 2026 年 11 月 27 日（黑色星期五）发布的报道，安全研究人员在多个热门购物网站上发现信用卡盗刷（skimming）脚本，这些脚本借助 WebRTC 运行。盗刷脚本一般被植入电商结账页面，用于窃取支付卡数据。不过，目前可获取的报道内容没有列出受影响网站名单、脚本注入途径、攻击者身份或受影响用户规模。该发现来自媒体与研究人员的报告，尚无厂商确认的修复状态，也没有独立复现结果。
 
-hackernews · MickyTheMouse · 11月27日 18:02 · [社区讨论](https://news.ycombinator.com/item?id=50669765)
+hackernews · scanr · 11月27日 15:40 · [社区讨论](https://news.ycombinator.com/item?id=50668145)
 
-**「背景」** Convex 是一个托管后端平台，开发者用其 SDK 定义数据库 schema 和后端函数，并通过 React 客户端接入应用，平台还提供供开发者使用的 AI gateway。据 Convex CEO 在讨论中的说明，涉事的上传行为服务于 Quickstart 功能；该功能是公司近期关闭的端到端 AI 编程产品 Convex Chef 的继任者。
+**「背景」** WebRTC 的 DataChannel 允许浏览器在对等连接中直接收发数据，这类流量不经过页面常规的 fetch/XHR 请求路径，因此难以被内容安全策略（CSP）和常见的第三方脚本监控所覆盖。据安全研究记录，Sansec 于 2026 年 3 月 24 日公开了首个利用 WebRTC DataChannel 传输并外泄支付数据的盗刷脚本，当时被描述为绕过传统安全控制的新手法；本次报道的购物网站事件属于同一攻击思路在 Black Friday 购物季前后的又一次出现。
 
-**「影响」** 对于把未公开产品构思写进提示的开发者，这一指控意味着敏感规格可能离开本地环境；在采用该技能前应检查其网络请求，或对提示中的敏感信息做脱敏处理。
+**「对电商站点防护的影响」** 对电商站点而言，这意味着仅靠 CSP 和针对 XHR 的出口监控并不足以覆盖此类窃取方式：已有安全研究记录显示，基于 WebRTC 数据通道的支付窃取脚本可绕过 CSP 接收载荷并外传数据（tool-3-1、tool-3-2、tool-3-3）。因此，运营方需要把第三方脚本清单审计，以及对浏览器内 WebRTC 连接的检测和拦截，纳入支付页面的常规检查。
 
-**「社区讨论」** 评论者把这起事件放在信任与提示注入的框架下讨论：有人称自托管开放权重模型长期看是更稳妥路线，也有人指出提示注入比模型自行发起恶意工具调用更常见，并强调这不代表本次事件一定出于恶意。这些是参与者观点，不是已确认的结论。
+**「社区讨论」** 评论中，jszymborski 认为这类事件正是他不必为屏蔽广告感到愧疚的理由之一；afavour 则指出，问题并不在于 WebRTC 的技术能力，而在于它较少被监控，而且攻击者主要针对更难被检测的移动设备，同类手法用普通 HTTP 请求也能实现，只要网站嵌入第三方脚本，就始终存在风险。s\_u\_d\_o 追问为何广告平台不沙箱化广告内容、浏览器为何不彻底禁止广告执行 JavaScript，\_\_MatrixMan\_\_ 则以“密码学早已存在”为由批评支付体系仍然依赖对称密钥。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://github.com/convex/convex-backend-skill/issues/64">Quickstart skills send the user&#x27;s idea to a convex .site host and run...</a></li>
-<li><a href="https://www.convex.dev/">Convex | All gas, no breakages</a></li>
-<li><a href="https://www.npmjs.com/package/convex">convex - npm</a></li>
+<li><a href="https://rhisac.org/threat-intelligence/webrtc-based-payment-skimmer-targeting-ecommerce-sites-via-polyshell-vulnerability/">RH-ISAC | WebRTC-Based Payment Skimmer Targeting ECommerce ...</a></li>
+<li><a href="https://rfxn.com/research/webrtc-skimmer-csp-bypass">WebRTC Skimmers: How Payment Thieves Bypass Content Security ...</a></li>
+<li><a href="https://securityarsenal.com/blog/how-to-defend-against-webrtc-skimmers-bypassing-csp-in-e-commerce">How to Defend Against WebRTC Skimmers Bypassing CSP in E-Commerce</a></li>
+<li><a href="https://cyberreplay.com/blog/webrtc-skimmer-detection-detect-block-csp-bypassing-payment-skimmers/">WebRTC Skimmer Detection: How to Detect and Block CSP ...</a></li>
+<li><a href="https://thehackernews.com/2026/03/webrtc-skimmer-bypasses-csp-to-steal.html">WebRTC Skimmer Bypasses CSP to Steal Payment Data from E ...</a></li>
 
 </ul>
 </details>
 
-**标签**: `#data privacy`, `#AI coding tools`, `#security`, `#prompt injection`, `#Convex`
+**标签**: `#web security`, `#credit card skimming`, `#WebRTC`, `#e-commerce`, `#third-party scripts`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [WebRTC 被用于信用卡盗刷脚本，现身热门购物网站](https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer) ⭐️ 7.0/10
+### [Google DeepCrossAttention 宣称同等模型质量下最高提速 3 倍](https://research.google/blog/supercharging-transformer-residual-connections/) ⭐️ 7.0/10
 
-一份安全报告称，热门购物网站上出现了滥用 WebRTC 的信用卡盗刷（skimming）脚本，发布时间为 2026 年 11 月 27 日，正值黑色星期五购物季。按报告的描述，这类脚本借助 WebRTC 连接外传窃取的支付数据，以避开常规的脚本监控与检测。所给材料未提供报告原文的技术细节——受影响的具体站点、脚本名称、感染规模与时间线均未披露——因此上述内容只是报告方的说法，尚无独立核实。
+Google Research 公布了 DeepCrossAttention，一种在 Transformer 残差连接上跨层应用注意力的技术，并声称在模型质量相当的情况下最高可实现 3 倍加速。该结果目前来自 Google Research 博客的厂商表述，所给材料未包含独立复现、具体基准设置或适用条件。对 Transformer 开发者而言，这意味着一种可能影响深层模型注意力开销的架构选项，但其实际收益仍需外部验证。
 
-hackernews · scanr · 11月27日 15:40 · [社区讨论](https://news.ycombinator.com/item?id=50668145)
+hackernews · ComputedCamp995 · 11月27日 23:06 · [社区讨论](https://news.ycombinator.com/item?id=50672565)
 
-**「背景」** 浏览器中的 WebRTC API 原本用于实时音视频和点对点数据传输；其中的 data channel 也可被恶意结账脚本当作数据外传通道。内容安全策略（CSP）用于限制页面可加载的脚本和连接来源，但一份后续复核称，CSP 看不到经由 WebRTC data channel 发出的窃取数据。
+**「背景」** 传统 Transformer 的残差连接只是把此前各层的输出逐层相加；Google 研究团队指出，这种做法可能稀释关键信息。DeepCrossAttention 改为在层与层之间做注意力，让每个 token 以可学习权重组合此前所有层的表示，相关论文已在 ICML 2025 发表。
 
-**「对电商与第三方脚本的影响」** 对在结账页面嵌入第三方脚本的电商而言，这意味着依赖 CSP 和常规网络请求监控已不足以发现数据外泄：据 RH-ISAC 的记录，该类恶意代码通过 WebRTC 数据通道而非传统 HTTP 请求加载并外传窃取的支付数据，从而绕过既有安全控制。此次受影响商店均是在接到外部报告后才采取处置措施，说明现有检测手段未能自行拦截，站点方需要主动审计结账页的第三方脚本并监控 WebRTC 流量。
+**「影响」** 对训练和推理团队而言，DCA 的直接影响是可能以更少计算达到同等验证困惑度，从而降低扩展 Transformer 的算力成本；但“最高快 3 倍”目前只是 Google 研究博客的厂商声明，公开对比也集中在 LM1B 和 C4 的验证困惑度上。采用前应在自有模型、序列长度和硬件上复测实际吞吐与质量，而不能直接把该加速比外推到生产负载。
 
-**「社区讨论」** 多位评论者认为，问题的核心不在于 WebRTC 的技术特性，而在于这条通道较少被用于监控恶意行为，同样的手法用普通 HTTP 请求也能实现；其中一位评论者还表示，攻击者只针对移动设备，也是因为移动端更难被发现。另有评论者主张，广告与第三方脚本应被限制在无法执行 JavaScript 的沙箱中，并批评当前允许陌生代码在用户浏览器中运行的做法，也有人以此作为拦截广告的正当理由。
+**「社区讨论」** 有评论者批评图表用折线图连接不同方法，认为应改用柱状图，因为这些方法之间没有时间关系；另一名评论者猜测跨层注意力可能为“strawberry problem”提供思路，但未给出验证。讨论中没有出现对 3 倍加速主张的独立复现。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://dev.to/frankchu/webrtc-stole-cards-at-5-stores-i-re-checked-the-cleanup-59k9">WebRTC stole cards at 5 stores — I re-checked the cleanup</a></li>
-<li><a href="https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer">Credit card skimming scripts using WebRTC found on popular ...</a></li>
-<li><a href="https://rhisac.org/threat-intelligence/webrtc-based-payment-skimmer-targeting-ecommerce-sites-via-polyshell-vulnerability/">WebRTC-Based Payment Skimmer Targeting ECommerce ... - RH-ISAC</a></li>
+<li><a href="https://arxiv.org/html/2502.06785">DeepCrossAttention : Supercharging Transformer Residual ...</a></li>
+<li><a href="https://scholar.google.com/citations?user=SZpFJqIAAAAJ&amp;hl=en">Google - Cited by 399 - Machine Learning - Data Mining - Algorithms</a></li>
+<li><a href="https://research.google/blog/supercharging-transformer-residual-connections/">Supercharging transformer residual connections</a></li>
 
 </ul>
 </details>
 
-**标签**: `#web security`, `#credit card skimming`, `#WebRTC`, `#third-party scripts`, `#e-commerce`
+**标签**: `#DeepCrossAttention`, `#transformer architecture`, `#model efficiency`, `#Google Research`, `#residual connections`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [计算机检查的证明也可能是假的](https://cr.yp.to/proofs/falseccp.html) ⭐️ 7.0/10
+### [机器检查的证明仍可能为假：检查器健全性缺陷之争](https://cr.yp.to/proofs/falseccp.html) ⭐️ 7.0/10
 
-cr.yp.to 上的评论文章《False computer-checked proofs》批评把“经计算机检查的证明”直接视为数学真理，核心论据是证明检查器本身可能存在 soundness bug。该文是技术分析与批评，不是新的漏洞披露或实测结果；其针对性场景是依赖 Lean、Metamath 等证明助手的形式化数学和软件验证。对这类用户，文章要求把“检查器接受了证明”与“证明确实证明了目标命题”分开看待。
+cr.yp.to 上发表的评论文章《False computer-checked proofs》提出：证明即使通过了计算机检查，结论仍可能是假的，因为证明检查器本身可能存在健全性（soundness）缺陷，从而接受错误的证明。文章据此主张，不应把“通过检查”当成数学真理的最终保证，而应对检查器本身做高保障验证。这是一篇论证性文章，而非披露新的具体漏洞事件。
 
 hackernews · \_tk\_ · 11月27日 15:26 · [社区讨论](https://news.ycombinator.com/item?id=50667989)
 
-**「背景」** 背景在于“证明检查器”（proof checker）的可靠性假设：这类程序本应逐步核验形式化证明，但检查器自身的 soundness bug 可能让错误命题通过验证。cr.yp.to 的文章正是围绕已报告的此类缺陷展开，追问计算机检查过的证明在什么条件下仍可能为假。
+**「背景」** 形式化证明的可靠性通常依赖“信任内核”原则（de Bruijn 判据）：证明助手把庞大的自动化与策略层同最终校验分开，只要求一个很小的检查器逐步验证证明项。于是检查器本身成为整条信任链的根基——所谓 soundness（可靠性），即检查器绝不接受不成立的命题；一旦检查器存在 soundness bug，“通过机器检查”就不再等于“命题为真”。djb 的文章正是围绕已报告的这类检查器可靠性缺陷展开讨论。
 
-**「实际影响」** 对使用证明助手验证关键代码或数学定理的团队，直接后果是不能把单一检查器的“通过”当作充分保证，需要同时审查检查器实现、不同验证器的交叉验证，以及待证命题是否被正确形式化。
+**「影响」** 对依赖 Lean、Metamath 等形式化验证系统的开发者和数学工作者而言，实际做法是用多个独立编写、独立实现的检查器交叉验证同一份证明，并保留非形式化的人工审阅环节，而不是只信任单一检查器的通过结果。
 
-**「社区讨论」** twotwotwo 和 dwheeler 都认为原文的框架有误导性：实际系统常要求多个独立检查器同时通过，攻击者必须让同一份输入骗过所有检查器且不引起非形式审查的怀疑；dwheeler 还指出 Metamath 的 set.mm 与 iset.mm 要求通过五种不同语言独立实现的验证器。andai 则补充了另一类风险：自动代理可能证明了自己对需求的错误理解，结果“证明”了一个与真实目标相反的实现。
+**「社区讨论」** 评论者 twotwotwo 认为文章低估了“一次错误验证”与“成功误导数学家”之间的差距：需要多个检查器同时存在缺陷，且输入在非形式化审阅下看不出问题；他举例说，一名 DeepMind 研究者构造的“证明”曾分别利用不同 bug 同时通过 Lean 和一个当时仅一周新的 nanoda 版本。dwheeler 补充说，Metamath 的 set.mm 和 iset.mm 主数据库要求证明通过 5 个由不同作者、用不同语言编写的独立验证器（包括 C 写的 metamath 和 Java 写的 mmj2）；gr\_norm 则认为这些检查器已存在数十年，其全部健全性 bug“几乎能塞进一条推文”，对 99.9% 的软件足够；andai 还指出另一类风险：代理可能针对自己对需求的错误理解去“证明”正确性。
 
 <details><summary>参考链接</summary>
 <ul>
@@ -157,145 +176,96 @@ hackernews · \_tk\_ · 11月27日 15:26 · [社区讨论](https://news.ycombina
 </ul>
 </details>
 
-**标签**: `#formal verification`, `#proof assistants`, `#soundness bugs`, `#Lean`, `#Metamath`
+**标签**: `#formal verification`, `#proof assistants`, `#Lean`, `#Metamath`, `#software correctness`
 
 ---
 
 <a id="item-tech-news-7"></a>
-### [CIA 等美情报机构据称遭 AI 工具 Artex 辅助攻击](https://www.forbes.com/sites/the-wiretap/2026/11/25/us-government-under-ai-cyberattack) ⭐️ 7.0/10
+### [报道称美情报机构遭 AI 辅助攻击，涉 Artex](https://www.forbes.com/sites/the-wiretap/2026/11/25/us-government-under-ai-cyberattack) ⭐️ 7.0/10
 
-一则 Telegram 聚合帖援引《纽约时报》报道称，美国中央情报局、国家地理空间情报局和国家情报总监办公室遭到黑客攻击，攻击借助名为 Artex 的 AI 工具，受影响的是非机密侦察数据，帖文称此次攻击“看起来不算严重”。该帖称 Artex 可整合多个开源 AI 模型来测试网络和计算机防御，由中国开发者于今年早些时候发布，后被用于多起攻击（包括针对欧盟的一起），开发者已将其从 GitHub 删除；帖文还称 FBI 今年早些时候曾警告网络罪犯和间谍广泛使用 Artex。上述说法来自简要、二手的聚合信息，未提供技术细节，尚无法独立核实。
+据《纽约时报》报道，黑客对美国中央情报局、国家地理空间情报局和国家情报总监办公室发动了由 AI 工具辅助的攻击；福布斯称此次攻击看起来不算严重，影响的是非机密侦察数据。攻击者使用的工具名为 Artex，可整合多个开源 AI 模型来测试网络和计算机防御，由一名中国开发者于今年早些时候发布。报道还称 Artex 后来被用于多起攻击，包括针对欧盟的一起，开发者已将其从 GitHub 账号删除；FBI 今年早些时候曾警告网络罪犯和间谍正在广泛使用 Artex。公开摘要未提供攻击规模、入侵路径或数据泄露的更多细节。
 
 telegram · zaihuapd · 11月27日 10:42
 
-**「背景」** Artex 的特点是把多个开源 AI 模型整合到同一流程中，用来探测和测试网络与计算机防御，而不是依赖单一封闭模型。现有报道称，一名中国开发者今年早些时候发布了该工具，FBI 随后警告网络罪犯和间谍正在广泛使用它，开发者已将其从 GitHub 账号删除。
+**「背景」** Artex 是一款开源 AI 渗透测试框架，能整合多个开源模型自动执行网络侦察和攻击流程。据 Forbes 11 月 24 日报道，FBI 此前警告黑客正利用它自动化攻击，部分案例不到三小时即获得特权访问；BleepingComputer 11 月 15 日的报道也称该工具被用于全球攻击活动。
 
-**「影响与应对」** 此次事件直接暴露的是中情局等机构的非机密侦察数据，相关机构需要按非机密数据泄露的流程排查访问与扩散情况。对使用 Artex 的安全团队而言，CERT-In 已警告存在带后门的 Artex Docker 镜像，相关攻击还针对加密货币交易所并造成密钥和资金被盗，因此部署该工具时应优先核验镜像来源与完整性。
+**「防御方面临的新压力」** 对防御方而言，ARTEX 这类由 DeepSeek、Claude 等通用大模型驱动的开源自主攻击框架，使侦察与入侵能够以较低成本自动化批量执行；有安全团队在实验环境中重建该框架后，追踪到 2,269 台暴露在外的服务器。CTI 机构 Enigma Global 汇总的 CERT 警报也指出，以红队和渗透测试为名销售的 AI 工具（如 ARTEX、CyberStrikeAI）正被攻击者用来自主发起攻击，因此开发者从 GitHub 删除仓库并不能收回已被复制的副本，相关机构需要把这类代理式工具的探测行为纳入检测范围。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://rurtnews.com/news/649360-nyt-cia-artex-hack/">CIA , other US spy agencies hit by new hack – NYT — RT World News</a></li>
-<li><a href="https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html">CERT-In Flags AI-Driven Attacks as Backdoored ARTEX Exposes 62...</a></li>
+<li><a href="https://www.forbes.com/sites/larsdaniel/2026/11/24/fbi-warns-hackers-are-using-artex-ai-tool-to-automate-cyberattacks/">FBI Warns Hackers Are Using ARTEX AI Tool To Automate ...</a></li>
+<li><a href="https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/">FBI warns ARTEX AI hacking tool is powering global cyberattacks</a></li>
+<li><a href="https://ai-threat.watch/aof/artex/">ARTEX : agentic offensive framework | AI Threat Watch</a></li>
+<li><a href="https://www.enigma-global.com/cert-alerts/13714">ARTEX and AI -Powered Red Teaming Tools ... - Enigma Global CTI</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI cybersecurity`, `#cyberattacks`, `#intelligence agencies`, `#open-source AI`, `#Artex`
+**标签**: `#AI cybersecurity`, `#government cyberattack`, `#Artex`, `#open-source AI`, `#intelligence agencies`
 
 ---
 
 <a id="item-tech-news-8"></a>
-### [Anthropic 被指对竞品研发请求暗中降质](https://news.ycombinator.com/item?id=50664325) ⭐️ 7.0/10
+### [《我的世界》基岩版资源包漏洞 26.65 修复](https://www.zaikei.co.jp/article/20261119/878386.html) ⭐️ 7.0/10
 
-一则重新引发关注的系统卡摘要称，Anthropic 在 2026 年 6 月发布的 Claude Mythos 5 与 Fable 5 系统卡中披露，会对用于开发前沿大模型的请求暗中降低 Claude 的回答效果。据称手段包括改写提示、引导向量和参数高效微调，覆盖预训练流水线、分布式训练和加速器设计等任务；用户无法察觉，也不会像安全类拦截那样回退到其他模型。Anthropic 估算这影响约 0.03% 流量和不到 0.1% 的组织，多数编码工作不受影响，而用 Claude 开发竞品模型本就违反其服务条款；上述比例是厂商估算，二手摘要中的细节尚待独立核实。
-
-telegram · zaihuapd · 11月27日 13:42
-
-**「背景」** 系统卡（system card）是 Anthropic 随新模型发布一并公布的安全与评测文档；在这份文档列出的三类触发条件中，除了生物能力和网络能力，还包括“前沿模型研发”（tool-2-2）。据搜索结果，Anthropic 曾在 6 月 10 日收回一项暗中限制 Claude Fable 5 用于 AI 研究的政策（tool-2-3），因此本周开发者讨论的焦点，正是这类限制是否仍以其他形式生效。
-
-**「影响」** 对从事前沿模型研发的团队而言，相关请求可能得到被悄悄降质且没有回退提示的回答，使异常输出更难归因；同时，这类用途已被 Anthropic 列为违反服务条款，相关团队需要评估合规风险。
-
-<details><summary>参考链接</summary>
-<ul>
-<li>Claude Fable 5 and Mythos 5: The System Card</li>
-<li>Anthropic walks back covert capability limits on Claude Fable 5 after being ...</li>
-
-</ul>
-</details>
-
-**标签**: `#AI safety`, `#Anthropic`, `#model transparency`, `#terms of service`, `#developer trust`
-
----
-
-<a id="item-tech-news-9"></a>
-### [《我的世界》基岩版 26.52–26.63 资源包漏洞已修复](https://www.zaikei.co.jp/article/20261119/878386.html) ⭐️ 7.0/10
-
-《我的世界》基岩版被披露存在资源包漏洞：带有 content.zipe 文件的资源包可修改游戏界面框架 Ore UI 的文件并运行隐藏脚本。附加组件开发者 8Crafter 称已确认影响 26.52 至 26.63 版本，PC、手机和主机均受影响，Java 版不受影响；更早版本也可能受影响。玩家加入服务器或 Realm 且开启资源包自动下载时，可能在未手动安装的情况下收到问题文件；已列出的利用方式包括删除全部存档、获取玩家 IP，以及在 Windows 上特定条件下静默打开任意 URI，或启动资源包内的批处理文件下载恶意软件。Mojang 已在 26.65 版修复；AxmBro 发布的 Windows 只读检测工具可查找 content.zipe，但不能判定资源包是否恶意。
+据该报道，附加组件开发者 8Crafter 于 11 月 15 日在 Reddit 披露，《我的世界》基岩版资源包可通过 content.zipe 文件改动 Ore UI 界面文件并运行隐藏脚本，已确认影响 26.52 至 26.63 版，覆盖 PC、手机和主机，Java 版不受影响。玩家加入开启资源包自动下载的服务器或 Realm 时，可能在未手动安装的情况下收到问题文件；披露列出的后果包括删除存档、获取玩家 IP，以及在 Windows 特定条件下无提示打开任意 URI、启动资源包内批处理文件下载恶意软件。报道称 Mojang 已在 26.65 版修复，AxmBro 也发布了 Windows 只读检测工具，可查找 content.zipe，但无法判定资源包是否恶意。报道未提供 CVE 编号、根因分析或 Mojang 官方公告，影响范围与利用方式均来自开发者披露。
 
 telegram · zaihuapd · 11月27日 18:04
 
-**「背景：资源包与 Ore UI」** 基岩版的资源包是服务器或 Realm 可以下发给客户端的内容包，玩家开启自动下载后无需手动安装即可加载，通常用于替换材质与界面外观。Ore UI 是基岩版的界面框架，此次问题在于资源包内的 content.zipe 文件能够改写该框架的文件并运行隐藏脚本，而 Java 版不包含这一组件，因此不受影响。
+**「背景」** Ore UI 是《我的世界》基岩版的界面框架，资源包则是服务器或 Realm 可向加入玩家下发的自定义内容；当资源包能改写 Ore UI 文件时，隐藏脚本就可能随包进入客户端。基岩版覆盖 Windows、手机和主机，Java 版是另一套版本，报道称此次问题不影响 Java 版。
 
-**「影响与应对」** 仍停留在 26.52–26.63 的基岩版玩家，在加入服务器或 Realm 并开启资源包自动下载时，仍可能被动收到含 content.zipe 的恶意资源包；升级到 26.65 及以上版本可封堵 Ore UI 被篡改和隐藏脚本执行的路径，部分 Android 分发渠道已放出 26.66。服务端和整合包维护者可用 AxmBro 的 Windows 只读工具扫描资源包中的 content.zipe，但该工具只能发现该文件是否存在，无法判断资源包是否恶意，因此仍需人工核查来源；Java 版玩家不受影响。
+**「影响与处置」** 仍运行 26.52 至 26.63 版的玩家应升级到 26.65；在升级前加入启用资源包自动下载的服务器或 Realm，仍可能暴露于该问题。Windows 用户可用 AxmBro 的只读检测工具查找 content.zipe，但该工具不能判断资源包是否恶意，不能替代升级或人工审查。
 
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://dzen.ru/a/av1ETs3gh2vpqtig">В Minecraft нашли опасную уязвимость, которая позволяла... | Дзен</a></li>
-<li><a href="https://rbkgames.org/minecraft-26-66/">Где Скачать Minecraft 26.66 Бесплатно на телефон</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Minecraft Bedrock`, `#security vulnerability`, `#resource packs`, `#Ore UI`, `#game security`
-
----
-
-<a id="item-tech-news-10"></a>
-### [微软拟以 Windows 内置驱动替代更多第三方驱动](https://www.techspot.com/news/114721-microsoft-wants-replace-most-third-party-device-drivers.html) ⭐️ 7.0/10
-
-微软在 Ignite 2026 大会上确认，正为整类硬件开发新驱动，未来将更多依赖 Windows 内置驱动，部分第三方代码可能被内置功能取代，以减少第三方代码进入系统内核。打印机是首批重点，近期推出的 Windows Ready Print 模式用于取代旧式第三方打印驱动。Windows 产品经理 Mehmet Kucukgoz 表示，SoundWire、SDCA 等音频类驱动将很快成为 Windows 内置组件，I3C 总线、USB 以太网和 MIPI 摄像头驱动仍在开发中。微软还在 Windows 硬件工程大会上推出驱动质量倡议（DQI），鼓励第三方开发者和 OEM 尽量采用内置驱动，但目前未公布具体时间表。
-
-telegram · zaihuapd · 11月28日 02:09
-
-**「背景」** Windows 传统上依赖 OEM 和硬件厂商提供的第三方内核态驱动，打印、音频等设备通常需要各自安装驱动包。微软在 2026 年 6 月宣布，从当年 7 月起，受支持的新打印机安装将默认采用 Windows Ready Print，以减少传统驱动管理；这为 Ignite 2026 上把内置驱动扩展到更多设备类别提供了先例。
-
-**「影响」** 对驱动开发者和 OEM 而言，后续兼容性工作将更多围绕 Windows 内置驱动展开，OEM 定制驱动也被要求遵循同一思路；这有助于减少进入内核的第三方代码，但在缺少迁移时间表的情况下，现有驱动的兼容性验证仍是现实问题。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/introducing-windows-ready-print-and-modernized-driver-selection/4527563">Introducing Windows Ready Print and Modernized Driver Selection</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Windows 驱动`, `#内核安全`, `#硬件生态`, `#微软`, `#系统可靠性`
+**标签**: `#security vulnerability`, `#Minecraft Bedrock`, `#sandbox/UI tampering`, `#resource packs`, `#patch release`
 
 ---
 
 ## 财经新闻
 
 <a id="item-finance-news-1"></a>
-### [国常会部署完善资本市场稳市机制](https://www.tmtpost.com/nictation/8220182.html) ⭐️ 8.0/10
+### [央行发布大额存单新规 个人起购门槛降至 10 万元](https://www.news.cn/fortune/20261127/70789d77822242cc82216f51a416f872/c.html) ⭐️ 7.0/10
 
-11 月 27 日，国务院总理李强主持召开国务院常务会议，提出持续完善资本市场稳市机制，加力发挥“国家队”稳市作用，并进一步优化中央汇金公司的类“平准基金”功能、提供充足流动性保障。会议还要求推动上市公司加大分红回购力度，完善保险、企业年金、社保基金等中长期资金入市支持引导政策，并强化资本市场全链条监管。
-
-telegram · zaihuapd · 11月27日 05:35
-
-**「背景」** 中央汇金是国有投资机构，长期被视为资本市场“国家队”之一；所谓“平准基金”，指通过逆向买卖平抑市场波动的资金安排。央行此前表示，必要时向中央汇金公司提供充足的再贷款支持。
-
-**「影响」** 保险、企业年金和社保基金等长期资金管理机构将直接受政策引导影响；如果后续规则落地，这些机构的权益配置和入市节奏可能发生变化。中央汇金优化类“平准基金”功能，则关系它开展稳市操作时获得流动性支持的能力，但会议未公布具体规模或时间表。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://tt.jxnews.com.cn/news/2685145/">中 国 版 平 准 基 金 来了，释放 稳 市 强信号</a></li>
-<li><a href="https://www.cls.cn/detail/2546318">cls.cn/detail/2546318</a></li>
-<li><a href="https://finance.eastmoney.com/a/202611273941564045.html">finance.eastmoney.com/a/202611273941564045.html</a></li>
-
-</ul>
-</details>
-
-**标签**: `#资本市场政策`, `#中央汇金`, `#平准基金`, `#中长期资金入市`, `#监管执法`
-
----
-
-<a id="item-finance-news-2"></a>
-### [央行下调大额存单认购门槛：个人降至 10 万元，2027 年 3 月起施行](https://www.news.cn/fortune/20261127/70789d77822242cc82216f51a416f872/c.html) ⭐️ 7.0/10
-
-中国人民银行 11 月 27 日公布《大额存单管理办法》，将个人投资人认购起点从 20 万元下调至 10 万元、机构从 1000 万元下调至 500 万元，自 2027 年 3 月 21 日起施行。同日公布的《人民币存贷款利率管理规定》要求金融机构自主确定存贷款利率，不得通过高息揽储等不正当手段吸收存款，同样自 2027 年 3 月 21 日起施行。
+中国人民银行 11 月 27 日公布《大额存单管理办法》，将个人投资人认购起点从 20 万元下调至不低于 10 万元，机构门槛从 1000 万元降至不低于 500 万元，均下调一半，自 2027 年 3 月 21 日起施行。同日公布的《人民币存贷款利率管理规定》要求金融机构自主确定存贷款利率，不得通过高息揽储等不正当手段吸收存款，同样自 2027 年 3 月 21 日起施行。
 
 telegram · zaihuapd · 11月27日 11:36
 
-**「背景」** 大额存单是银行面向个人和机构发行的大额存款凭证。现行依据是 2015 年《大额存单管理暂行办法》，其中个人认购起点为 20 万元、机构为 1000 万元；新办法将这两个门槛同时下调一半，并废止该暂行办法及 2016 年第 13 号公告。
+**「背景」** 大额存单此前依据 2015 年《大额存单管理暂行办法》管理，个人与机构认购起点分别为 20 万元和 1000 万元；新办法将这两项门槛各下调一半，并同时废止该暂行办法及 2016 年第 13 号公告。
 
-**「影响」** 持有 10 万至 20 万元的个人储户将达到此前未达到的大额存单认购门槛，可购买该类产品；银行则须遵守不得以高息揽储等不正当手段吸收存款的规定。
+**「影响」** 存款在 10 万至 20 万元之间的个人投资者将首次跨过大额存单门槛；同日公布的贷款罚息上下限取消、改由金融机构与借款人协商确定，逾期借款人的罚息成本将更多取决于合同约定。
 
 <details><summary>参考链接</summary>
 <ul>
 <li><a href="https://t.me/linux_do_channel/582077">LINUX DO Channel – Telegram</a></li>
+<li><a href="https://www.workercn.cn/papers/grrb/2026/06/15/4/grrb202606154.pdf">grrb0420260615C</a></li>
+<li><a href="https://original.ifeng.com/c/8yP3q4DAFxV">央行发布两部利率新规：大额存单门槛降至10万元，2027年3月21日起施行</a></li>
+<li><a href="https://www.sohu.com/a/1107555598_121844216">大额存单个人认购起点降至10万元 2027年3月起施行_管理_市场_银行负债</a></li>
 
 </ul>
 </details>
 
-**标签**: `#PBOC regulation`, `#large-denomination CDs`, `#retail banking`, `#deposit rates`, `#China monetary policy`
+**标签**: `#China`, `#PBOC`, `#banking regulation`, `#large-denomination CDs`, `#interest rates`
+
+---
+
+<a id="item-finance-news-2"></a>
+### [市场监管总局集中约谈雅迪、台铃、爱玛等 15 家电动自行车企业](https://www.news.cn/20261127/0c8c665ce70c417b9263b39fa8a519f0/c.html?hl=zh-CN) ⭐️ 7.0/10
+
+11 月 27 日，市场监管总局对雅迪、台铃、爱玛、九号、小牛等 15 家电动自行车企业进行集中约谈。监管部门在 CCC 认证全覆盖飞行检查中发现，部分企业存在质量保证能力不足、产品一致性管控不严、销售违反强制性国家标准的不合格产品等问题，并要求企业整改，执行“一车一池一充一码”规定，承担售后责任，并对确认存在缺陷的产品立即召回。
+
+telegram · zaihuapd · 11月27日 12:06
+
+**「背景」** 电动自行车在中国须通过强制性产品认证（CCC 认证）才能出厂销售；2019 年新国标实施后，监管部门持续加强销售环节检查，近期又对生产企业开展全覆盖工厂检查，重点核查产品一致性。
+
+**「影响范围」** 对已购买这 15 家企业相关车型的消费者来说，监管要求明确了退车和缺陷召回的责任，经销商不得再以“证书很快恢复”为由拒绝退车，也不得强制折价退车；相关企业则须按“一车一池一充一码”整改生产与售后流程，否则不合格产品不得流入市场。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://www.gov.cn/gongbao/content/2019/content_5407678.htm">gov.cn/gongbao/content/2019/content_5407678.htm</a></li>
+<li><a href="https://food.cnr.cn/gstj/20261103/t20261103_527860850.shtml">堵住改装漏洞 电 动 自 行 车 新 规 给消费安全上把锁_央广网</a></li>
+
+</ul>
+</details>
+
+**标签**: `#电动自行车`, `#市场监管约谈`, `#产品质量`, `#CCC认证`, `#缺陷召回`
 
 ---
