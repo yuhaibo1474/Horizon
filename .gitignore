@@ -59,6 +59,9 @@ logs/*.log
 # uv
 .uv/
 
+# Nested frontend project (its own git repo)
+news_source/
+
 # todo
 todo.txt
 .ruff_cache

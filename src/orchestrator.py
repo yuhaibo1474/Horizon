@@ -1,6 +1,7 @@
 """Main orchestrator coordinating the entire workflow."""
 
 import asyncio
+import json
 from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
@@ -400,6 +401,17 @@ class HorizonOrchestrator:
                 if self.wechat_notifier:
                     await self.wechat_notifier.send_daily_summary(summary, lang)
 
+            # 8. Export structured news data for the frontend
+            try:
+                self._export_news_json(important_items, today, len(all_items))
+                self.console.print(
+                    f"{self.icons['save']} Exported news JSON for the frontend\n"
+                )
+            except Exception as e:
+                self.console.print(
+                    f"[yellow]{self.icons['warning']} Failed to export news JSON: {e}[/yellow]\n"
+                )
+
             self.console.print(
                 f"[bold green]{self.icons['success']} "
                 "Horizon completed successfully![/bold green]"
@@ -596,6 +608,23 @@ class HorizonOrchestrator:
         if meta.get("domain"):
             return meta["domain"]
         return item.author or "unknown"
+
+    def _export_news_json(
+        self, items: List[ContentItem], date: str, total_fetched: int
+    ) -> None:
+        """Write the frontend's structured news data to docs/assets/data/news.json."""
+        from ._file_utils import _atomic_write_text
+        from .storage.news_export import build_news_payload
+
+        payload = build_news_payload(
+            items, date, total_fetched, self.config.ai.languages
+        )
+        data_dir = Path("docs/assets/data")
+        data_dir.mkdir(parents=True, exist_ok=True)
+        dest_path = safe_output_path(data_dir, "news.json")
+        _atomic_write_text(
+            dest_path, json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+        )
 
     def merge_cross_source_duplicates(self, items: List[ContentItem]) -> List[ContentItem]:
         """Merge items that point to the same URL from different sources.

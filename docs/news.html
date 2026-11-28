@@ -1,0 +1,39 @@
+---
+layout: null
+title: 新闻雷达
+---
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>新闻雷达 · Horizon</title>
+  <link rel="stylesheet" href="assets/css/news.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">🌅</span>新闻雷达</div>
+      <div class="date" id="data-date"></div>
+      <nav id="nav"></nav>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div>
+          <h1 id="section-title"></h1>
+          <p class="subtitle">数据来自 Horizon 每日抓取与筛选的资讯</p>
+        </div>
+        <div class="lang-toggle">
+          <button type="button" data-lang="zh">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </header>
+      <div class="items" id="items"></div>
+    </main>
+  </div>
+
+  <script>window.HORIZON_DATA_URL = "assets/data/news.json";</script>
+  <script src="assets/js/news.js" defer></script>
+</body>
+</html>

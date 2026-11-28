@@ -120,6 +120,13 @@
         "enabled": true,
         "category": "linux-kernel",
         "profile": "tech-news"
+      },
+      {
+        "name": "AIHOT 日报",
+        "url": "https://aihot.news/feed/daily.xml",
+        "enabled": true,
+        "category": "aihot",
+        "profile": "tech-news"
       }
     ],
     "reddit": {
@@ -160,6 +167,15 @@
           ]
         }
       ]
+    },
+    "twitter": {
+      "enabled": true,
+      "mode": "apify",
+      "users": ["karpathy"],
+      "keywords": [],
+      "fetch_limit": 10,
+      "fetch_reply_text": false,
+      "profile": "tech-news"
     }
   },
   "collection": {
