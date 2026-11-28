@@ -5,215 +5,188 @@ date: 2026-11-28
 lang: en
 ---
 
-> From 30 items, 9 important content pieces were selected
+> From 30 items, 7 important content pieces were selected
 
 ---
 
 **Technology News**
-1. [OpenSec reports critical Linux NFS server flaw enabling remote root](#item-tech-news-1) ⭐️ 8.0/10
-2. [Unkernel compiles a real Linux kernel to WebAssembly](#item-tech-news-2) ⭐️ 7.0/10
-3. [Google proposes DeepCrossAttention, claiming up to 3x faster training](#item-tech-news-3) ⭐️ 7.0/10
-4. [Skimming scripts reportedly used WebRTC on popular shopping sites](#item-tech-news-4) ⭐️ 7.0/10
-5. [Hacker News debate pushes back on false computer-checked proof critique](#item-tech-news-5) ⭐️ 7.0/10
-6. [State attorneys general sue SpaceX over Grok-generated sexual abuse and revenge-porn images](#item-tech-news-6) ⭐️ 7.0/10
-7. [SemiAnalysis: Trainium3 trades blows with GB300 on inference cost](#item-tech-news-7) ⭐️ 7.0/10
-8. [Microsoft expands built-in Windows drivers, starting with printers](#item-tech-news-8) ⭐️ 7.0/10
-
-**Financial News**
-1. [China&\#x27;s central bank cuts minimum purchase for large-denomination CDs to 100,000 yuan](#item-finance-news-1) ⭐️ 7.0/10
+1. [OpenSec Discloses CVSS 9.8 Pre-Auth Root Flaw in Linux NFS Server](#item-tech-news-1) ⭐️ 9.0/10
+2. [Unkernel demonstrates a real Linux kernel compiled to WebAssembly](#item-tech-news-2) ⭐️ 8.0/10
+3. [Google Research&\#x27;s DeepCrossAttention reports comparable quality at up to 3x speed](#item-tech-news-3) ⭐️ 7.0/10
+4. [State attorneys general sue SpaceX over Grok&\#x27;s alleged CSAM and revenge-porn output](#item-tech-news-4) ⭐️ 7.0/10
+5. [False computer-checked proofs and the limits of checker trust](#item-tech-news-5) ⭐️ 7.0/10
+6. [Reported card-skimming scripts on shopping sites use WebRTC](#item-tech-news-6) ⭐️ 7.0/10
+7. [SemiAnalysis: Trainium3 inference beats GB300 on perf/TCO, trails Vera Rubin](#item-tech-news-7) ⭐️ 7.0/10
 
 ---
 
 ## Technology News
 
 <a id="item-tech-news-1"></a>
-### [OpenSec reports critical Linux NFS server flaw enabling remote root](https://opensec.in/blog/nfs2root-cve-2026-99362) ⭐️ 8.0/10
+### [OpenSec Discloses CVSS 9.8 Pre-Auth Root Flaw in Linux NFS Server](https://opensec.in/blog/nfs2root-cve-2026-99362) ⭐️ 9.0/10
 
-OpenSec disclosed CVE-2026-99362, a pre-authentication heap overflow in the Linux kernel&\#x27;s nfsd NFS server that it rates CVSS 9.8 and says can give an unauthenticated attacker a root shell through a single connection to tcp/2049. The flaw is reported to have existed since Linux 3.16 in 2014 and to affect hosts with NFSv4.1 or 4.2 enabled, including file servers, NAS devices and clustered storage nodes. Fixes are listed for Linux 6.12.117, 6.18.61, 7.3.2 and 7.4-rc1; applying them requires a kernel upgrade and reboot. The CVE was published on November 20, 2026.
+OpenSec disclosed CVE-2026-99362, a pre-authentication heap overflow in the Linux kernel&\#x27;s nfsd server rated CVSS 9.8, which the firm says lets an unauthenticated attacker obtain a root shell with a single connection to tcp/2049 by writing out of bounds on the kernel heap. According to the report, the flaw has existed since Linux 3.16 in 2014 and affects hosts running NFSv4.1 or NFSv4.2, including file servers, NAS devices and clustered storage nodes. Fixes shipped in kernel releases 6.12.117, 6.18.61, 7.3.2 and 7.4-rc1 and require upgrading and rebooting the kernel. The CVE was published on November 20, 2026; the disclosure comes from a single source, so the details should be checked against the official CVE advisory.
 
 telegram · zaihuapd · Nov 27, 12:57
 
-**「Background」** nfsd is the Linux kernel&\#x27;s NFS server, exporting filesystems to remote clients over TCP port 2049; the affected code is reached when a server offers NFSv4.1 or 4.2. The flaw has existed since Linux 3.16 in 2014, so older long-term-support and appliance kernels can carry it even though the current upstream fix is in newer releases.
+**「Background」** \`nfsd\` is the Linux kernel&\#x27;s NFS server component, and the affected configurations are hosts serving NFSv4.1 or 4.2 on TCP port 2049. The underlying flaw is long-standing: BleepingComputer reports it has existed since Linux 3.16, released in March 2014.
 
-**「Impact」** Administrators running affected NFS servers need to upgrade to a fixed kernel and reboot; where an immediate upgrade is not possible, the disclosed fallback is to restrict access to tcp/2049 at the firewall.
+**「Impact」** Administrators of NFS servers, NAS systems and storage clusters that have NFSv4.1 or 4.2 enabled must upgrade to a fixed kernel and reboot, since the vulnerable nfsd code stays active until the new kernel is running. Where an immediate upgrade is not possible, the report&\#x27;s suggested mitigation is to block access to tcp/2049 at the firewall, which cuts off remote NFS clients as well as any attacker.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://opensec.in/blog/nfs2root-cve-2026-99362">NFS 2ROOT ( CVE - 2026 - 99362 ): pre-auth root in Linux nfsd | OpenSec</a></li>
-<li><a href="https://www.getpagespeed.com/server-setup/security/nfs2root-cve-2026-99362-centos-7">NFS 2ROOT ( CVE - 2026 - 99362 ) on CentOS 7: Fixed Kernel</a></li>
+<li><a href="https://opensec.in/blog/nfs2root-cve-2026-99362">NFS2ROOT ( CVE - 2026 - 99362 ): pre-auth root in Linux nfsd | OpenSec</a></li>
+<li><a href="https://www.getpagespeed.com/server-setup/security/nfs2root-cve-2026-99362-centos-7">NFS2ROOT ( CVE - 2026 - 99362 ) on CentOS 7: Fixed Kernel</a></li>
+<li><a href="https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/">New NFS2ROOT Linux flaw can let attackers gain root privileges</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Linux kernel`, `#NFS`, `#security vulnerability`, `#remote code execution`, `#patching`
+**Tags**: `#Linux kernel`, `#NFS`, `#security vulnerability`, `#CVE`, `#remote exploit`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Unkernel compiles a real Linux kernel to WebAssembly](https://unkernel.dev/) ⭐️ 7.0/10
+### [Unkernel demonstrates a real Linux kernel compiled to WebAssembly](https://unkernel.dev/) ⭐️ 8.0/10
 
-The Unkernel project presents a real Linux kernel compiled to WebAssembly; the item describes interest in it for browser-based sandboxing and as an alternative to POSIX runtimes for WASM. The supplied item does not include a version, performance measurements, or compatibility details, so the extent of the working capability is not independently established. For developers evaluating WASM sandboxes, it adds a kernel-level option alongside smaller POSIX-style runtimes.
+Unkernel \(unkernel.dev\), posted to Hacker News, demonstrates a real Linux kernel compiled to WebAssembly, an approach aimed at running Linux environments directly in the browser. The submission provides limited technical detail: no kernel version, build configuration, performance measurements, or release and support status were supplied. It is therefore best treated as a demonstration rather than a shipped, supported capability.
 
 hackernews · nreece · Nov 28, 03:19 · [Discussion](https://news.ycombinator.com/item?id=50674218)
 
-**「Background」** Earlier ways of putting a Linux shell in a browser typically relied on full-system emulation: linuxontab.com, for example, boots an x86 kernel and Alpine userland on top of the v86 emulator running via WebAssembly, with no local install. Unkernel takes a different route by compiling the kernel itself straight to WebAssembly, with user programs running on kwemu — an aarch64 CPU written in Zig and linked into the kernel that walks the kernel&\#x27;s own page tables, so memory management is handled by the real Linux code.
+**「Background」** Browser-based Linux environments have generally relied on emulating a full x86 PC in software; LinuxOnTab, for example, boots an x86 Linux kernel and Alpine userland inside the tab using WebAssembly and the v86 emulator. Unkernel takes a different route: its GitHub description says the Linux kernel itself is compiled straight to WebAssembly, while user programs run on kwemu, an aarch64 CPU written in Zig and linked into the kernel. That distinction matters because kwemu walks the kernel&\#x27;s own page tables, so memory management is performed by the real Linux code rather than by a fully emulated machine.
 
-**「Performance trade-off for adopters」** Developers choosing between Unkernel and existing browser-based Linux emulation should expect uneven performance: one developer reported in a Hacker News thread that a test workload ran 40% slower on jslinux than on Unkernel, while some microbenchmarks differed by a factor of 4 to 40. That makes the full-kernel approach a compatibility play rather than a uniform speed win, and a competing POSIX-runtime author argued in the same discussion that most workloads do not need 90% of the Linux kernel, so smaller sandboxes may still be better served by the lighter approach.
+**「Impact」** The clearest use case raised is education: one commenter argued that every student could get a Linux environment in the browser with &quot;virtually zero server infrastructure costs.&quot; That is a community projection rather than a measured result, and the demo supplies no evidence on boot time, memory use, or which kernel features work under WebAssembly.
 
-**「Community discussion」** Commenters responded positively, but daugasauron argued that POSIX runtimes for WASM still suit small, specialized agent sandboxes because most workloads do not need most of the Linux kernel, while noting that the project&\#x27;s comparison table marks those runtimes poorly. Other commenters pointed to related projects and proposed running Windows programs in the browser through WebUSB.
+**「Community discussion」** Commenters connected the work to Gary Bernhardt&\#x27;s 2014 talk &quot;The Birth and Death of JavaScript&quot; as an early prediction of JavaScript- and WebAssembly-based systems, and pointed to related projects such as tabcand and tabernetes. Others proposed running Windows installers in the browser via WebUSB and browser-hosted Linux for students; these are suggestions and opinions, not demonstrated capabilities.
 
 <details><summary>References</summary>
 <ul>
 <li><a href="https://github.com/pithings/unkernel">pithings/ unkernel : A real Linux kernel , compiled to WebAssembly .</a></li>
 <li><a href="https://linuxontab.com/shell/">Real Linux terminal in your browser (v86 + WebAssembly )</a></li>
-<li>A real Linux kernel, compiled to WebAssembly - Hacker News</li>
 
 </ul>
 </details>
 
-**Tags**: `#WebAssembly`, `#Linux kernel`, `#virtualization`, `#sandboxing`, `#open source`
+**Tags**: `#WebAssembly`, `#Linux kernel`, `#browser computing`, `#virtualization`, `#systems engineering`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Google proposes DeepCrossAttention, claiming up to 3x faster training](https://research.google/blog/supercharging-transformer-residual-connections/) ⭐️ 7.0/10
+### [Google Research&\#x27;s DeepCrossAttention reports comparable quality at up to 3x speed](https://research.google/blog/supercharging-transformer-residual-connections/) ⭐️ 7.0/10
 
-Google researchers have proposed DeepCrossAttention \(DCA\), a depth-wise cross-attention method for transformer residual connections. The research blog claims the approach can deliver comparable model quality with up to 3x faster training. The supplied evidence does not include independent validation, a released implementation, or independently measured benchmarks, so the speed and quality claims remain the authors&\#x27; claims.
+Google Research&\#x27;s DeepCrossAttention \(DCA\) changes transformer attention to operate across layers in depth: each token queries a dynamically weighted mix of prior-layer embeddings rather than attending only across tokens in a sequence. The research blog reports comparable model quality with up to 3x faster performance, and says retrofitting DCA onto an already pretrained transformer with brief continued training reduced perplexity by 0.19 on LM1B, versus 0.02 for continued standard training. These are blog-level, vendor-reported results rather than a peer-reviewed or independently verified benchmark, so the headline speedup and quality parity should be treated as claims.
 
 hackernews · ComputedCamp995 · Nov 27, 23:06 · [Discussion](https://news.ycombinator.com/item?id=50672565)
 
-**「Background」** Transformer residual connections normally pass a layer&\#x27;s output forward so later layers can build on earlier representations. Standard attention, by contrast, mixes information across tokens at a given layer. DCA changes that split by applying attention across depth, with each token querying a weighted mix of embeddings from prior layers, according to the description quoted in the discussion.
+**「Background」** In a standard transformer, residual connections simply add each layer’s output to the running representation; the arXiv paper behind DeepCrossAttention argues this can dilute information from earlier layers. DCA instead applies input-dependent, depth-wise cross-attention across the Query, Key, and Value components, allowing each token to draw on prior-layer embeddings rather than only a summed residual stream.
 
-**「Impact」** Teams training deep transformers cannot yet treat DCA as a drop-in speedup: the supplied evidence describes a research method and claimed result, not a shipped library or independently reproduced benchmark. Practical adoption would require implementation details and tests on the team&\#x27;s own model and data.
+**「Training-speed implications」** Teams considering DCA should benchmark it as a training-efficiency change: the paper reports the same model quality up to 3x faster while adding a negligible number of parameters, so the payoff is less training time to reach comparable quality, not a 3x faster model at inference. An HN commenter specifically cautioned that the headline &quot;faster&quot; refers to training, so teams should measure inference latency separately before assuming a runtime gain.
 
-**「Community discussion」** One commenter highlighted the retrofit result quoted from the research: adding DCA to an already pre-trained transformer and briefly continuing training reduced LM1B perplexity by 0.19, versus 0.02 for standard continued training, and called mid-training architecture changes promising. Another objected to the blog&\#x27;s line charts, arguing that the compared methods have no temporal relation and should be shown as bar charts.
+**「Community discussion」** Commenters focused on the presentation and implications rather than reporting independent results: one criticized the blog&\#x27;s method comparisons as better suited to bar charts than line graphs, while others speculated that depth-wise cross-attention could help with the “strawberry problem” and that retrofitting model dimensions mid-training is a promising direction.
 
-**Tags**: `#machine learning`, `#transformers`, `#attention mechanisms`, `#model efficiency`, `#research`
+<details><summary>References</summary>
+<ul>
+<li><a href="https://arxiv.org/html/2502.06785">DeepCrossAttention : Supercharging Transformer Residual ...</a></li>
+<li><a href="https://www.alphaxiv.org/overview/2502.06785v1">DeepCrossAttention : Supercharging Transformer Residual ...</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50672565">Google&#x27;s DeepCrossAttention achieves comparable model quality ...</a></li>
+<li><a href="https://arxiv.org/abs/2502.06785">[2502.06785] DeepCrossAttention : Supercharging Transformer ...</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#transformers`, `#deep-cross-attention`, `#model-architecture`, `#training-efficiency`, `#Google Research`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [Skimming scripts reportedly used WebRTC on popular shopping sites](https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer) ⭐️ 7.0/10
+### [State attorneys general sue SpaceX over Grok&\#x27;s alleged CSAM and revenge-porn output](https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform) ⭐️ 7.0/10
 
-A Hacker News submission reports that credit-card skimming scripts found on popular shopping sites used WebRTC, presented as a detection-evasion variant rather than a new class of attack. The item supplies no underlying technical report, so the affected merchants, number of sites, script injection path, and campaign timing are unconfirmed. Commenters disputed that WebRTC is essential to the attack, arguing the same data exfiltration could be carried out with ordinary HTTP requests.
+Attorneys General Jones and Rayfield filed a lawsuit against SpaceX, described in the announcement as the parent company of xAI and its Grok chatbot, over the creation and promotion of child sexual abuse material and non-consensual intimate imagery on the platform. The release frames the action as targeting both the generation of such images and the platform&\#x27;s role in promoting them. The supplied material contains only the announcement headline and summary, so the specific legal claims, the number of states joining, the court, and any requested remedies are not established here. The allegations are accusations filed in a complaint, not findings of liability.
 
-hackernews · scanr · Nov 27, 15:40 · [Discussion](https://news.ycombinator.com/item?id=50668145)
+hackernews · DeepLogin · Nov 27, 19:42 · [Discussion](https://news.ycombinator.com/item?id=50670855)
 
-**「Background」** Web-skimming attacks of this type, often labeled Magecart, work by getting JavaScript onto an online store&\#x27;s checkout page — frequently through a compromised third-party script — so card details are copied as shoppers type them. WebRTC is a browser API for real-time peer-to-peer audio, video and data; commenters on the item argued that its traffic can sit outside a site&\#x27;s \`connect-src\` Content-Security-Policy rules, which would explain why attackers used it instead of ordinary HTTP requests.
+**「Background」** The lawsuits frame the issue as consumer protection rather than purely content regulation: Virginia and Oregon allege that SpaceX, as parent of X, xAI and Grok, allowed Grok users to create non-consensual sexually explicit images while falsely marketing the image generator as generally safe. Coverage describes the two states as the first to sue SpaceX over the issue.
 
-**「What to check」** The practical task for e-commerce and checkout teams is auditing which third-party scripts run on payment pages and verifying that policy controls cover the channels those scripts can reach. One commenter speculated that WebRTC traffic may escape a site&\#x27;s connect-src CSP, but that was asserted in discussion rather than demonstrated by the report.
+**「Impact」** By naming SpaceX as xAI&\#x27;s corporate parent rather than xAI alone, the suit puts the question of parent-company liability for a model&\#x27;s image outputs directly at issue — a structure other AI developers with parent or affiliated corporate entities would have to account for in their compliance and indemnity planning. It also creates near-term pressure on Grok&\#x27;s image-generation safeguards while the case proceeds.
 
-**「Commenter debate」** Several commenters argued the WebRTC angle is incidental: afavour and kevsamuel said the exfiltration could work over ordinary HTTP requests, and that the underlying failure is embedding third-party scripts or failing to restrict CSP. jszymborski cited the report as a reason not to feel bad about blocking ads, while snickerer argued browsers should receive data rather than execute remotely supplied code.
+**「Community Discussion」** Commenters debated whether Grok&\#x27;s image generation was supposed to block this content outright and whether users had to deliberately circumvent safeguards to produce it, with one reader asking why liability is not also pursued against the individuals creating the material. Another commenter asserted that the Supreme Court has already held that AI-generated child sexual abuse material made for personal consumption is protected speech, subject to carveouts requiring that no real children are depicted or involved — a legal interpretation offered without citation and not confirmed by the filing described here.
 
-**Tags**: `#web security`, `#payment skimming`, `#WebRTC`, `#third-party scripts`, `#e-commerce security`
+<details><summary>References</summary>
+<ul>
+<li><a href="https://www.cnbc.com/2026/11/23/oregon-virginia-spacex-grok-deepfake-lawsuits.html">SpaceX sued by 2 states over AI deepfake porn , Grok safety claims</a></li>
+<li><a href="https://www.engadget.com/2325111/two-states-sue-spacex-over-sexually-explicit-grok-deepfakes/">Two States Sue SpaceX Over Sexually Explicit Grok Deepfakes</a></li>
+
+</ul>
+</details>
+
+**Tags**: `#AI safety`, `#generative AI`, `#regulation`, `#xAI/Grok`, `#platform liability`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [Hacker News debate pushes back on false computer-checked proof critique](https://cr.yp.to/proofs/falseccp.html) ⭐️ 7.0/10
+### [False computer-checked proofs and the limits of checker trust](https://cr.yp.to/proofs/falseccp.html) ⭐️ 7.0/10
 
-The linked critique examines false computer-checked proofs and proof-checker soundness, and what the risk means for formal-verification users. Hacker News commenters argued that major accepted proof bases are not protected by a single checker: Metamath&\#x27;s set.mm and iset.mm require five independently created verifiers in five programming languages, and Lean has multiple checkers. Commenters also cited a case in which a DeepMind researcher passed Lean and a then-week-old nanoda by exploiting a different bug in each, while disputing how far such cases generalize and arguing that historical soundness bugs are rare and hard to turn into a misleading result.
+The linked essay argues that a proof accepted by a computer checker can still be false if the checker itself has a soundness bug, so “computer-checked” is not an unconditional guarantee of truth. It examines what stronger assurance would require, including scrutiny of the trusted checking path rather than only the proof object.
 
 hackernews · \_tk\_ · Nov 27, 15:26 · [Discussion](https://news.ycombinator.com/item?id=50667989)
 
-**「Background」** Computer-checked proofs rely on a proof checker to validate each step, so a soundness bug—one that lets the checker accept a false statement—undermines the guarantee the proof is supposed to provide. Such bugs have been reported for HOL Light, Mizar, Metamath, Isabelle, Lean, HOL98/HOL4, and Coq/Rocq, and in many cases were demonstrated exploitable.
+**「Background」** A computer-checked proof is only as trustworthy as the small kernel that validates it, so a soundness bug in a checker can in principle certify a false theorem. Lean&\#x27;s Leonardo de Moura published postmortems in August 2026 describing exactly that: in one, a model constructed a proof of False by exploiting reference-counting and GMP bugs, and in another the original Collatz repository passed both Lean and a then week-old version of nanoda, the independent Rust checker, via two unrelated bugs. The critique page examines what assurance practices those episodes imply.
 
-**「Practical assurance gap」** Teams relying on proof assistants for high-stakes correctness claims should not treat one checker&\#x27;s acceptance as final: the discussion cites a proof that passed Lean and a then-week-old nanoda only by exploiting a different bug in each, so independent verification or expert review remains part of the assurance case.
+**「Impact」** For developers and mathematicians who rely on machine-checked results, acceptance by a single checker does not by itself establish a theorem; assurance claims need to account for the checker’s trusted base and, where the risk warrants it, independent verification.
 
-**「Community discussion」** Commenters pushed back on the critique&\#x27;s practical implications, with dwheeler noting Metamath&\#x27;s five-verifier requirement and twotwotwo noting that Lean has multiple checkers. twotwotwo also cited the DeepMind researcher&\#x27;s Lean-and-nanoda case as evidence that multi-verifier assurance is not absolute, while gr\_norm argued that the known soundness bugs are few enough to fit in a tweet and remain a low practical risk for most software.
+**「Community Discussion」** Commenters disputed how much the risk matters in practice: one argued that misleading mathematicians requires defeating multiple checkers and informal review, and another said Metamath’s main databases require proofs to pass five independently created verifiers. A further commenter argued that known soundness bugs are rare and “fit in a tweet,” while another raised the separate hazard of proving a correct implementation against the wrong specification.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://cr.yp.to/proofs/falseccp.html">False computer-checked proofs (djb) - cr.yp.to</a></li>
-<li><a href="https://daily.dev/posts/false-computer-checked-proofs-k95nubjp0">False computer-checked proofs - daily.dev</a></li>
-<li><a href="https://news.lavx.hu/article/d-j-bernstein-catalogs-soundness-bugs-in-seven-proof-checkers">D. J. Bernstein catalogs soundness bugs in seven proof checkers</a></li>
-<li>It is true soundness bugs have been found, and the Lean ... - Hacker News</li>
+<li><a href="https://leodemoura.github.io/blog/2026-8-24-postmortem-for-the-kernel-soundness-bug-hunt/">Postmortem for the Kernel Soundness Bug Hunt — Leonardo de Moura</a></li>
+<li><a href="https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/">Postmortem for Kernel Soundness Bug #14576 — Leonardo de Moura</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#formal verification`, `#proof assistants`, `#soundness bugs`, `#software correctness`, `#Lean`
+**Tags**: `#formal verification`, `#proof assistants`, `#soundness bugs`, `#Lean`, `#Metamath`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [State attorneys general sue SpaceX over Grok-generated sexual abuse and revenge-porn images](https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform) ⭐️ 7.0/10
+### [Reported card-skimming scripts on shopping sites use WebRTC](https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer) ⭐️ 7.0/10
 
-Two state attorneys general have sued SpaceX, which the announcement identifies as the parent company of X and xAI and the company behind Grok, alleging that Grok generated child sexual abuse material and non-consensual intimate images, including revenge porn. The suit seeks to stop Grok from producing such material. The allegations have not been established in court, and the supplied material does not include the complaint, the requested relief, or a response from SpaceX or xAI.
+InfoHawk reports that credit-card skimming scripts using WebRTC were found on popular shopping sites, framed as a Black Friday web-security incident affecting e-commerce shoppers. The supplied material does not name affected sites, give a count, or explain the scripts&\#x27; technical operation, so the campaign&\#x27;s scope and the specific role of WebRTC remain unverified. The security concern raised is that sites embedding third-party scripts can expose shoppers&\#x27; payment data in the browser.
 
-hackernews · DeepLogin · Nov 27, 19:42 · [Discussion](https://news.ycombinator.com/item?id=50670855)
+hackernews · scanr · Nov 27, 15:40 · [Discussion](https://news.ycombinator.com/item?id=50668145)
 
-**「Background」** The suit names SpaceX, the corporate parent of X and xAI, as the defendant rather than the Grok developer itself, so the liability theory rests on the parent company&\#x27;s oversight of the model&\#x27;s image-generation features. Virginia&\#x27;s attorney general framed the case around X account holders allegedly being misled by the company, and Oregon Attorney General Dan Rayfield publicized the filing alongside Virginia. Reuters reported that the two states brought the action against &quot;SpaceX Super Intelligence Corp&quot; over a Grok feature the filing says the company profited from.
+**「Background」** Magecart-style skimming is a known e-commerce threat in which attackers inject card-capture code into a site&\#x27;s payment flow rather than breaching the retailer&\#x27;s own servers; third-party scripts such as payment gateways or chat widgets are a common entry point. A 2019 supply-chain campaign inserted skimming code into a popular third-party JavaScript library from Adverline and compromised nearly 277 e-commerce sites. The reported WebRTC-based campaign follows that general model, though the supplied item does not provide affected-site counts or technical detail to confirm the mechanism.
 
-**「Legal exposure shifts to integrators」** For teams integrating Grok&\#x27;s image-generation features, the immediate consequence is provider-level legal risk: Virginia and Oregon are pursuing SpaceX over how Grok was built and promoted, not only over individual users&\#x27; prompts, so abuse-detection controls, acceptable-use enforcement, and prompt/output logging become material. xAI&\#x27;s reported practice of suing its own users over alleged misuse adds a separate liability channel, making indemnity and terms-of-service exposure worth reviewing.
+**「Third-party checkout risk」** For merchants, the concrete consequence is that third-party tags on checkout pages remain a direct path to payment-card data: the reported campaign was planted on five online stores and captured at least one test card. The actionable step is to inventory and restrict scripts loaded on payment pages—CSP is one control—and to treat WebRTC as an exfiltration channel rather than a separate bug class.
 
-**「Community discussion」** Commenters questioned how Grok produced such images if the material is already widely banned and whether users, rather than only the company, should face liability. One commenter asserted that U.S. Supreme Court precedent protects AI-generated child sexual abuse material made for personal use when no real children are depicted, while noting uncertainty about revenge porn; that legal assertion was not verified in the supplied material.
+**「Community discussion」** Commenters argued that WebRTC is likely being used because it is less closely monitored for malicious behavior than ordinary HTTP requests, not because of a capability unique to WebRTC, and that embedding any third-party script leaves a site vulnerable. One commenter also reported a separate Black Friday purchase from a European site that triggered an immediate card block and replacement, with the cause unknown.
 
 <details><summary>References</summary>
 <ul>
-<li>Attorneys General Jones and Rayfield File Suit Against SpaceX, Parent ...</li>
-<li>We&#x27;re holding SpaceX accountable for allowing its Grok AI program to ...</li>
-<li>Virginia, Oregon sue Musk&#x27;s SpaceX over Grok AI&#x27;s creation of ... - Reuters</li>
-<li><a href="https://www.politico.com/news/2026/08/28/elon-musk-xai-lawsuits-grok-deepfakes-01053817">Musk’s AI company sues its users as victim lawsuits over Grok ...</a></li>
-<li><a href="https://apnews.com/article/grok-lawsuit-elon-musk-ai-abuse-images-452cc64e7169a55868f797982d0e8238">Sexual images from Elon Musk&#x27;s AI chatbot harmed consumers ...</a></li>
-<li><a href="https://www.reuters.com/legal/government/virginia-oregon-sue-musks-spacex-over-grok-ais-creation-child-sexual-abuse-2026-11-23/">Virginia, Oregon sue Musk&#x27;s SpaceX over Grok AI&#x27;s creation of ...</a></li>
+<li><a href="https://jscrambler.com/blog/magecart-attacks-in-ecommerce-road-to-mitigation/">Magecart Attacks in E - Commerce : The Path to Mitigation</a></li>
+<li><a href="https://thehackernews.com/2019/03/magecart-ecommerce-hackers.html">New MageCart Attacks Target Bedding Retailers My Pillow and...</a></li>
+<li><a href="https://www.reflectiz.com/blog/magecart-attack-disguised-gtm/">Magecart attack wears GTM disguise – Reflectiz</a></li>
+<li>Credit card skimming scripts using WebRTC found on... - daily.dev</li>
+<li>Five stores had skimmers. One test card was captured. | The Shift Wire</li>
 
 </ul>
 </details>
 
-**Tags**: `#AI safety`, `#generative AI`, `#content moderation`, `#AI regulation`, `#xAI/Grok`
+**Tags**: `#web security`, `#credit card skimming`, `#WebRTC`, `#third-party scripts`, `#e-commerce`
 
 ---
 
 <a id="item-tech-news-7"></a>
-### [SemiAnalysis: Trainium3 trades blows with GB300 on inference cost](https://newsletter.semianalysis.com/p/trainium3-inferencex) ⭐️ 7.0/10
+### [SemiAnalysis: Trainium3 inference beats GB300 on perf/TCO, trails Vera Rubin](https://newsletter.semianalysis.com/p/trainium3-inferencex) ⭐️ 7.0/10
 
-SemiAnalysis has added AWS Trainium3 to its InferenceX and UBenchX inference benchmarks and published a microarchitecture deep dive, giving AI infrastructure teams a new comparison point against Nvidia GPUs. In its tests, a Trainium3 PDS plus vLLM configuration is reported to trade blows with, or beat, Nvidia GB300 on cost to generate tokens at total cost of ownership \(TCO\), and to trail only Nvidia&\#x27;s Vera Rubin across the full TCO-versus-p90-interactivity curve. The analysis credits Trainium&\#x27;s ML-first tile architecture and Descriptor Generation Engines with reaching peak HBM bandwidth utilization at small message sizes, which the authors say is not possible on Nvidia GPUs. These are SemiAnalysis benchmark claims made with AWS architecture-team assistance; the supplied excerpt gives no absolute performance numbers or independent reproduction.
+SemiAnalysis published an InferenceX/UBenchX deep dive and microbenchmarks of AWS Trainium3, reporting that Trainium3 with PDS and vLLM beats every accelerator it lists except Nvidia Vera Rubin on performance per TCO across its throughput-versus-p90-interactivity frontier, and that Trainium3 trades blows with or beats Nvidia GB300 on token-generation cost. SemiAnalysis attributes part of the advantage to Trainium&\#x27;s ML-first, tile-based microarchitecture, including Descriptor Generation Engines that its tests show reaching peak HBM bandwidth utilization at small message sizes—something the authors say is not possible on Nvidia GPUs. The article also details cycle-level SRAM scratchpad latency and bandwidth, rack-scale measurements, attention-shape tests, and AgentX end-to-end replays of coding-agent sessions.
 
 rss · Semianalysis · Nov 27, 15:54
 
-**「Context: Trainium and InferenceX」** Trainium is AWS&\#x27;s in-house family of machine-learning accelerators, positioned as an alternative to Nvidia&\#x27;s GPUs for training and inference; Nvidia&\#x27;s datacenter chips, by contrast, descend from graphics processors that have had AI-specific units such as Tensor Cores and TMA added generation by generation. SemiAnalysis&\#x27;s InferenceX is an open benchmark suite that replots each accelerator as a throughput-versus-latency frontier so systems can be compared on performance per total cost of ownership. In the source&\#x27;s framing, Trainium&\#x27;s ML-first design previously made software a &quot;humongous challenge&quot; — a penalty the author says no longer applies to Trainium3.
+**「Background」** Nvidia&\#x27;s datacenter GPUs descend from a graphics architecture, with AI-specific additions layered on over generations: Volta introduced Tensor Cores, Hopper added the Tensor Memory Accelerator for tile movement between HBM and SRAM, and Blackwell added Tensor Memory for accumulation. AWS instead designed Trainium from the ground up for ML workloads, treating tiles as a first-class primitive rather than starting from a sea of threads and bolting on tensor compute and data-movement engines. That architectural difference is the basis for SemiAnalysis&\#x27;s comparison of Trainium3&\#x27;s inference efficiency with Nvidia&\#x27;s approach.
 
-**「Impact」** AI infrastructure teams can use the results to weigh Trainium3&\#x27;s token economics against GB300 and Vera Rubin, but the ranking is tied to agentic coding sessions and a TCO-versus-p90-interactivity target. Buyers should validate their own latency target and vLLM configuration rather than treating the result as workload-independent.
+**「Impact」** Model-serving teams evaluating cost per token should add Trainium3 with vLLM to their own throughput and latency sweeps, because SemiAnalysis&\#x27;s benchmark places it behind only Nvidia Vera Rubin and ahead of GB300 on its reported TCO-versus-p90-interactivity frontier; the figures are the authors&\#x27; measurements rather than an AWS claim, and the excerpt gives no absolute costs.
 
-**Tags**: `#AWS Trainium`, `#AI accelerators`, `#inference`, `#microarchitecture`, `#Nvidia`
-
----
-
-<a id="item-tech-news-8"></a>
-### [Microsoft expands built-in Windows drivers, starting with printers](https://www.techspot.com/news/114721-microsoft-wants-replace-most-third-party-device-drivers.html) ⭐️ 7.0/10
-
-At Ignite 2026, Microsoft confirmed it is developing more in-box Windows class drivers to reduce third-party code running in the kernel. For printers, the company said that from July its Windows Ready Print platform will default new installations of compatible printers to the built-in IPP driver. Windows product manager Mehmet Kucukgoz said SoundWire and SDCA audio class drivers will soon become Windows components, while I3C bus, USB Ethernet, and MIPI camera class drivers are still in development. Microsoft also pointed to its May Driver Quality Initiative, which encourages vendors to prioritize compatible in-box class drivers.
-
-telegram · zaihuapd · Nov 28, 02:09
-
-**「Background」** Windows class drivers are Microsoft-supplied drivers that support a whole category of devices through a standard interface, allowing hardware to work without a vendor-written kernel driver. Microsoft&\#x27;s Driver Quality Initiative, launched in May, already encouraged manufacturers to prefer compatible in-box class drivers over third-party ones.
-
-**「Impact」** For IT teams, the immediate effect is that newly installed compatible printers will use the inbox IPP driver by default from July, so deployments should validate print workflows and confirm which devices are covered. Because the change applies to compatible printers, organizations should inventory models rather than assume every existing device will move to the inbox driver.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://techcommunity.microsoft.com/blog/partnernews/introducing-windows-ready-print-and-modernized-driver-selection/4526895">Introducing Windows Ready Print and Modernized Driver ...</a></li>
-<li><a href="https://4sysops.com/archives/windows-protected-print-and-ipp-internet-printing-protocol-eliminating-third-party-printer-drivers/">Windows Protected Print and IPP (Internet Printing Protocol ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#Windows`, `#device drivers`, `#Microsoft`, `#OS internals`, `#hardware compatibility`
-
----
-
-## Financial News
-
-<a id="item-finance-news-1"></a>
-### [China&\#x27;s central bank cuts minimum purchase for large-denomination CDs to 100,000 yuan](https://www.news.cn/fortune/20261127/70789d77822242cc82216f51a416f872/c.html) ⭐️ 7.0/10
-
-The People&\#x27;s Bank of China published new rules for large-denomination certificates of deposit on Nov 27, lowering the minimum individual purchase to 100,000 yuan from 200,000 yuan and the institutional minimum to 5 million yuan from 10 million yuan, effective March 21, 2027.
-
-telegram · zaihuapd · Nov 27, 11:36
-
-**「Background」** The measures replace the PBOC&\#x27;s 2015 interim rules and a 2016 announcement, and a companion regulation issued the same day requires financial institutions to set deposit and lending rates themselves and bars improper practices such as luring deposits with unusually high interest.
-
-**Tags**: `#PBOC`, `#large-denomination CDs`, `#banking regulation`, `#deposit rates`, `#China retail savings`
+**Tags**: `#Trainium3`, `#AWS`, `#AI accelerators`, `#microarchitecture`, `#inference`
 
 ---
