@@ -171,7 +171,7 @@
     "twitter": {
       "enabled": true,
       "mode": "apify",
-      "users": ["karpathy"],
+      "users": ["OpenAI", "sama", "karpathy", "DrJimFan", "ylecun"],
       "keywords": [],
       "fetch_limit": 10,
       "fetch_reply_text": false,
