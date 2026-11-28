@@ -6,6 +6,7 @@ name: Daily Horizon Summary
 #   DEEPSEEK_API_KEY    必填，默认配置使用的模型服务商
 #   HORIZON_WEBHOOK_URL 可选，飞书/企微机器人地址；不填则自动跳过推送
 #   LWN_KEY             可选，LWN.net 订阅 key；不填会自动关掉该 RSS 源
+#   APIFY_TOKEN         可选，X/Twitter 抓取（apify 模式）；不填则跳过 Twitter 源
 
 "on":
   push:
@@ -113,6 +114,7 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           LWN_KEY: ${{ secrets.LWN_KEY }}
           HORIZON_WEBHOOK_URL: ${{ secrets.HORIZON_WEBHOOK_URL }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
         run: uv run --no-sync horizon --hours 24
 
       - name: Upload Markdown summaries
